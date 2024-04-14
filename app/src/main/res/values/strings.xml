@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">English-Russian Flashcards</string>
+    <string name="settings_button_text">Settings</string>
+    <string name="button_1_name">button1</string>
+    <string name="button_2_name">button2</string>
+    <string name="button_3_name">button3</string>
+    <string name="button_4_name">button4</string>
+    <string name="cards_button_name">Cards</string>
+    <string name="continue_button_name">Continue</string>
+    <string name="new_button_name">New</string>
+    <string name="history_button_name">History</string>
+    <string name="quit_button_name">Quit</string>
+</resources>
