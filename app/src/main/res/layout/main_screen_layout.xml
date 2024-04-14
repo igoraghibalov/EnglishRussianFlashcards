@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/main_screen_parent_linear_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/continue_button"
+        style="@style/MainMenuButtonStyle"
+        android:text="@string/continue_button_name"/>
+
+    <Button
+        android:id="@+id/cards_button"
+        style="@style/MainMenuButtonStyle"
+        android:text="@string/cards_button_name"/>
+
+    <Button
+        android:id="@+id/new_button"
+        style="@style/MainMenuButtonStyle"
+        android:text="@string/new_button_name"/>
+
+    <Button
+        android:id="@+id/history_button"
+        style="@style/MainMenuButtonStyle"
+        android:text="@string/history_button_name"/>
+
+    <Button
+        android:id="@+id/quit_button"
+        style="@style/MainMenuButtonStyle"
+        android:text="@string/quit_button_name"/>
+
+</LinearLayout>
