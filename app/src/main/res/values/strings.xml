@@ -10,4 +10,6 @@
     <string name="new_button_name">New</string>
     <string name="history_button_name">History</string>
     <string name="quit_button_name">Quit</string>
+    <string name="default_word_group_name">Fruit</string>
+    <string name="default_word_count">0</string>
 </resources>
