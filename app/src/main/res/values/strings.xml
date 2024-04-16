@@ -12,4 +12,6 @@
     <string name="quit_button_name">Quit</string>
     <string name="default_word_group_name">Fruit</string>
     <string name="default_word_count">0</string>
+    <string name="default_english_word">Word</string>
+    <string name="default_transcription">[transcription]</string>
 </resources>
