@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/flashcard_back_side_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/card_margin"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardBackgroundColor="#F1DDCE">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/word_image_view"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginBottom="@dimen/word_image_view_bottom_margin"
+                android:src="@drawable/default_word_image"
+                android:background="@drawable/word_image_view_stroke"
+                android:contentDescription="@string/word_image_content_description" />
+
+            <TextView
+                android:id="@+id/english_word_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_english_word"
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_marginBottom="@dimen/english_word_text_view_margin_bottom"/>
+
+            <TextView
+                android:id="@+id/russian_word_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_russian_word"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_marginBottom="@dimen/english_word_text_view_margin_bottom"/>
+
+            <TextView
+                android:id="@+id/english_example_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_english_example"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_marginBottom="@dimen/english_word_text_view_margin_bottom"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -8,4 +8,5 @@
     <dimen name="card_margin">50dp</dimen>
     <dimen name="card_corner_radius">15dp</dimen>
     <dimen name="english_word_text_view_margin_bottom">15dp</dimen>
+    <dimen name="word_image_view_bottom_margin">15dp</dimen>
 </resources>

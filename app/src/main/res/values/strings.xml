@@ -14,4 +14,7 @@
     <string name="default_word_count">0</string>
     <string name="default_english_word">Word</string>
     <string name="default_transcription">[transcription]</string>
+    <string name="word_image_content_description">Word illustration</string>
+    <string name="default_russian_word">слово</string>
+    <string name="default_english_example">Default english example</string>
 </resources>
