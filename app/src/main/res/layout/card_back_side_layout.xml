@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/card_margin"
         app:cardCornerRadius="@dimen/card_corner_radius"
-
         app:cardBackgroundColor="#F1DDCE">
 
         <LinearLayout
@@ -24,14 +23,15 @@
 
             <ImageView
                 android:id="@+id/word_image_view"
-                android:layout_width="@dimen/word_image_view_width"
-                android:layout_height="@dimen/word_image_view_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/word_image_view_bottom_margin"
                 android:src="@drawable/default_word_image"
                 android:background="@drawable/word_image_view_stroke"
                 android:contentDescription="@string/word_image_content_description"
                 android:padding="@dimen/word_image_view_padding"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"/>
 
             <TextView
                 android:id="@+id/english_word_text_view"
