@@ -17,4 +17,5 @@
     <string name="word_image_content_description">Word illustration</string>
     <string name="default_russian_word">слово</string>
     <string name="default_english_example">Default english example</string>
+    <string name="default_russian_translation">перевод слова</string>
 </resources>
