@@ -16,16 +16,17 @@
         app:cardBackgroundColor="#F1DDCE">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10"
             android:gravity="center">
 
             <ImageView
                 android:id="@+id/word_image_view"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/word_image_view_bottom_margin"
+                android:layout_height="0dp"
+                android:layout_weight="5"
                 android:src="@drawable/default_word_image"
                 android:background="@drawable/word_image_view_stroke"
                 android:contentDescription="@string/word_image_content_description"
@@ -33,30 +34,39 @@
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"/>
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
             <TextView
                 android:id="@+id/english_word_text_view"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:text="@string/default_english_word"
                 style="@style/TextAppearance.AppCompat.Small"
-                android:layout_marginBottom="@dimen/english_word_text_view_margin_bottom"/>
+                android:layout_weight="1"/>
 
             <TextView
                 android:id="@+id/russian_word_text_view"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:text="@string/default_russian_word"
                 style="@style/TextAppearance.AppCompat.Large"
-                android:layout_marginBottom="@dimen/english_word_text_view_margin_bottom"/>
+                android:layout_weight="1"/>
 
             <TextView
                 android:id="@+id/english_example_text_view"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:text="@string/default_english_example"
                 style="@style/TextAppearance.AppCompat.Medium"
-                android:layout_marginBottom="@dimen/english_word_text_view_margin_bottom"/>
+                android:layout_weight="1" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
