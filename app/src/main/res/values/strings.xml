@@ -18,4 +18,6 @@
     <string name="default_russian_word">слово</string>
     <string name="default_english_example">Default english example</string>
     <string name="default_russian_translation">перевод слова</string>
+    <string name="sort_button_text">sort</string>
+    <string name="learn_button_text">learn</string>
 </resources>
