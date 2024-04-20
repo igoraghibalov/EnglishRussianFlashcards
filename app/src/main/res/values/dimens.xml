@@ -14,4 +14,7 @@
     <dimen name="word_image_view_padding">3dp</dimen>
     <dimen name="word_image_view_width">200dp</dimen>
     <dimen name="word_image_view_height">200dp</dimen>
+    <dimen name="card_creation_button_end_margin">10dp</dimen>
+    <dimen name="image_views_parent_end_margin">5dp</dimen>
+    <dimen name="image_views_parent_start_margin">5dp</dimen>
 </resources>

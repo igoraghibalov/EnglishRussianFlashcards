@@ -20,4 +20,10 @@
     <string name="default_russian_translation">перевод слова</string>
     <string name="sort_button_text">sort</string>
     <string name="learn_button_text">learn</string>
+    <string name="card_creation_button_text">create</string>
+    <string name="word_typing_hint">type a word</string>
+    <string name="translation_selection_hint">choose a translation</string>
+    <string name="english_example_selection_hint">choose english example</string>
+    <string name="image_selection_hint">choose an image</string>
+    <string name="group_selection_hint">choose a group</string>
 </resources>
