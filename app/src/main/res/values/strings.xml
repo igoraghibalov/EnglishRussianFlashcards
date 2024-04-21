@@ -27,4 +27,5 @@
     <string name="image_selection_hint">choose an image</string>
     <string name="group_selection_hint">choose a group</string>
     <string name="add_group_button_text">+ Add</string>
+    <string name="default_date">dd.mm.yyyy</string>
 </resources>
