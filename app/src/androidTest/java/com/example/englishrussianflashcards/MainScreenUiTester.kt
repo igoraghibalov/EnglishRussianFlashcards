@@ -32,7 +32,7 @@ class MainScreenUiTester: UiTester {
 
 
     @Test
-    fun testCardCreationInflationOnNewButtonClick() {
+    fun testCardCreationFragmentInflationOnNewButtonClick() {
         clickOnView(R.id.new_button)
         checkViewAppearance(R.id.word_typing_text_view)
     }
