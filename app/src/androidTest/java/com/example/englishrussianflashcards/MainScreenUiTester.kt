@@ -45,10 +45,18 @@ class MainScreenUiTester: UiTester {
         onView(withId(viewId)).check(matches(isDisplayed()))
     }
 
+    fun testFragmentInflation(baseLayoutViewId: Int, inflatedFragmentViewId: Int) {
+        clickOnView(baseLayoutViewId)
+        checkViewAppearance(inflatedFragmentViewId)
+        mainActivityScenario.recreate()
+    }
+
     //TODO: add quit button click test
     @Test
     fun testCardCreationFragmentInflationOnNewButtonClick() {
-        clickOnView(R.id.new_button)
-        checkViewAppearance(R.id.word_typing_text_view)
+        testFragmentInflation(R.id.new_button, R.id.word_typing_text_view)
+        testFragmentInflation(R.id.continue_button, R.id.flashcard_front_side_view)
+        testFragmentInflation(R.id.cards_button, R.id.card_recycler_view)
+        testFragmentInflation(R.id.history_button, R.id.card_history_recycler_view)
     }
 }
