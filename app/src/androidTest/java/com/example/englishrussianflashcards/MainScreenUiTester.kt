@@ -10,6 +10,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.hamcrest.Matchers.not
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,12 +21,13 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class MainScreenUiTester: UiTester {
 
+    private lateinit var mainActivityScenario: ActivityScenario<MainActivity>
 
     @Before
     fun setup() {
         val applicationContext = ApplicationProvider.getApplicationContext<Application>()
-        val intent = Intent(applicationContext,MainActivity::class.java)
-        ActivityScenario.launch<MainActivity>(intent)
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        mainActivityScenario = ActivityScenario.launch<MainActivity>(intent)
     }
 
 
@@ -43,7 +45,7 @@ class MainScreenUiTester: UiTester {
         onView(withId(viewId)).check(matches(isDisplayed()))
     }
 
-
+    //TODO: add quit button click test
     @Test
     fun testCardCreationFragmentInflationOnNewButtonClick() {
         clickOnView(R.id.new_button)
