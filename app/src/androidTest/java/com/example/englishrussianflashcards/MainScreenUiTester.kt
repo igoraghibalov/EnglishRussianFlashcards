@@ -53,7 +53,7 @@ class MainScreenUiTester: UiTester {
 
     //TODO: add quit button click test
     @Test
-    fun testCardCreationFragmentInflationOnNewButtonClick() {
+    fun testFragmentInflationsOnMainMenuButtonsClicks() {
         testFragmentInflation(R.id.new_button, R.id.word_typing_text_view)
         testFragmentInflation(R.id.continue_button, R.id.flashcard_front_side_view)
         testFragmentInflation(R.id.cards_button, R.id.card_recycler_view)
