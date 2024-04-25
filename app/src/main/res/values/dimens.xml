@@ -18,4 +18,5 @@
     <dimen name="image_views_parent_end_margin">5dp</dimen>
     <dimen name="image_views_parent_start_margin">5dp</dimen>
     <dimen name="card_history_item_elements_parent_margin">5dp</dimen>
+    <dimen name="group_elements_parent_margin">5dp</dimen>
 </resources>
