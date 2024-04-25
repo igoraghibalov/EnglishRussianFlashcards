@@ -18,7 +18,6 @@ import org.junit.runner.RunWith
 /**
  * Created by Igor Aghibalov on 22.04.2024
  */
-@RunWith(AndroidJUnit4::class)
 class MainScreenUiTester: UiTester() {
 
     private lateinit var mainActivityScenario: ActivityScenario<MainActivity>
