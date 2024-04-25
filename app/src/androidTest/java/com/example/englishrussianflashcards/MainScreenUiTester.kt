@@ -19,7 +19,7 @@ import org.junit.runner.RunWith
  * Created by Igor Aghibalov on 22.04.2024
  */
 @RunWith(AndroidJUnit4::class)
-class MainScreenUiTester: UiTester {
+class MainScreenUiTester: UiTester() {
 
     private lateinit var mainActivityScenario: ActivityScenario<MainActivity>
 
@@ -30,28 +30,10 @@ class MainScreenUiTester: UiTester {
         mainActivityScenario = ActivityScenario.launch<MainActivity>(intent)
     }
 
-
-    override fun clickOnView(viewId: Int) {
-        onView(withId(viewId)).perform(click())
-    }
-
-
     override fun rotateScreen() {
         TODO("Not yet implemented")
     }
 
-
-    override fun checkViewAppearance(viewId: Int) {
-        onView(withId(viewId)).check(matches(isDisplayed()))
-    }
-
-    fun testFragmentInflation(baseLayoutViewId: Int, inflatedFragmentViewId: Int) {
-        clickOnView(baseLayoutViewId)
-        checkViewAppearance(inflatedFragmentViewId)
-        mainActivityScenario.recreate()
-    }
-
-    //TODO: add quit button click test
     @Test
     fun testFragmentInflationsOnMainMenuButtonsClicks() {
         testFragmentInflation(R.id.new_button, R.id.word_typing_text_view)
