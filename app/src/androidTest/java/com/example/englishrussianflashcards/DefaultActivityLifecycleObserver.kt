@@ -7,7 +7,7 @@ import android.os.Bundle
 /**
  * Created by Igor Aghibalov on 26.04.2024
  */
-open class IdleActivityLifecycleObserver: Application.ActivityLifecycleCallbacks {
+open class DefaultActivityLifecycleObserver: Application.ActivityLifecycleCallbacks {
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
 
