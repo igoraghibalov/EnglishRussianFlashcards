@@ -1,5 +1,7 @@
 package com.example.englishrussianflashcards
 
+import android.app.Application
+import android.os.Build
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
@@ -11,6 +13,16 @@ import org.junit.Test
  * Created by Igor Aghibalov on 25.04.2024
  */
 class CardsScreenUiTester: UiTester() {
+
+    override fun setup() {
+        super.setup()
+        val application = applicationContext as Application
+        val isSdkPrePie = application.applicationInfo.targetSdkVersion < Build.VERSION_CODES.P
+        val mainActivityLifecycleObserver = MainActivityLifecycleObserver(isSdkPrePie)
+        application.applicationInfo.targetSdkVersion
+        application.registerActivityLifecycleCallbacks(mainActivityLifecycleObserver)
+    }
+
 
     override fun rotateScreen() {
         TODO("Not yet implemented")
