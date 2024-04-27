@@ -16,10 +16,10 @@ import org.junit.Before
 abstract class UiTester {
 
     private lateinit var mainActivityScenario: ActivityScenario<MainActivity>
+    private val applicationContext = ApplicationProvider.getApplicationContext<Application>()
 
     @Before
     fun setup() {
-        val applicationContext = ApplicationProvider.getApplicationContext<Application>()
         val intent = Intent(applicationContext, MainActivity::class.java)
         mainActivityScenario = ActivityScenario.launch<MainActivity>(intent)
     }
