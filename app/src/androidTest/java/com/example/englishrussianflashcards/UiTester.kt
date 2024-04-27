@@ -19,7 +19,7 @@ abstract class UiTester {
     private val applicationContext = ApplicationProvider.getApplicationContext<Application>()
 
     @Before
-    fun setup() {
+    open fun setup() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         mainActivityScenario = ActivityScenario.launch<MainActivity>(intent)
     }
