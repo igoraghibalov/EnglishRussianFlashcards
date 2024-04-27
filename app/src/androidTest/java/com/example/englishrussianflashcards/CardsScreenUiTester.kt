@@ -18,7 +18,8 @@ class CardsScreenUiTester: UiTester() {
         super.setup()
         val application = applicationContext as Application
         val isSdkPrePie = application.applicationInfo.targetSdkVersion < Build.VERSION_CODES.P
-        val mainActivityLifecycleObserver = MainActivityLifecycleObserver(isSdkPrePie)
+        val processTerminator = EnglishRussianFlashcardsApplicationProcessTerminator()
+        val mainActivityLifecycleObserver = MainActivityLifecycleObserver(isSdkPrePie, processTerminator)
         application.applicationInfo.targetSdkVersion
         application.registerActivityLifecycleCallbacks(mainActivityLifecycleObserver)
     }
