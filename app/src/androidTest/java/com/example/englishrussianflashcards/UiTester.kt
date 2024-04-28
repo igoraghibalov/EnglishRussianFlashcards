@@ -9,6 +9,8 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import org.junit.Before
 
 /**
@@ -30,7 +32,9 @@ abstract class UiTester {
             .perform(ViewActions.click())
     }
 
-    abstract fun rotateScreen()
+    fun rotateScreen() {
+        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationLeft()
+    }
 
     fun checkViewAppearance(viewId: Int) {
         Espresso.onView(ViewMatchers.withId(viewId))
