@@ -11,7 +11,7 @@
         android:id="@+id/card_group_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"/>
+        android:layout_weight="8.5"/>
 
     <Space
         android:layout_width="wrap_content"
