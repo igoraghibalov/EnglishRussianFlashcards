@@ -41,4 +41,12 @@ class CardsScreenUiTester: UiTester() {
         mainActivityScenario.recreate()
         checkViewAppearance(R.id.card_group_recycler_view)
     }
+
+
+    @Test
+    fun testCardsFragmentInflationAfterDeviceRotation() {
+        testFragmentInflation(R.id.cards_button, R.id.card_group_recycler_view)
+        rotateScreen()
+        checkViewAppearance(R.id.card_group_recycler_view)
+    }
 }
