@@ -24,11 +24,6 @@ class CardsScreenUiTester: UiTester() {
     }
 
 
-    override fun rotateScreen() {
-        TODO("Not yet implemented")
-    }
-
-
     @Test
     fun testWordGroupFragmentInflationOnGroupCardClick() {
         testFragmentInflation(R.id.cards_button, R.id.card_group_recycler_view)
