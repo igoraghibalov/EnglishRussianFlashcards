@@ -38,4 +38,12 @@ class CardsScreenUiTester: UiTester() {
         cardGroupRecyclerViewInteraction.perform(cardGroupRecyclerViewItemClickAction)
         checkViewAppearance(R.id.add_word_button)
     }
+
+
+    @Test
+    fun testCardsFragmentInflationAfterProcessDeath() {
+        testFragmentInflation(R.id.cards_button, R.id.card_group_recycler_view)
+        mainActivityScenario.recreate()
+        checkViewAppearance(R.id.card_group_recycler_view)
+    }
 }
