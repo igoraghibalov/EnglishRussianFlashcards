@@ -37,9 +37,8 @@ abstract class UiTester {
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
-    fun testFragmentInflation(baseLayoutViewId: Int, inflatedFragmentViewId: Int) {
+    open fun testFragmentInflation(baseLayoutViewId: Int, inflatedFragmentViewId: Int) {
         clickOnView(baseLayoutViewId)
         checkViewAppearance(inflatedFragmentViewId)
-        mainActivityScenario.recreate()
     }
 }
