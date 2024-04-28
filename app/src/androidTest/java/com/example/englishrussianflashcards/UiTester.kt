@@ -16,7 +16,7 @@ import org.junit.Before
  */
 abstract class UiTester {
 
-    private lateinit var mainActivityScenario: ActivityScenario<MainActivity>
+    protected lateinit var mainActivityScenario: ActivityScenario<MainActivity>
     protected val applicationContext: Context = ApplicationProvider.getApplicationContext<Application>()
 
     @Before
