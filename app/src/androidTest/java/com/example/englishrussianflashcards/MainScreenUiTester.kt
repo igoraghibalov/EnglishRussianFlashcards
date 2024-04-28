@@ -13,10 +13,6 @@ import org.junit.Test
 class MainScreenUiTester: UiTester() {
 
 
-    override fun rotateScreen() {
-        TODO("Not yet implemented")
-    }
-
     override fun testFragmentInflation(baseLayoutViewId: Int, inflatedFragmentViewId: Int) {
         super.testFragmentInflation(baseLayoutViewId, inflatedFragmentViewId)
         mainActivityScenario.recreate()
