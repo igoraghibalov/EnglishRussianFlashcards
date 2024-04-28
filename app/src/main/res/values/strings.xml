@@ -28,4 +28,6 @@
     <string name="group_selection_hint">choose a group</string>
     <string name="add_group_button_text">+ Add</string>
     <string name="default_date">dd.mm.yyyy</string>
+    <string name="group_remove_button_text">remove</string>
+    <string name="group_add_button_text">add group</string>
 </resources>
