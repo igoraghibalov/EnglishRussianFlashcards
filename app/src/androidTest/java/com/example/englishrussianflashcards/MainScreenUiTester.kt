@@ -19,6 +19,11 @@ class MainScreenUiTester: UiTester() {
         TODO("Not yet implemented")
     }
 
+    override fun testFragmentInflation(baseLayoutViewId: Int, inflatedFragmentViewId: Int) {
+        super.testFragmentInflation(baseLayoutViewId, inflatedFragmentViewId)
+        mainActivityScenario.recreate()
+    }
+
     @Test
     fun testFragmentInflationsOnMainMenuButtonsClicks() {
         testFragmentInflation(R.id.new_button, R.id.word_typing_text_view)
