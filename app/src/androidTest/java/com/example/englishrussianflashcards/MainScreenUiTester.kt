@@ -12,8 +12,6 @@ import org.junit.Test
  */
 class MainScreenUiTester: UiTester() {
 
-    private lateinit var mainActivityScenario: ActivityScenario<MainActivity>
-
 
     override fun rotateScreen() {
         TODO("Not yet implemented")
