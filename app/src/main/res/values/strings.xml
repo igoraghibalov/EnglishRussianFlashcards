@@ -30,4 +30,5 @@
     <string name="default_date">dd.mm.yyyy</string>
     <string name="group_remove_button_text">remove</string>
     <string name="group_add_button_text">add group</string>
+    <string name="default_typing_char_sequence">ab</string>
 </resources>
