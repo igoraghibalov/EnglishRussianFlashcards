@@ -17,7 +17,7 @@ class CardCreationScreenUiTester: UiTester() {
 
     //TODO: refactor line 21,22 code duplication
     @Test
-    fun testCardCreationDialogFragmentInflationOnCreateButtonClick() {
+    fun testCardConfirmationDialogFragmentInflationOnCreateButtonClick() {
         val defaultTypingCharSequence = applicationContext.resources.getString(R.string.default_typing_char_sequence)
         val defaultWordGroupName = applicationContext.resources.getString(R.string.default_word_group_name)
 
@@ -37,6 +37,12 @@ class CardCreationScreenUiTester: UiTester() {
         onView(withId(R.id.word_typing_text_view)).perform(typeText(defaultWordGroupName))
 
         testFragmentInflation(R.id.card_creation_button, R.id.flashcard_front_side_view)
+    }
+
+
+    @Test
+    fun testCardCreationFragmentDataRetentionAfterScreenRotation() {
+
     }
 
 
