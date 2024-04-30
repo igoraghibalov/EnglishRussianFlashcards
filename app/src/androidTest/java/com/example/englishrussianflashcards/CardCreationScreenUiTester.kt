@@ -1,11 +1,15 @@
 package com.example.englishrussianflashcards
 
 import android.graphics.drawable.Drawable
+import android.widget.TextView
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.instanceOf
 import org.junit.Test
@@ -42,7 +46,10 @@ class CardCreationScreenUiTester: UiTester() {
 
     @Test
     fun testCardCreationFragmentDataRetentionAfterScreenRotation() {
-
+        val defaultTypingText = applicationContext.resources.getString(R.string.default_typing_char_sequence)
+        onView(withId(R.id.word_typing_text_view)).perform(typeText(defaultTypingText))
+        rotateScreen()
+        onView(withId(R.id.word_typing_text_view)).check(matches(withText(defaultTypingText)))
     }
 
 
