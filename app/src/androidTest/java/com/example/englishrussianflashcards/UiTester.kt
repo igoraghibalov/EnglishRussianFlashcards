@@ -3,6 +3,7 @@ package com.example.englishrussianflashcards
 import android.app.Application
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
@@ -25,6 +26,14 @@ abstract class UiTester {
     open fun setup() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         mainActivityScenario = ActivityScenario.launch<MainActivity>(intent)
+    }
+
+    fun setupProcessDeathTestEnvironment() {
+        val application = applicationContext as Application
+        val isSdkPrePie = application.applicationInfo.targetSdkVersion < Build.VERSION_CODES.P
+        val processTerminator = EnglishRussianFlashcardsApplicationProcessTerminator()
+        val mainActivityLifecycleObserver = MainActivityLifecycleObserver(isSdkPrePie, processTerminator)
+        application.registerActivityLifecycleCallbacks(mainActivityLifecycleObserver)
     }
 
     fun clickOnView(viewId: Int) {
