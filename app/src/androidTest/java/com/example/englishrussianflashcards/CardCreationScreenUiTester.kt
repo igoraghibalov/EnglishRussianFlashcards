@@ -8,6 +8,7 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.allOf
@@ -53,4 +54,10 @@ class CardCreationScreenUiTester: UiTester() {
     }
 
 
+    @Test
+    fun testCardCreationFragmentDataRetentionAfterProcessDeath() {
+        testFragmentInflation(R.id.new_button, R.id.word_typing_text_view)
+        mainActivityScenario.recreate()
+        onView(withId(R.id.word_typing_text_view)).check(matches(isDisplayed()))
+    }
 }
