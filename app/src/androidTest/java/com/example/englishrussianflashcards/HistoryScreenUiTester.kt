@@ -15,10 +15,15 @@ import org.junit.Test
 
 class HistoryScreenUiTester: UiTester() {
 
+    override fun setup() {
+        super.setup()
+        setupProcessDeathTestEnvironment()
+        testFragmentInflation(R.id.history_button, R.id.card_history_recycler_view)
+    }
+
 
     @Test
     fun testCardFragmentInflationOnHistoryListItemClick() {
-        testFragmentInflation(R.id.history_button, R.id.card_history_recycler_view)
         onView(withId(R.id.card_history_recycler_view)).perform(click())
         onData(allOf(instanceOf(String::class.java))).atPosition(0).perform(click())
         checkViewAppearance(R.id.flashcard_front_side_view)
