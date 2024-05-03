@@ -36,10 +36,12 @@ abstract class UiTester {
         application.registerActivityLifecycleCallbacks(mainActivityLifecycleObserver)
     }
 
+
     fun clickOnView(viewId: Int) {
         Espresso.onView(ViewMatchers.withId(viewId))
             .perform(ViewActions.click())
     }
+
 
     fun rotateScreen() {
         UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationLeft()
