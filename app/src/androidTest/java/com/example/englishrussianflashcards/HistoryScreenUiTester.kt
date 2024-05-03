@@ -1,6 +1,7 @@
 package com.example.englishrussianflashcards
 
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onData
@@ -8,9 +9,12 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.instanceOf
@@ -38,6 +42,7 @@ class HistoryScreenUiTester: UiTester() {
     }
 
 
+
     fun getCardHistoryRecyclerViewLastVisibleItemPosition(): Int {
         var lastVisibleItemPosition: Int = 0
         val cardHistoryRecyclerViewInteraction = onView(withId(R.id.card_history_recycler_view))
@@ -61,5 +66,31 @@ class HistoryScreenUiTester: UiTester() {
 
         cardHistoryRecyclerViewInteraction.perform(lastVisibleItemPositionExtraction)
         return lastVisibleItemPosition
+    }
+
+
+    fun getRecyclerViewItemAtPosition(itemPosition: Int): TextView {
+        var viewItem = TextView(applicationContext)
+        val cardHistoryRecyclerViewInteraction = onView(withId(R.id.card_history_recycler_view))
+
+        val recyclerViewItemAtPositionExtraction = object: ViewAction {
+
+                override fun getDescription(): String = "Get recycler view item at position"
+
+                override fun getConstraints(): Matcher<View> {
+                    val recyclerViewMatcher = allOf(isAssignableFrom(RecyclerView::class.java), isDisplayed())
+                    return recyclerViewMatcher
+                }
+
+
+                override fun perform(uiController: UiController?, view: View?) {
+                    val cardHistoryRecyclerView = view as RecyclerView
+                    val cardHistoryRecyclerViewLayoutManager = cardHistoryRecyclerView.layoutManager as LinearLayoutManager
+                    viewItem = cardHistoryRecyclerViewLayoutManager.findViewByPosition(itemPosition) as TextView
+                }
+            }
+
+        cardHistoryRecyclerViewInteraction.perform(recyclerViewItemAtPositionExtraction)
+        return viewItem
     }
 }
