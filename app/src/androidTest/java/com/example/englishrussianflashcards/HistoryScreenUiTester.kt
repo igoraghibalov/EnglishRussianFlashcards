@@ -69,6 +69,21 @@ class HistoryScreenUiTester: UiTester() {
     }
 
 
+    @Test
+    fun testScrolledOnItemsRetentionAfterDeviceRotation() {
+        val cardHistoryRecyclerViewInteraction = onView(withId(R.id.card_history_recycler_view))
+        val lastVisibleItemPosition = getCardHistoryRecyclerViewLastVisibleItemPosition()
+        val positionToScroll = lastVisibleItemPosition + 1
+        val scrollingDownThroughOneItemAction = RecyclerViewActions.scrollToPosition<CardHistoryViewHolder>(positionToScroll)
+        cardHistoryRecyclerViewInteraction.perform(click())
+        cardHistoryRecyclerViewInteraction.perform(scrollingDownThroughOneItemAction)
+        val recyclerViewItem = getRecyclerViewItemAtPosition(positionToScroll)
+        val itemText = recyclerViewItem.findViewById<TextView>(R.id.word_text_view).text as String
+        rotateScreen()
+        onView(withText(itemText)).check(matches(isDisplayed()))
+    }
+
+
     fun getRecyclerViewItemAtPosition(itemPosition: Int): TextView {
         var viewItem = TextView(applicationContext)
         val cardHistoryRecyclerViewInteraction = onView(withId(R.id.card_history_recycler_view))
