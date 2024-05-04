@@ -16,7 +16,6 @@ class CardsScreenUiTester: UiTester() {
 
     override fun setup() {
         super.setup()
-        setupProcessDeathTestEnvironment()
     }
 
 
@@ -33,6 +32,7 @@ class CardsScreenUiTester: UiTester() {
 
     @Test
     fun testCardsFragmentInflationAfterProcessDeath() {
+        setupProcessDeathTestEnvironment()
         testFragmentInflation(R.id.cards_button, R.id.card_group_recycler_view)
         mainActivityScenario.recreate()
         checkViewAppearance(R.id.card_group_recycler_view)
