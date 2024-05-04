@@ -56,6 +56,7 @@ class CardCreationScreenUiTester: UiTester() {
 
     @Test
     fun testCardCreationFragmentDataRetentionAfterProcessDeath() {
+        setupProcessDeathTestEnvironment()
         testFragmentInflation(R.id.new_button, R.id.word_typing_text_view)
         mainActivityScenario.recreate()
         onView(withId(R.id.word_typing_text_view)).check(matches(isDisplayed()))
