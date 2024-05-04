@@ -25,7 +25,7 @@ import org.junit.Test
  * Created by Igor Aghibalov on 01.05.2024
  */
 
-//TODO: code process death test
+
 class HistoryScreenUiTester: UiTester() {
 
     override fun setup() {
@@ -83,6 +83,23 @@ class HistoryScreenUiTester: UiTester() {
         itemText = recyclerViewItem.findViewById<TextView>(R.id.word_text_view).text as String
         rotateScreen()
         onView(withText(itemText)).check(matches(isDisplayed()))
+    }
+
+
+    //TODO: simplify method names containing "recyclerView"
+    @Test
+    fun testScrolledOnItemsRetentionAfterProcessDeath() {
+        val lastVisibleRecyclerViewItemPosition: Int
+        val recyclerViewItem: TextView
+        val recyclerViewItemText: String
+
+        setupProcessDeathTestEnvironment()
+        scrollCardHistoryRecyclerViewThroughOneItem()
+        lastVisibleRecyclerViewItemPosition = getCardHistoryRecyclerViewLastVisibleItemPosition()
+        recyclerViewItem = getRecyclerViewItemAtPosition(lastVisibleRecyclerViewItemPosition)
+        recyclerViewItemText = recyclerViewItem.text.toString()
+        mainActivityScenario.recreate()
+        onView(withText(recyclerViewItemText)).check(matches(isDisplayed()))
     }
 
 
