@@ -8,6 +8,7 @@ import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
+import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -29,7 +30,6 @@ class HistoryScreenUiTester: UiTester() {
 
     override fun setup() {
         super.setup()
-        setupProcessDeathTestEnvironment()
         testFragmentInflation(R.id.history_button, R.id.card_history_recycler_view)
     }
 
@@ -109,5 +109,18 @@ class HistoryScreenUiTester: UiTester() {
 
         cardHistoryRecyclerViewInteraction.perform(recyclerViewItemAtPositionExtraction)
         return viewItem
+    }
+
+
+    fun scrollCardHistoryRecyclerViewThroughOneItem() {
+        val cardHistoryRecyclerViewInteraction: ViewInteraction
+        val lastVisibleItemPosition: Int
+        val positionToScroll: Int
+        val scrollingDownThroughOneItemAction: ViewAction
+
+        cardHistoryRecyclerViewInteraction = onView(withId(R.id.card_history_recycler_view))
+        lastVisibleItemPosition = getCardHistoryRecyclerViewLastVisibleItemPosition()
+        positionToScroll = lastVisibleItemPosition + 1
+        scrollingDownThroughOneItemAction = RecyclerViewActions.scrollToPosition<CardHistoryViewHolder>(positionToScroll)
     }
 }
