@@ -86,7 +86,7 @@ class HistoryScreenUiTester: UiTester() {
     }
 
 
-    //TODO: simplify method names containing "recyclerView"
+
     @Test
     fun testScrolledOnItemsRetentionAfterProcessDeath() {
         val lastVisibleRecyclerViewItemPosition: Int
@@ -139,5 +139,6 @@ class HistoryScreenUiTester: UiTester() {
         lastVisibleItemPosition = getRecyclerViewLastVisibleItemPosition()
         positionToScroll = lastVisibleItemPosition + 1
         scrollingDownThroughOneItemAction = RecyclerViewActions.scrollToPosition<CardHistoryViewHolder>(positionToScroll)
+        cardHistoryRecyclerViewInteraction.perform(scrollingDownThroughOneItemAction)
     }
 }
