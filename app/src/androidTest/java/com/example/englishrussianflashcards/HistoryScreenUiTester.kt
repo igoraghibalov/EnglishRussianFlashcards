@@ -94,7 +94,7 @@ class HistoryScreenUiTester: UiTester() {
         val recyclerViewItemText: String
 
         setupProcessDeathTestEnvironment()
-        scrollCardHistoryRecyclerViewThroughOneItem()
+        scrollRecyclerViewThroughOneItem()
         lastVisibleRecyclerViewItemPosition = getCardHistoryRecyclerViewLastVisibleItemPosition()
         recyclerViewItem = getRecyclerViewItemAtPosition(lastVisibleRecyclerViewItemPosition)
         recyclerViewItemText = recyclerViewItem.text.toString()
@@ -129,7 +129,7 @@ class HistoryScreenUiTester: UiTester() {
     }
 
 
-    fun scrollCardHistoryRecyclerViewThroughOneItem() {
+    fun scrollRecyclerViewThroughOneItem() {
         val cardHistoryRecyclerViewInteraction: ViewInteraction
         val lastVisibleItemPosition: Int
         val positionToScroll: Int
