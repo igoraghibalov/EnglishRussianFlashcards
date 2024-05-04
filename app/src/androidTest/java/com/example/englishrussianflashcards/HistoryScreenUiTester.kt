@@ -43,7 +43,7 @@ class HistoryScreenUiTester: UiTester() {
 
 
 
-    fun getCardHistoryRecyclerViewLastVisibleItemPosition(): Int {
+    fun getRecyclerViewLastVisibleItemPosition(): Int {
         var lastVisibleItemPosition: Int = 0
         val cardHistoryRecyclerViewInteraction = onView(withId(R.id.card_history_recycler_view))
 
@@ -72,7 +72,7 @@ class HistoryScreenUiTester: UiTester() {
     @Test
     fun testScrolledOnItemsRetentionAfterDeviceRotation() {
         val cardHistoryRecyclerViewInteraction = onView(withId(R.id.card_history_recycler_view))
-        val lastVisibleItemPosition = getCardHistoryRecyclerViewLastVisibleItemPosition()
+        val lastVisibleItemPosition = getRecyclerViewLastVisibleItemPosition()
         val positionToScroll = lastVisibleItemPosition + 1
         val scrollingDownThroughOneItemAction = RecyclerViewActions.scrollToPosition<CardHistoryViewHolder>(positionToScroll)
         val recyclerViewItem: TextView
@@ -95,7 +95,7 @@ class HistoryScreenUiTester: UiTester() {
 
         setupProcessDeathTestEnvironment()
         scrollRecyclerViewThroughOneItem()
-        lastVisibleRecyclerViewItemPosition = getCardHistoryRecyclerViewLastVisibleItemPosition()
+        lastVisibleRecyclerViewItemPosition = getRecyclerViewLastVisibleItemPosition()
         recyclerViewItem = getRecyclerViewItemAtPosition(lastVisibleRecyclerViewItemPosition)
         recyclerViewItemText = recyclerViewItem.text.toString()
         mainActivityScenario.recreate()
@@ -136,7 +136,7 @@ class HistoryScreenUiTester: UiTester() {
         val scrollingDownThroughOneItemAction: ViewAction
 
         cardHistoryRecyclerViewInteraction = onView(withId(R.id.card_history_recycler_view))
-        lastVisibleItemPosition = getCardHistoryRecyclerViewLastVisibleItemPosition()
+        lastVisibleItemPosition = getRecyclerViewLastVisibleItemPosition()
         positionToScroll = lastVisibleItemPosition + 1
         scrollingDownThroughOneItemAction = RecyclerViewActions.scrollToPosition<CardHistoryViewHolder>(positionToScroll)
     }
