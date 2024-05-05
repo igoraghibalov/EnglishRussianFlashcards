@@ -1,9 +1,6 @@
 package com.example.englishrussianflashcards
 
-import android.app.Application
-import android.os.Build
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -12,7 +9,7 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 25.04.2024
  */
-class CardsScreenUiTester: UiTester() {
+class CardGroupsScreenUiTester: UiTester() {
 
     override fun setup() {
         super.setup()
