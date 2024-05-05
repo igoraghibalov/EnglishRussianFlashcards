@@ -3,4 +3,6 @@
     <integer name="card_rotation_duration">1000</integer>
     <integer name="card_fading_offset">500</integer>
     <integer name="card_fading_duration">0</integer>
+    <integer name="card_revealing_offset">500</integer>
+    <integer name="card_revealing_duration">0</integer>
 </resources>
