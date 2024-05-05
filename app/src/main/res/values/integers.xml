@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="card_rotation_duration">1000</integer>
+    <integer name="card_fading_offset">500</integer>
+    <integer name="card_fading_duration">0</integer>
+</resources>
