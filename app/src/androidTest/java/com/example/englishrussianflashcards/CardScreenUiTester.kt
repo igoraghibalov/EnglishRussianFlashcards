@@ -48,6 +48,13 @@ class CardScreenUiTester: UiTester() {
         onView(withId(R.id.word_image_view)).check(matches(isDisplayed()))
     }
 
+    @Test
+    fun testCardRetentionOnScreenRotation() {
+        val initialCardWord: String = getCardWord()
+        rotateScreen()
+        onView(withText(initialCardWord)).check(matches(isDisplayed()))
+    }
+
 
     fun getCardWord(): String {
         var cardWord: String = ""
