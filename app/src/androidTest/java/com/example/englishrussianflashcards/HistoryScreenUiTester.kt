@@ -38,7 +38,7 @@ class HistoryScreenUiTester: UiTester() {
     fun testCardFragmentInflationOnHistoryListItemClick() {
         onView(withId(R.id.card_history_recycler_view)).perform(click())
         onData(allOf(instanceOf(String::class.java))).atPosition(0).perform(click())
-        checkViewAppearance(R.id.flashcard_front_side_view)
+        checkViewAppearance(R.id.card_front_side_view)
     }
 
 

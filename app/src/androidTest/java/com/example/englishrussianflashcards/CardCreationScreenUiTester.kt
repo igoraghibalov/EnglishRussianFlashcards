@@ -1,13 +1,11 @@
 package com.example.englishrussianflashcards
 
 import android.graphics.drawable.Drawable
-import android.widget.TextView
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -41,7 +39,7 @@ class CardCreationScreenUiTester: UiTester() {
 
         onView(withId(R.id.word_typing_text_view)).perform(typeText(defaultWordGroupName))
 
-        testFragmentInflation(R.id.card_creation_button, R.id.flashcard_front_side_view)
+        testFragmentInflation(R.id.card_creation_button, R.id.card_front_side_view)
     }
 
 
