@@ -7,6 +7,7 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.swipeLeft
+import androidx.test.espresso.action.ViewActions.swipeRight
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -14,7 +15,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.instanceOf
 import org.hamcrest.Matchers.not
 import org.junit.Test
 
@@ -30,11 +30,13 @@ class CardScreenUiTester: UiTester() {
 
     
     @Test
-    fun testNewCardRevealingOnSwipeLeft() {
+    fun testNewCardRevealingOnSwipeLeftAndRight() {
         val initialCardWord: String = getCardWord()
         val cardViewInteraction = onView(withId(R.id.card_front_side_view))
         cardViewInteraction.perform(swipeLeft())
         onView(withText(initialCardWord)).check(matches(not(isDisplayed())))
+        cardViewInteraction.perform(swipeRight())
+        onView(withText(initialCardWord)).check(matches(isDisplayed()))
     }
 
 
