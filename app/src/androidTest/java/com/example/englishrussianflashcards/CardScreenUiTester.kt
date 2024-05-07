@@ -55,6 +55,15 @@ class CardScreenUiTester: UiTester() {
         onView(withText(initialCardWord)).check(matches(isDisplayed()))
     }
 
+    @Test
+    fun testCardRetentionAfterProcessDeath() {
+        setupProcessDeathTestEnvironment()
+        onView(withId(R.id.card_front_side_view)).perform(swipeLeft())
+        val preProcessDeathCardWord = getCardWord()
+        mainActivityScenario.recreate()
+        onView(withText(preProcessDeathCardWord)).check(matches(isDisplayed()))
+    }
+
 
     fun getCardWord(): String {
         var cardWord: String = ""
