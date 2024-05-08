@@ -10,13 +10,17 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.runner.AndroidJUnitRunner
 import androidx.test.uiautomator.UiDevice
 import org.junit.Before
+import org.junit.runner.RunWith
 
 /**
  * Created by Igor Aghibalov on 22.04.2024
  */
+@RunWith(AndroidJUnit4::class)
 abstract class UiTester {
 
     protected lateinit var mainActivityScenario: ActivityScenario<MainActivity>
