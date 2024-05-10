@@ -19,10 +19,14 @@ import org.junit.runners.JUnit4
  */
 class MainScreenViewModelTester {
     private lateinit var fakeCardList: List<Card>
+    private lateinit var fakeCardRepository: Repository
+    private lateinit var mainScreenViewModel: FlashcardsApplicationViewModel
 
 
     @Before
     fun setup() {
+        val fakeCardRepository = FakeCardRepository()
+        val mainScreenViewModel = MainScreenViewModel(fakeCardRepository)
         val fakeWord = "apple"
         val fakeTranslation = "яблоко"
         fakeCardList = listOf(Card(fakeWord, fakeTranslation))
@@ -31,8 +35,6 @@ class MainScreenViewModelTester {
 
     @Test
     fun testCardListExtraction() {
-        val fakeCardRepository = FakeCardRepository()
-        val mainScreenViewModel = MainScreenViewModel(fakeCardRepository)
 
         runTest {
             mainScreenViewModel.extractCardList()
