@@ -8,16 +8,14 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 08.05.2024
  */
-class CardScreenViewModelTester {
+class CardScreenViewModelTester: ViewModelTester() {
     private lateinit var fakeCardList: List<Card>
-    private lateinit var fakeCardRepository: CardRepository
-    private lateinit var cardScreenViewModel: FlashcardsApplicationViewModel
 
 
     @Before
-    fun setup() {
+    override fun setup() {
         fakeCardRepository = FakeCardRepository()
-        cardScreenViewModel = CardScreenViewModel(fakeCardRepository)
+        viewModel = CardScreenViewModel(fakeCardRepository)
         val fakeWord = "apple"
         val fakeTranslation = "яблоко"
         fakeCardList = listOf(Card(fakeWord, fakeTranslation))
@@ -28,9 +26,9 @@ class CardScreenViewModelTester {
     fun testCardListExtraction() {
 
         runTest {
-            cardScreenViewModel.extractCardList()
+            viewModel.extractCardList()
         }
 
-        assertEquals(true, cardScreenViewModel.hasList(fakeCardList))
+        assertEquals(true, viewModel.hasList(fakeCardList))
     }
 }

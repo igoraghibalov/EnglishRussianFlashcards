@@ -15,7 +15,7 @@ class CardGroupsScreenViewModelTester: ViewModelTester() {
     @Before
     override fun setup() {
         fakeCardRepository = FakeCardRepository()
-        cardGroupsScreenViewModel = CardGroupsScreenViewModel(fakeCardRepository)
+        viewModel = CardGroupsScreenViewModel(fakeCardRepository)
         val fakeWord = "apple"
         val fakeTranslation = "яблоко"
         fakeCardGroupMap = mapOf("Fruits" to Card(fakeWord, fakeTranslation))
@@ -27,8 +27,8 @@ class CardGroupsScreenViewModelTester: ViewModelTester() {
     fun testCardsInGroupsExtraction() {
 
         runTest {
-            cardGroupsScreenViewModel.extractCardsInGroups()
+            viewModel.extractCardsInGroups()
         }
-        assertEquals(true, cardGroupsScreenViewModel.hasCardGroupMap(fakeCardGroupMap))
+        assertEquals(true, viewModel.hasCardGroupMap(fakeCardGroupMap))
     }
 }

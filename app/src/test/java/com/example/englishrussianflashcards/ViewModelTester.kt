@@ -7,7 +7,7 @@ import org.junit.Before
  */
 abstract class ViewModelTester {
     protected lateinit var fakeCardRepository: CardRepository
-    protected lateinit var cardGroupsScreenViewModel: FlashcardsApplicationViewModel
+    protected lateinit var viewModel: FlashcardsApplicationViewModel
 
     @Before
     abstract fun setup()
