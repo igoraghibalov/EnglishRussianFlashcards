@@ -19,14 +19,15 @@ import org.junit.runners.JUnit4
  */
 class MainScreenViewModelTester {
     private lateinit var fakeCardList: List<Card>
+    private lateinit var fakeCardGroupMap: Map<String, List<Card>>
     private lateinit var fakeCardRepository: Repository
     private lateinit var mainScreenViewModel: FlashcardsApplicationViewModel
 
 
     @Before
     fun setup() {
-        val fakeCardRepository = FakeCardRepository()
-        val mainScreenViewModel = MainScreenViewModel(fakeCardRepository)
+        fakeCardRepository = FakeCardRepository()
+        mainScreenViewModel = MainScreenViewModel(fakeCardRepository)
         val fakeWord = "apple"
         val fakeTranslation = "яблоко"
         fakeCardList = listOf(Card(fakeWord, fakeTranslation))
@@ -41,5 +42,15 @@ class MainScreenViewModelTester {
         }
 
         assertEquals(true, mainScreenViewModel.hasList(fakeCardList))
+    }
+
+
+    @Test
+    fun testCardsInGroupsExtraction() {
+
+        runTest {
+            mainScreenViewModel.extractCardsInGroups()
+        }
+        assertEquals(true, mainScreenViewModel.hasCardGroupMap(fakeCardGroupMap))
     }
 }
