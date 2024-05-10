@@ -8,14 +8,12 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 10.05.2024
  */
-class CardGroupsScreenViewModelTester: ViewModelTester {
+class CardGroupsScreenViewModelTester: ViewModelTester() {
     private lateinit var fakeCardGroupMap: Map<String, List<Card>>
-    private lateinit var fakeCardRepository: CardRepository
-    private lateinit var cardGroupsScreenViewModel: FlashcardsApplicationViewModel
 
 
     @Before
-    fun setup() {
+    override fun setup() {
         fakeCardRepository = FakeCardRepository()
         cardGroupsScreenViewModel = CardGroupsScreenViewModel(fakeCardRepository)
         val fakeWord = "apple"
