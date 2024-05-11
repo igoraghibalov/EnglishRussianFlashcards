@@ -1,5 +1,6 @@
 package com.example.englishrussianflashcards
 
+import androidx.lifecycle.SavedStateHandle
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -15,7 +16,8 @@ class CardScreenViewModelTester: ViewModelTester() {
     @Before
     override fun setup() {
         fakeCardRepository = FakeCardRepository()
-        viewModel = CardScreenViewModel(fakeCardRepository)
+        fakeSavedStateHandle = SavedStateHandle(mapOf("word" to "apple"))
+        viewModel = CardScreenViewModel(fakeCardRepository, fakeSavedStateHandle)
         val fakeWord = "apple"
         val fakeTranslation = "яблоко"
         fakeCardList = listOf(Card(fakeWord, fakeTranslation))
@@ -30,5 +32,10 @@ class CardScreenViewModelTester: ViewModelTester() {
         }
 
         assertEquals(true, viewModel.hasList(fakeCardList))
+    }
+
+
+    fun CardScreenViewModel.isWordLiveDataValueEqual(wordToCompare: String): Boolean {
+        return wordLiveData.value == wordToCompare
     }
 }
