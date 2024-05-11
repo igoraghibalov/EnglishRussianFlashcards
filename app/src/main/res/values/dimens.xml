@@ -20,5 +20,5 @@
     <dimen name="card_history_item_elements_parent_margin">5dp</dimen>
     <dimen name="group_elements_parent_margin">5dp</dimen>
     <dimen name="cards_screen_layout_margin">5dp</dimen>
-    <dimen name="card_container_view_margin">5dp</dimen>
+    <dimen name="card_view_pager_margin">5dp</dimen>
 </resources>
