@@ -22,7 +22,6 @@ class CardGroupsScreenViewModelTester: ViewModelTester() {
     }
 
 
-
     @Test
     fun testCardsInGroupsExtraction() {
 

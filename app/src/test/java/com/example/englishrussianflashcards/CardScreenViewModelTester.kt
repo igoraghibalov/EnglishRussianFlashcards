@@ -18,7 +18,8 @@ class CardScreenViewModelTester: ViewModelTester() {
     override fun setup() {
         val fakeWord = "apple"
         val fakeTranslation = "яблоко"
-        fakeCardList = listOf(Card(fakeWord, fakeTranslation))
+        val wasDisplayed = true
+        fakeCardList = listOf(Card(fakeWord, fakeTranslation, wasDisplayed))
         fakeCardRepository = FakeCardRepository()
         fakeSavedStateHandle = SavedStateHandle(mapOf("cardList" to fakeCardList))
         viewModel = CardScreenViewModel(fakeCardRepository, fakeSavedStateHandle)
@@ -39,11 +40,11 @@ class CardScreenViewModelTester: ViewModelTester() {
     @Test
     fun testCardListLiveDataValueAssignmentWithSavedStateHandle() {
         val cardListToCompare: String = fakeSavedStateHandle["cardList"]!!
-        assertEquals(true, viewModel.isCardListLiveDataValueEquals(cardListToCompare))
+        assertEquals(true, viewModel.isCardListLiveDataValueEqual(cardListToCompare))
     }
 
 
-    fun CardScreenViewModel.isCardListLiveDataValueEquals(cardListToCompare: String): Boolean {
+    fun CardScreenViewModel.isCardListLiveDataValueEqual(cardListToCompare: String): Boolean {
         return cardListLiveData.value == cardListToCompare
     }
 }
