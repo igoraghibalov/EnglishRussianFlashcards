@@ -43,7 +43,7 @@ class CardScreenViewModelTester: ViewModelTester() {
     }
 
 
-    fun CardScreenViewModel.isWordLiveDataValueEqual(wordToCompare: String): Boolean {
-        return wordLiveData.value == wordToCompare
+    fun CardScreenViewModel.isCardListLiveDataValueEquals(cardListToCompare: String): Boolean {
+        return cardListLiveData.value == cardListToCompare
     }
 }
