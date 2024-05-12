@@ -37,9 +37,9 @@ class CardScreenViewModelTester: ViewModelTester() {
 
 
     @Test
-    fun testWordLiveDataValueAssignmentWithSavedStateHandle() {
-        val testWord: String = fakeSavedStateHandle["word"]!!
-        assertEquals(true, viewModel.isWordLiveDataValueEqual(testWord))
+    fun testCardListLiveDataValueAssignmentWithSavedStateHandle() {
+        val cardListToCompare: String = fakeSavedStateHandle["cardList"]!!
+        assertEquals(true, viewModel.isCardListLiveDataValueEquals(cardListToCompare))
     }
 
 
