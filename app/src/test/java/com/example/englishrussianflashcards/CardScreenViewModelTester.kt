@@ -1,11 +1,13 @@
 package com.example.englishrussianflashcards
 
+import android.database.sqlite.SQLiteException
 import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+
 
 /**
  * Created by Igor Aghibalov on 08.05.2024
@@ -20,31 +22,46 @@ class CardScreenViewModelTester: ViewModelTester() {
         val fakeTranslation = "яблоко"
         val wasDisplayed = true
         fakeCardList = listOf(Card(fakeWord, fakeTranslation, wasDisplayed))
-        fakeCardRepository = FakeCardRepository()
-        fakeSavedStateHandle = SavedStateHandle(mapOf("cardList" to fakeCardList))
-        viewModel = CardScreenViewModel(fakeCardRepository, fakeSavedStateHandle)
     }
 
 
     @Test
-    fun testCardListExtraction() {
+    fun testCardListExtractionSuccess() {
+        val successResult = Result.success(fakeCardList)
+        fakeCardRepository = SuccessFakeCardRepository()
+        fakeSavedStateHandle = SavedStateHandle(mapOf("cardList" to successResult))
+        viewModel = CardScreenViewModel(fakeCardRepository, fakeSavedStateHandle)
 
         runTest {
             viewModel.extractCardList()
         }
+        assertEquals(true, viewModel.hasCardListExtractionResult(successResult))
+    }
 
-        assertEquals(true, viewModel.hasList(fakeCardList))
+    @Test
+    fun testCardListExtractionFailure() {
+        val failureResult = Result.failure<SQLiteException>(SQLiteException())
+        fakeCardRepository = FailureFakeCardRepository()
+        fakeSavedStateHandle = SavedStateHandle(mapOf("cardList" to failureResult))
+        viewModel = CardScreenViewModel(fakeCardRepository, fakeSavedStateHandle)
+        runTest {
+            viewModel.extractCardList()
+        }
+        assertEquals(true, viewModel.hasCardListExtractionResult(failureResult))
     }
 
 
     @Test
     fun testCardListLiveDataValueAssignmentWithSavedStateHandle() {
-        val cardListToCompare: String = fakeSavedStateHandle["cardList"]!!
-        assertEquals(true, viewModel.isCardListLiveDataValueEqual(cardListToCompare))
+        fakeCardRepository = FailureFakeCardRepository()
+        fakeSavedStateHandle = SavedStateHandle(mapOf("cardList" to Result.success(fakeCardList)))
+        viewModel = CardScreenViewModel(fakeCardRepository, fakeSavedStateHandle)
+        val cardListExtractionResultToCompare: Result<List<Card>> = fakeSavedStateHandle["cardList"]!!
+        assertEquals(true, viewModel.isCardListExtractionResultLiveDataValueEqual(cardListExtractionResultToCompare))
     }
 
 
-    fun CardScreenViewModel.isCardListLiveDataValueEqual(cardListToCompare: String): Boolean {
+    fun <T: Any> CardScreenViewModel.isCardListExtractionResultLiveDataValueEqual(cardListExtractionResultToCompare: Result<T>): Boolean {
         return cardListLiveData.value == cardListToCompare
     }
 }

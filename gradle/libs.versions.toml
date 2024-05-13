@@ -1,5 +1,6 @@
 [versions]
 coroutines-test = "1.8.1-Beta"
+room-test = "1.8.1-Beta"
 
 [libraries]
 kotlinx-coroutines-test = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
