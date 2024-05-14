@@ -47,7 +47,7 @@ class CardGroupsScreenViewModelTester: ViewModelTester() {
     }
 
     @Test
-    fun testSavedStateHandleUpdateOnSuccessCardsInGroupsExtraction() {
+    fun testSavedStateHandleUpdateOnSuccessCardGroupsMapExtraction() {
         val successResult = Result.success(fakeCardGroupMap)
         fakeCardRepository = SuccessFakeCardRepository()
         viewModel = CardGroupsScreenViewModel(fakeCardRepository, fakeSavedStateHandle, SavedStateHandle())
