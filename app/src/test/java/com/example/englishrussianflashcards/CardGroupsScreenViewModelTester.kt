@@ -1,5 +1,7 @@
 package com.example.englishrussianflashcards
 
+import android.database.sqlite.SQLiteException
+import androidx.lifecycle.SavedStateHandle
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -14,8 +16,6 @@ class CardGroupsScreenViewModelTester: ViewModelTester() {
 
     @Before
     override fun setup() {
-        fakeCardRepository = FakeCardRepository()
-        viewModel = CardGroupsScreenViewModel(fakeCardRepository)
         val fakeWord = "apple"
         val fakeTranslation = "яблоко"
         fakeCardGroupMap = mapOf("Fruits" to Card(fakeWord, fakeTranslation))
@@ -23,11 +23,38 @@ class CardGroupsScreenViewModelTester: ViewModelTester() {
 
 
     @Test
-    fun testCardsInGroupsExtraction() {
+    fun testCardsInGroupsSuccessfulExtraction() {
+        val successResult = Result.success(fakeCardGroupMap)
+        fakeCardRepository = SuccessFakeCardRepository()
+        viewModel = CardGroupsScreenViewModel(fakeCardRepository, fakeSavedStateHandle, SavedStateHandle())
 
         runTest {
             viewModel.extractCardsInGroups()
         }
-        assertEquals(true, viewModel.hasCardGroupMap(fakeCardGroupMap))
+        assertEquals(true, viewModel.hasCardGroupMapExtractionResult(successResult))
+    }
+
+    @Test
+    fun testCardsInGroupsFailureExtraction() {
+        val failureResult = Result.failure<SQLiteException>(SQLiteException())
+        fakeCardRepository = FailureFakeCardRepository()
+        viewModel = CardGroupsScreenViewModel(fakeCardRepository, fakeSavedStateHandle, SavedStateHandle())
+
+        runTest {
+            viewModel.extractCardsInGroups()
+        }
+        assertEquals(true, viewModel.hasCardGroupMapExtractionResult(failureResult))
+    }
+
+    @Test
+    fun testSavedStateHandleUpdateOnSuccessCardsInGroupsExtraction() {
+        val successResult = Result.success(fakeCardGroupMap)
+        fakeCardRepository = SuccessFakeCardRepository()
+        viewModel = CardGroupsScreenViewModel(fakeCardRepository, fakeSavedStateHandle, SavedStateHandle())
+
+        runTest {
+            viewModel.extractCardsInGroups()
+        }
+        assertEquals(true, viewModel.doesSavedStateHandleContain(fakeCardGroupMap))
     }
 }
