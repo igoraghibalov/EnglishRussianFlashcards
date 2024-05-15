@@ -25,8 +25,8 @@ class CardGroupsScreenViewModelTester: ViewModelTester() {
     @Test
     fun testCardsInGroupsSuccessfulExtraction() {
         val successResult = Result.success(fakeCardGroupMap)
-        fakeCardRepository = SuccessFakeCardRepository()
-        viewModel = CardGroupsScreenViewModel(fakeCardRepository, fakeSavedStateHandle, SavedStateHandle())
+        val fakeRepository = SuccessFakeCardRepository()
+        val viewModel = CardGroupsScreenViewModel(fakeRepository, fakeSavedStateHandle, SavedStateHandle())
 
         runTest {
             viewModel.extractCardsInGroups()
@@ -37,8 +37,8 @@ class CardGroupsScreenViewModelTester: ViewModelTester() {
     @Test
     fun testCardsInGroupsFailureExtraction() {
         val failureResult = Result.failure<SQLiteException>(SQLiteException())
-        fakeCardRepository = FailureFakeCardRepository()
-        viewModel = CardGroupsScreenViewModel(fakeCardRepository, fakeSavedStateHandle, SavedStateHandle())
+        val fakeRepository = FailureFakeCardRepository()
+        val viewModel = CardGroupsScreenViewModel(fakeRepository, fakeSavedStateHandle, SavedStateHandle())
 
         runTest {
             viewModel.extractCardsInGroups()
@@ -49,8 +49,8 @@ class CardGroupsScreenViewModelTester: ViewModelTester() {
     @Test
     fun testSavedStateHandleUpdateOnSuccessCardGroupsMapExtraction() {
         val successResult = Result.success(fakeCardGroupMap)
-        fakeCardRepository = SuccessFakeCardRepository()
-        viewModel = CardGroupsScreenViewModel(fakeCardRepository, fakeSavedStateHandle, SavedStateHandle())
+        val fakeRepository = SuccessFakeCardRepository()
+        val viewModel = CardGroupsScreenViewModel(fakeRepository, fakeSavedStateHandle, SavedStateHandle())
 
         runTest {
             viewModel.extractCardsInGroups()
