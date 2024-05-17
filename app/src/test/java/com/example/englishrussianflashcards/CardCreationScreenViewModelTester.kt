@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
 import androidx.lifecycle.SavedStateHandle
 import com.almworks.sqlite4java.SQLiteException
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -12,13 +14,16 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 15.05.2024
  */
-// TODO: combine multiple success/failure tests into single test methods respectively
 class CardCreationScreenViewModelTester: ViewModelTester()  {
     private lateinit var fakeGroupTitleList: List<String>
     private lateinit var fakeWordList: List<String>
     private lateinit var fakeWord: String
     private lateinit var fakeImageList: List<Drawable>
+    private lateinit var fakeTranscription: String
+    private lateinit var dataExtractionSuccessResultMap: Map<String, Result<Any>>
+    private lateinit var dataExtractionFailureResultMap: Map<String, Result<Any>>
     private val roomFailureResult = Result.failure<SQLiteException>(android.database.sqlite.SQLiteException())
+    private val coilFailureResult = Result.failure<FakeImageLoadingException>(FakeImageLoadingException())
     private lateinit var failureDataExtractionViewModel: CardCreationScreenViewModel
     private lateinit var successDataExtractionViewModel: CardCreationScreenViewModel
 
@@ -27,6 +32,19 @@ class CardCreationScreenViewModelTester: ViewModelTester()  {
         fakeWordList = listOf("Apple", "Arrow")
         fakeWord = "Apple"
         fakeImageList = listOf(PictureDrawable(Picture()))
+        fakeTranscription = "[ˈæpəl]"
+        dataExtractionSuccessResultMap = mapOf("groupTitleList" to Result.success(fakeGroupTitleList),
+                                                "wordList" to Result.success(fakeWordList),
+                                                "word" to Result.success(fakeWord),
+                                                "imageList" to Result.success(fakeImageList),
+                                                "transcription" to Result.success(fakeTranscription))
+
+        dataExtractionFailureResultMap = mapOf("groupTitleList" to roomFailureResult,
+                                                "wordList" to roomFailureResult,
+                                                "word" to roomFailureResult,
+                                                "imageList" to coilFailureResult,
+                                                "transcription" to roomFailureResult)
+
 
 
         var fakeRepository = FailureFakeCardRepository()
@@ -50,71 +68,44 @@ class CardCreationScreenViewModelTester: ViewModelTester()  {
 
 
     @Test
-    fun testSuccessGroupTitleListExtraction() {
-        val successfulResult = Result.success(fakeGroupTitleList)
+    fun testSuccessfulDataExtraction() {
 
         runTest {
-            successDataExtractionViewModel.getGroupTitleList()
+            joinViewModelDataExtractionJob(this, successDataExtractionViewModel)
+            assertEquals(true, successDataExtractionViewModel.hasDataExtractionResult(dataExtractionSuccessResultMap))
         }
-
-        assertEquals(true, failureDataExtractionViewModel.hasDataExtractionResult(successfulResult))
     }
-
 
     @Test
-    fun testFailureGroupTitleListExtraction() {
+    fun testFailureDataExtraction() {
 
         runTest {
-            failureDataExtractionViewModel.getGroupTitleList()
+            joinViewModelDataExtractionJob(this, failureDataExtractionViewModel)
+            assertEquals(true, failureDataExtractionViewModel.hasDataExtractionResult(dataExtractionFailureResultMap))
         }
-
-        assertEquals(true, failureDataExtractionViewModel.hasDataExtractionResult(roomFailureResult))
     }
 
 
-    @Test
-    fun testSuccessWordListExtraction() {
-        val successfulResult = Result.success(fakeWordList)
+    fun applyMultipleDataRequestCall(cardCreationScreenViewModel: CardCreationScreenViewModel) {
 
-        runTest {
-            successDataExtractionViewModel.getWordList()
+        cardCreationScreenViewModel.apply {
+            getWordList()
+            getImageList()
+            getTranslationList()
+            getTranscription()
+            getExampleList()
+            getGroupTitleList()
         }
-
-        assertEquals(true, failureDataExtractionViewModel.hasDataExtractionResult(successfulResult))
     }
 
 
-    @Test
-    fun testFailureWordListExtraction() {
+    suspend fun joinViewModelDataExtractionJob(testScope: TestScope,
+                                               cardCreationScreenViewModel: CardCreationScreenViewModel) {
 
-        runTest {
-            failureDataExtractionViewModel.getWordList()
+        val dataExtractionJob = testScope.launch {
+            applyMultipleDataRequestCall(cardCreationScreenViewModel)
         }
 
-        assertEquals(true, failureDataExtractionViewModel.hasDataExtractionResult(roomFailureResult))
+        dataExtractionJob.join()
     }
-
-
-    @Test
-    fun testSuccessImageListExtraction() {
-        val successfulResult = Result.success(fakeImageList)
-
-        runTest {
-            successDataExtractionViewModel.getImageList(fakeWord)
-        }
-
-        assertEquals(true, failureDataExtractionViewModel.hasDataExtractionResult(successfulResult))
-    }
-
-
-    @Test
-    fun testFailureImageListExtraction() {
-
-        runTest {
-            failureDataExtractionViewModel.getImageList(fakeWord)
-        }
-
-        assertEquals(true, failureDataExtractionViewModel.hasDataExtractionResult(roomFailureResult))
-    }
-
 }
