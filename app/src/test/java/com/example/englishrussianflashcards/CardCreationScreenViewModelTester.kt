@@ -14,6 +14,7 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 15.05.2024
  */
+// TODO: combine multiple success/failure tests into single test methods respectively
 class CardCreationScreenViewModelTester: ViewModelTester()  {
     private lateinit var fakeGroupTitleList: List<String>
     private lateinit var fakeWordList: List<String>
@@ -86,7 +87,7 @@ class CardCreationScreenViewModelTester: ViewModelTester()  {
     }
 
 
-    fun applyMultipleDataRequestCall(cardCreationScreenViewModel: CardCreationScreenViewModel) {
+    fun applyMultipleDataExtractionCall(cardCreationScreenViewModel: CardCreationScreenViewModel) {
 
         cardCreationScreenViewModel.apply {
             getWordList()
@@ -103,7 +104,7 @@ class CardCreationScreenViewModelTester: ViewModelTester()  {
                                                cardCreationScreenViewModel: CardCreationScreenViewModel) {
 
         val dataExtractionJob = testScope.launch {
-            applyMultipleDataRequestCall(cardCreationScreenViewModel)
+            applyMultipleDataExtractionCall(cardCreationScreenViewModel)
         }
 
         dataExtractionJob.join()
