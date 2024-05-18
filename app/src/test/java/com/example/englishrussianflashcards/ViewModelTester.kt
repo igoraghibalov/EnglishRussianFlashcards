@@ -11,7 +11,7 @@ import org.junit.Rule
 abstract class ViewModelTester {
 
     @get: Rule
-    val ruleToUpdateLiveDataValue = InstantTaskExecutorRule()
+    val ruleToUpdateLiveDataValueOnPureJVM = InstantTaskExecutorRule()
 
     protected lateinit var fakeSavedStateHandle: SavedStateHandle
 
