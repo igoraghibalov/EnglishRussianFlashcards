@@ -14,8 +14,7 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 15.05.2024
  */
-// TODO: combine multiple success/failure tests into single test methods respectively
-class CardCreationScreenViewModelTester: ViewModelTester()  {
+class CardCreationScreenViewModelTester: ViewModelTester() {
     private lateinit var fakeGroupTitleList: List<String>
     private lateinit var fakeWordList: List<String>
     private lateinit var fakeWord: String
