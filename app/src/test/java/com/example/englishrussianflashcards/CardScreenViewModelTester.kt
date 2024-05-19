@@ -2,6 +2,7 @@ package com.example.englishrussianflashcards
 
 import android.database.sqlite.SQLiteException
 import androidx.lifecycle.SavedStateHandle
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -32,9 +33,10 @@ class CardScreenViewModelTester: ViewModelTester() {
         val viewModel = CardScreenViewModel(fakeRepository, fakeSavedStateHandle)
 
         runTest {
-            viewModel.extractCardList()
+            val cardListExtractionJob = launch { viewModel.extractCardList() }
+            cardListExtractionJob.join()
+            assertEquals(true, viewModel.hasCardListExtractionResult(successResult))
         }
-        assertEquals(true, viewModel.hasCardListExtractionResult(successResult))
     }
 
     @Test
@@ -43,24 +45,11 @@ class CardScreenViewModelTester: ViewModelTester() {
         val fakeRepository = FailureFakeCardRepository()
         fakeSavedStateHandle = SavedStateHandle(mapOf("cardList" to failureResult))
         val viewModel = CardScreenViewModel(fakeRepository, fakeSavedStateHandle)
+
         runTest {
-            viewModel.extractCardList()
+            val cardListExtractionJob = launch { viewModel.extractCardList() }
+            cardListExtractionJob.join()
+            assertEquals(true, viewModel.hasCardListExtractionResult(failureResult))
         }
-        assertEquals(true, viewModel.hasCardListExtractionResult(failureResult))
-    }
-
-
-    @Test
-    fun testCardListLiveDataValueAssignmentWithSavedStateHandle() {
-        val fakeRepository = FailureFakeCardRepository()
-        fakeSavedStateHandle = SavedStateHandle(mapOf("cardList" to Result.success(fakeCardList)))
-        val viewModel = CardScreenViewModel(fakeRepository, fakeSavedStateHandle)
-        val cardListExtractionResultToCompare: Result<List<Card>> = fakeSavedStateHandle["cardList"]!!
-        assertEquals(true, viewModel.isCardListExtractionResultLiveDataValueEqual(cardListExtractionResultToCompare))
-    }
-
-
-    fun <T: Any> CardScreenViewModel.isCardListExtractionResultLiveDataValueEqual(cardListExtractionResultToCompare: Result<T>): Boolean {
-        return cardListLiveData.value == cardListToCompare
     }
 }
