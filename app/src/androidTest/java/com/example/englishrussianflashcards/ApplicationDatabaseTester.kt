@@ -14,22 +14,25 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import kotlin.coroutines.CoroutineContext
+import kotlin.jvm.Throws
 
 /**
  * Created by Igor Aghibalov on 20.05.2024
  */
+// TODO: add DictionaryDao testing
 @RunWith(AndroidJUnit4::class)
 class ApplicationDatabaseTester {
     private lateinit var applicationDatabase: ApplicationDatabase
     private lateinit var cardDao: CardDao
     private lateinit var additionalTestCoroutineContext: CoroutineContext
 
+
     @Before
     fun setupDatabaseEnvironment() {
         val databaseContext = ApplicationProvider.getApplicationContext<Application>()
         applicationDatabase = Room.inMemoryDatabaseBuilder(databaseContext, ApplicationDatabase::class.java).build()
         cardDao = applicationDatabase.getCardDao()
-        additionalTestCoroutineContext = Dispatchers.IO
+        additionalTestCoroutineContext = Dispatchers.Default
     }
 
     @Test
