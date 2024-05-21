@@ -4,7 +4,9 @@ import android.app.Application
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -13,8 +15,9 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import kotlin.coroutines.CoroutineContext
-import kotlin.jvm.Throws
 
 /**
  * Created by Igor Aghibalov on 20.05.2024
@@ -36,7 +39,7 @@ class ApplicationDatabaseTester {
     }
 
     @Test
-    fun testSuccessCardListExtraction() {
+    fun testCardListExtraction() {
 
         runBlocking {
             val fakeWord = "apple"
@@ -49,6 +52,25 @@ class ApplicationDatabaseTester {
             cardInsertionJob.join()
             val cardList = withContext(additionalTestCoroutineContext) { cardDao.getCardList() }
             assertEquals(true, cardList == fakeCardList)
+        }
+    }
+
+    @Test
+    fun testWordMapExtraction() {
+
+        runBlocking {
+            val word = "apple"
+            val date = LocalDate.now().format(DateTimeFormatter.ofPattern("d.MM.yyyy"))
+            val postInsertionWordMap = mapOf(word to date)
+            val deferredWordMap: Deferred<Map<String, String>>
+
+            val wordMapInsertionJob
+                    = launch(additionalTestCoroutineContext) { cardDao.insertHistoryEntry(word to date) }
+            wordMapInsertionJob.join()
+
+            deferredWordMap = async(additionalTestCoroutineContext) { cardDao.getWordMap() }
+
+            assertEquals(postInsertionWordMap, deferredWordMap.await())
         }
     }
 
