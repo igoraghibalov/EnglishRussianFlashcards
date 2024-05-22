@@ -38,6 +38,7 @@ class ApplicationDatabaseTester {
         additionalTestCoroutineContext = Dispatchers.Default
     }
 
+
     @Test
     fun testCardListExtraction() {
 
@@ -71,6 +72,30 @@ class ApplicationDatabaseTester {
             deferredWordMap = async(additionalTestCoroutineContext) { cardDao.getWordMap() }
 
             assertEquals(postInsertionWordMap, deferredWordMap.await())
+        }
+    }
+
+
+    @Test
+    fun testCardGroupMapExtraction() {
+
+        runBlocking {
+            val deferredCardGroupMap: Deferred<Map<String, List<Card>>>
+            val cardGroupTitle = "Fruits"
+            val appleCard = Card("apple", "яблоко", cardGroupTitle)
+            val orangeCard = Card("orange", "апельсин", cardGroupTitle)
+            val fruitCardList = listOf(appleCard, orangeCard)
+            val fruitCardGroupMap: Map<String, List<Card>> = mapOf(cardGroupTitle to fruitCardList)
+
+            val wordMapInsertionJob = launch(additionalTestCoroutineContext) {
+                cardDao.insertCard(appleCard)
+                launch { cardDao.insertCard(orangeCard) }
+            }
+            wordMapInsertionJob.join()
+
+            deferredCardGroupMap = async(additionalTestCoroutineContext) { cardDao.getCardGroupMap() }
+
+            assertEquals(fruitCardGroupMap, deferredCardGroupMap.await())
         }
     }
 
