@@ -27,6 +27,7 @@ import kotlin.coroutines.CoroutineContext
 class ApplicationDatabaseTester {
     private lateinit var applicationDatabase: ApplicationDatabase
     private lateinit var cardDao: CardDao
+    private lateinit var dictionaryDao: DictionaryDao
     private lateinit var additionalTestCoroutineContext: CoroutineContext
 
 
@@ -35,6 +36,7 @@ class ApplicationDatabaseTester {
         val databaseContext = ApplicationProvider.getApplicationContext<Application>()
         applicationDatabase = Room.inMemoryDatabaseBuilder(databaseContext, ApplicationDatabase::class.java).build()
         cardDao = applicationDatabase.getCardDao()
+        dictionaryDao = applicationDatabase.getDictionaryDao()
         additionalTestCoroutineContext = Dispatchers.Default
     }
 
@@ -96,6 +98,22 @@ class ApplicationDatabaseTester {
             deferredCardGroupMap = async(additionalTestCoroutineContext) { cardDao.getCardGroupMap() }
 
             assertEquals(fruitCardGroupMap, deferredCardGroupMap.await())
+        }
+    }
+
+
+    @Test
+    fun testWordListExtraction() {
+        val userCharSequenceTyped = "ab"
+        val deferredWordList: Deferred<List<String>>
+
+        runBlocking {
+
+            deferredWordList = async(additionalTestCoroutineContext) {
+                dictionaryDao.getWordList(userCharSequenceTyped)
+            }
+
+            assertEquals(false, deferredWordList.await().isEmpty())
         }
     }
 
