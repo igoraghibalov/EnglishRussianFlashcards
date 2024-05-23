@@ -18,7 +18,7 @@ import org.junit.Test
  */
 class CardCreationScreenUiTester: UiTester() {
 
-    //TODO: refactor line 21,22 code duplication
+    //TODO: refactor code duplication
     @Test
     fun testCardConfirmationDialogFragmentInflationOnCreateButtonClick() {
         val defaultTypingCharSequence = applicationContext.resources.getString(R.string.default_typing_char_sequence)
