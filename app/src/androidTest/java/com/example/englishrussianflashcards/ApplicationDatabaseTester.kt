@@ -144,7 +144,7 @@ class ApplicationDatabaseTester {
                 dictionaryDao.getTranscription(word)
             }
 
-            assertEquals(wordTranscriptionToCompare, deferredTranscription.await().isEmpty())
+            assertEquals(wordTranscriptionToCompare, deferredTranscription.await())
         }
     }
 
