@@ -22,7 +22,6 @@ import kotlin.coroutines.CoroutineContext
 /**
  * Created by Igor Aghibalov on 20.05.2024
  */
-// TODO: add DictionaryDao testing
 @RunWith(AndroidJUnit4::class)
 class ApplicationDatabaseTester {
     private lateinit var applicationDatabase: ApplicationDatabase
@@ -161,6 +160,31 @@ class ApplicationDatabaseTester {
             }
 
             assertEquals(false, deferredExampleList.await().isEmpty())
+        }
+    }
+
+    @Test
+    fun testGroupTitleListExtraction() {
+        val planetGroupName = "Planets"
+        val fruitGroupName = "Fruits"
+        val appleCard = Card(word = "apple", translation = "яблоко", group = planetGroupName)
+        val earthCard = Card(word = "Earth", translation = "Земля", group = fruitGroupName)
+        val deferredGroupTitleList: Deferred<List<String>>
+        val groupTitleListToCompare = listOf(planetGroupName, fruitGroupName)
+
+        runBlocking {
+
+            val cardInsertionJob = launch(additionalTestCoroutineContext){
+                cardDao.insertCard(appleCard)
+                launch { cardDao.insertCard(earthCard) }
+            }
+            cardInsertionJob.join()
+
+            deferredGroupTitleList = async(additionalTestCoroutineContext) {
+                dictionaryDao.getGroupTitleList()
+            }
+
+            assertEquals(groupTitleListToCompare, deferredGroupTitleList.await())
         }
     }
 
