@@ -148,6 +148,22 @@ class ApplicationDatabaseTester {
         }
     }
 
+    @Test
+    fun testExampleListExtraction() {
+        val word = "apple"
+        val translation = "яблоко"
+        val deferredExampleList: Deferred<List<String>>
+
+        runBlocking {
+
+            deferredExampleList = async(additionalTestCoroutineContext) {
+                dictionaryDao.getExampleList(word, translation)
+            }
+
+            assertEquals(false, deferredExampleList.await().isEmpty())
+        }
+    }
+
 
     @After
     fun closeDatabase() {
