@@ -132,6 +132,22 @@ class ApplicationDatabaseTester {
         }
     }
 
+    @Test
+    fun testTranscriptionExtraction() {
+        val word = "apple"
+        val wordTranscriptionToCompare = "[ˈæpəl]"
+        val deferredTranscription: Deferred<List<String>>
+
+        runBlocking {
+
+            deferredTranscription = async(additionalTestCoroutineContext) {
+                dictionaryDao.getTranscription(word)
+            }
+
+            assertEquals(wordTranscriptionToCompare, deferredTranscription.await().isEmpty())
+        }
+    }
+
 
     @After
     fun closeDatabase() {
