@@ -40,7 +40,7 @@ class ImageRepositoryTester(): RepositoryTester, ListExtractionTester {
                 imageRepository.getImageList(word)
             }
 
-            assertEquals("Image list has not loaded", true, deferredImageList.await())
+            assertEquals("Image list loading failure", true, deferredImageList.await().isNotEmpty())
         }
     }
 }
