@@ -12,7 +12,6 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.runner.AndroidJUnitRunner
 import androidx.test.uiautomator.UiDevice
 import org.junit.Before
 import org.junit.runner.RunWith
@@ -23,13 +22,13 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 abstract class UiTester {
 
-    protected lateinit var mainActivityScenario: ActivityScenario<MainActivity>
+    protected lateinit var mainActivityScenario: ActivityScenario<com.example.presentation.MainActivity>
     protected val applicationContext: Context = ApplicationProvider.getApplicationContext<Application>()
 
     @Before
     open fun setup() {
-        val intent = Intent(applicationContext, MainActivity::class.java)
-        mainActivityScenario = ActivityScenario.launch<MainActivity>(intent)
+        val intent = Intent(applicationContext, com.example.presentation.MainActivity::class.java)
+        mainActivityScenario = ActivityScenario.launch<com.example.presentation.MainActivity>(intent)
     }
 
     fun setupProcessDeathTestEnvironment() {
