@@ -53,14 +53,9 @@ android {
 dependencies {
     val roomVersion = "2.6.1"
 
-    implementation(project(":presentation"))
-    implementation(project(":domain"))
-    implementation(project(":data"))
-
     implementation("androidx.room:room-runtime:$roomVersion")
-    annotationProcessor("androidx.room:room-compiler:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation(libs.androidx.room.ktx)
     testImplementation("androidx.room:room-testing:$roomVersion")
 
     implementation("androidx.core:core-ktx:1.12.0")

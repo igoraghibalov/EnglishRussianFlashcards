@@ -15,6 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "EnglishRussianFlashcards"
 include(":app")
-include(":domain")
-include(":data")
-include(":presentation")

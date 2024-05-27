@@ -12,6 +12,7 @@ appcompat = "1.6.1"
 material = "1.12.0"
 room-ktx = "2.6.1"
 room-runtime-jvm = "2.7.0-alpha02"
+room-runtime-android = "2.7.0-alpha02"
 
 [libraries]
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-ktx" }
@@ -24,6 +25,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room-ktx" }
 androidx-room-runtime-jvm = { group = "androidx.room", name = "room-runtime-jvm", version.ref = "room-runtime-jvm" }
+androidx-room-runtime-android = { group = "androidx.room", name = "room-runtime-android", version.ref = "room-runtime-android" }
 [plugins]
 org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }

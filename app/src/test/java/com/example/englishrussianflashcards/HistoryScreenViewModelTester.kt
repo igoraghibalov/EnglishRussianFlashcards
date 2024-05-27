@@ -1,7 +1,6 @@
 package com.example.englishrussianflashcards
 
 import androidx.lifecycle.SavedStateHandle
-import androidx.test.core.app.ActivityScenario.launch
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest

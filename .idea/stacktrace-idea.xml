@@ -11,7 +11,10 @@
     </option>
     <option name="packages">
       <set>
+        <option value="com.example.data" />
+        <option value="com.example.domain" />
         <option value="com.example.englishrussianflashcards" />
+        <option value="com.example.presentation" />
       </set>
     </option>
   </component>

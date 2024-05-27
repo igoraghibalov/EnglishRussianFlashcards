@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.englishrussianflashcards.domain.ApplicationDatabase
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -18,6 +19,9 @@ import org.junit.runner.RunWith
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import kotlin.coroutines.CoroutineContext
+import com.example.englishrussianflashcards.domain.Card
+import com.example.englishrussianflashcards.domain.CardDao
+import com.example.englishrussianflashcards.domain.DictionaryDao
 
 /**
  * Created by Igor Aghibalov on 20.05.2024
@@ -47,7 +51,7 @@ class ApplicationDatabaseTester {
             val fakeWord = "apple"
             val fakeTranslation = "яблоко"
             val isDisplayed = true
-            val fakeCard = Card(fakeWord, fakeTranslation, isDisplayed)
+            val fakeCard = Card(fakeWord, fakeTranslation, isDisplayed = isDisplayed)
             val fakeCardList = listOf(fakeCard)
 
             val cardInsertionJob = launch(additionalTestCoroutineContext) { cardDao.insertCard(fakeCard) }
@@ -67,7 +71,7 @@ class ApplicationDatabaseTester {
             val deferredWordMap: Deferred<Map<String, String>>
 
             val wordMapInsertionJob
-                    = launch(additionalTestCoroutineContext) { cardDao.insertHistoryEntry(word to date) }
+                    = launch(additionalTestCoroutineContext) { cardDao.insertHistoryEntry(word, date) }
             wordMapInsertionJob.join()
 
             deferredWordMap = async(additionalTestCoroutineContext) { cardDao.getWordMap() }
@@ -135,7 +139,7 @@ class ApplicationDatabaseTester {
     fun testTranscriptionExtraction() {
         val word = "apple"
         val wordTranscriptionToCompare = "[ˈæpəl]"
-        val deferredTranscription: Deferred<List<String>>
+        val deferredTranscription: Deferred<String>
 
         runBlocking {
 

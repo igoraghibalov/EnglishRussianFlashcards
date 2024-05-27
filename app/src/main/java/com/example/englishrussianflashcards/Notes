@@ -1,4 +1,5 @@
 ApplicationDatabase     data
+
 CardDao     data
 DictionaryDao   data
 Card    domain

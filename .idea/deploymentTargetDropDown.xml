@@ -5,6 +5,15 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="data">
+        <State />
+      </entry>
+      <entry key="presentation">
+        <State />
+      </entry>
+      <entry key="testFragmentInflationsOnMainMenuButtonsClicks()">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
