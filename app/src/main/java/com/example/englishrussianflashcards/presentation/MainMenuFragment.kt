@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import com.example.englishrussianflashcards.R
 import com.example.englishrussianflashcards.databinding.MainScreenLayoutBinding
 
@@ -36,10 +35,30 @@ class MainMenuFragment: Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val inflatedFragmentNameMap = mapOf(mainMenuViewBinding.continueButton to "CardLearningFragment",
+
+        val appendedFragmentNameMap = mapOf(mainMenuViewBinding.continueButton to "CardLearningFragment",
                                             mainMenuViewBinding.cardsButton to "CardGroupsFragment",
                                             mainMenuViewBinding.newButton to "CardCreationFragment",
                                             mainMenuViewBinding.continueButton to "CardHistoryFragment")
-        setFragmentAppendingTransactionOnButtonClick(inflatedFragmentNameMap)
+
+        setFragmentAppendingTransactionOnButtonClick(appendedFragmentNameMap)
+    }
+
+
+    fun setFragmentAppendingTransactionOnButtonClick(appendedFragmentNameMap: Map<Button, String>) {
+
+        appendedFragmentNameMap.forEach {
+            val clickedButton = it.key
+            val appendedFragmentName = it.value
+
+            clickedButton.setOnClickListener {
+
+                parentFragmentManager.commit {
+                    replace(R.id.fragment_container_view, Class.forName(appendedFragmentName) as Class<out Fragment>, null)
+                    setReorderingAllowed(true)
+                    addToBackStack("$appendedFragmentName appending")
+                }
+            }
+        }
     }
 }
