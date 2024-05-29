@@ -1,6 +1,7 @@
 package com.example.englishrussianflashcards.presentation
 
 import android.os.Bundle
+import android.os.Process
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +43,10 @@ class MainMenuFragment: Fragment() {
                                             mainMenuViewBinding.continueButton to "CardHistoryFragment")
 
         setFragmentAppendingTransactionOnButtonClick(appendedFragmentNameMap)
+
+        mainMenuViewBinding.quitButton.setOnClickListener {
+            Process.killProcess(Process.myPid())
+        }
     }
 
 
