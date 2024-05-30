@@ -8,5 +8,4 @@ interface DictionaryEntryExtractor {
     fun getTranslationList(): List<String>
     fun getTranscription(): String
     fun getExampleList(): List<String>
-    fun getGroupTitleList(): List<String>
 }

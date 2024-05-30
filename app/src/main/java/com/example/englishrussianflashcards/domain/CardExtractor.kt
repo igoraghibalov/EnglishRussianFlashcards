@@ -7,4 +7,5 @@ interface CardExtractor {
     fun getCardList(): List<Card>
     fun getCardWordMap(): Map<String, String>
     fun getCardGroupMap(): Map<String, List<Card>>
+    fun getGroupTitleList(): List<String>
 }
