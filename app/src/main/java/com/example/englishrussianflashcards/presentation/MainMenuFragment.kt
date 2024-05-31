@@ -24,9 +24,9 @@ class MainMenuFragment: Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        super.onCreateView(inflater, container, savedInstanceState)
+        var inflatedRootView = super.onCreateView(inflater, container, savedInstanceState)
 
-        val inflatedRootView: View
+        if (inflatedRootView != null) return inflatedRootView
 
         mainMenuViewBinding = MainScreenLayoutBinding.inflate(inflater, container, false)
         inflatedRootView = mainMenuViewBinding.root
