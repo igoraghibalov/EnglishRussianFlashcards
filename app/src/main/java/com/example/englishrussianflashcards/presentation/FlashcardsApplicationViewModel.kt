@@ -2,12 +2,13 @@ package com.example.englishrussianflashcards.presentation
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import com.example.englishrussianflashcards.domain.Repository
 
 /**
  * Created by Igor Aghibalov on 29.05.2024
  */
-abstract class FlashcardsApplicationViewModel<T: Any>(private val observableContainerMap: Map<String, ObservableContainer<T>>,
-                                                      private val repository: Repository,
-                                                      private val savedStateHandle: SavedStateHandle)
+abstract class FlashcardsApplicationViewModel<T: Any>(protected val observableContainerMap: Map<String, ObservableContainer<T>>,
+                                                      protected val repository: Repository,
+                                                      protected val savedStateHandle: SavedStateHandle)
                          : ViewModel(), ObservableContainerSubscriber {
 }
