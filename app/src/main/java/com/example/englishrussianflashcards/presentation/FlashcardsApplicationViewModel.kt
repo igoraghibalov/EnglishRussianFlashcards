@@ -10,5 +10,5 @@ import com.example.englishrussianflashcards.domain.Repository
 abstract class FlashcardsApplicationViewModel<T: Any>(protected val observableContainerMap: Map<String, ObservableContainer<T>>,
                                                       protected val repository: Repository,
                                                       protected val savedStateHandle: SavedStateHandle)
-                         : ViewModel(), ObservableContainerSubscriber {
+                         : ViewModel(), ObservableContainerSubscriber<T> {
 }
