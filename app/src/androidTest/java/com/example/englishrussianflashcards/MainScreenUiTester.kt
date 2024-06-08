@@ -1,5 +1,6 @@
 package com.example.englishrussianflashcards
 
+import androidx.test.espresso.Espresso
 import org.junit.Test
 
 /**
@@ -10,7 +11,7 @@ class MainScreenUiTester: UiTester() {
 
     override fun testFragmentInflation(baseLayoutViewId: Int, inflatedFragmentViewId: Int) {
         super.testFragmentInflation(baseLayoutViewId, inflatedFragmentViewId)
-        mainActivityScenario.recreate()
+        Espresso.pressBack()
     }
 
     @Test
