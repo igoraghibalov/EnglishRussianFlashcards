@@ -15,7 +15,7 @@ import com.example.englishrussianflashcards.databinding.MainScreenLayoutBinding
  * Created by Igor Aghibalov on 28.05.2024
  */
 
-//TODO: create setFragmentAppendingTransactionOnButtonClick() method
+
 class MainMenuFragment: Fragment() {
     private lateinit var mainMenuViewBinding: MainScreenLayoutBinding
 
@@ -54,14 +54,14 @@ class MainMenuFragment: Fragment() {
 
         appendedFragmentNameMap.forEach {
             val clickedButton = it.key
-            val appendedFragmentName = it.value
+            val fullyQualifiedAppendedFragmentName = "com.example.englishrussianflashcards.presentation.$it.value"
 
             clickedButton.setOnClickListener {
 
                 parentFragmentManager.commit {
-                    replace(R.id.fragment_container_view, Class.forName(appendedFragmentName) as Class<out Fragment>, null)
+                    replace(R.id.fragment_container_view, Class.forName(fullyQualifiedAppendedFragmentName) as Class<out Fragment>, null)
                     setReorderingAllowed(true)
-                    addToBackStack("$appendedFragmentName appending")
+                    addToBackStack("$fullyQualifiedAppendedFragmentName appending")
                 }
             }
         }
