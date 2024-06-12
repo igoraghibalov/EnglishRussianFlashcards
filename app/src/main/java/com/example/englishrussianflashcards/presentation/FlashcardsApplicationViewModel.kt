@@ -7,8 +7,8 @@ import com.example.englishrussianflashcards.domain.Repository
 /**
  * Created by Igor Aghibalov on 29.05.2024
  */
-abstract class FlashcardsApplicationViewModel<T: Any>(protected val observableContainerMap: Map<String, ObservableContainer<T>>,
+abstract class FlashcardsApplicationViewModel<T: Any>(protected val observableContainer: ObservableContainer<T>,
                                                       protected val repository: Repository,
-                                                      protected val savedStateHandle: SavedStateHandle)
-                         : ViewModel(), ObservableContainerSubscriber<T> {
+                                                      protected val savedStateHandle: SavedStateHandle = SavedStateHandle())
+                         : ViewModel() {
 }
