@@ -47,7 +47,7 @@ class MainMenuFragment: Fragment() {
         }
     }
 
-
+    //TODO: put a method code in a separate FragmentAppendingTransactionListenerInitializer object and use one in an onViewCreated()
     fun setFragmentAppendingTransactionOnButtonClick(appendedFragmentNameMap: Map<Button, String>) {
 
         appendedFragmentNameMap.forEach {
