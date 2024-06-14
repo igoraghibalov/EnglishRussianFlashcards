@@ -22,13 +22,11 @@ class MainMenuFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-
-        var inflatedRootView = super.onCreateView(inflater, container, savedInstanceState)
-
-        if (inflatedRootView != null) return inflatedRootView
+                              savedInstanceState: Bundle?): View {
+        val inflatedRootView: View
 
         mainMenuViewBinding = MainScreenLayoutBinding.inflate(inflater, container, false)
+
         inflatedRootView = mainMenuViewBinding.root
 
         return inflatedRootView
@@ -40,7 +38,7 @@ class MainMenuFragment: Fragment() {
         val appendedFragmentNameMap = mapOf(mainMenuViewBinding.continueButton to "CardLearningFragment",
                                             mainMenuViewBinding.cardsButton to "CardGroupsFragment",
                                             mainMenuViewBinding.newButton to "CardCreationFragment",
-                                            mainMenuViewBinding.continueButton to "CardHistoryFragment")
+                                            mainMenuViewBinding.historyButton to "CardHistoryFragment")
 
         setFragmentAppendingTransactionOnButtonClick(appendedFragmentNameMap)
 
@@ -54,7 +52,7 @@ class MainMenuFragment: Fragment() {
 
         appendedFragmentNameMap.forEach {
             val clickedButton = it.key
-            val fullyQualifiedAppendedFragmentName = "com.example.englishrussianflashcards.presentation.$it.value"
+            val fullyQualifiedAppendedFragmentName = "com.example.englishrussianflashcards.presentation.${it.value}"
 
             clickedButton.setOnClickListener {
 
