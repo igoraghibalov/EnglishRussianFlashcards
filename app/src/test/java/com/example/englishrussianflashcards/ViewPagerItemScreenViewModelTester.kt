@@ -72,13 +72,13 @@ class ViewPagerItemScreenViewModelTester: ViewModelTester() {
                                              testScope: TestScope) {
         val viewPagerCardExtractionJob: Job
         val cardInsertionJob = testScope.launch {
-            failureCardExtractionRepository.insertCard(viewPagerItemCard)
+            viewModel.insertCard(viewPagerItemCard)
         }
 
         cardInsertionJob.join()
 
         viewPagerCardExtractionJob =  testScope.launch {
-            viewModel.extractViewPagerCard()
+            viewModel.extractViewPagerItemCard()
         }
 
         viewPagerCardExtractionJob.join()
