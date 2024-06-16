@@ -23,7 +23,7 @@ abstract class UiTester: TestEnvironmentSetuper, CaseTester, ScreenRotator {
     }
 
     override fun testCase(caseTestHandler: CaseTestHandler) {
-        caseTestHandler.handleTestCase()
+        caseTestHandler.handleCaseTest()
     }
 
 
