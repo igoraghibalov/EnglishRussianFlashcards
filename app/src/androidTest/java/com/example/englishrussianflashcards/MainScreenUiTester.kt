@@ -7,10 +7,11 @@ import org.junit.Test
  */
 class MainScreenUiTester: UiTester() {
     private lateinit var clickedViewToInflatedFragmentViewMap: Map<Int, Int>
-    private lateinit var fragmentInflationTestHandler: FragmentInflationTestHandler
+    private lateinit var fragmentInflationTestHandler: CaseTestHandler
 
-    override fun setup() {
-        super.setup()
+
+    override fun setupTestEnvironment() {
+        super.setupTestEnvironment()
         clickedViewToInflatedFragmentViewMap = mapOf(R.id.new_button to R.id.word_typing_text_view,
                                                      R.id.continue_button to R.id.card_view_pager,
                                                      R.id.cards_button to R.id.card_group_recycler_view,
@@ -21,8 +22,6 @@ class MainScreenUiTester: UiTester() {
 
     @Test
     fun testFragmentInflationsOnMainMenuButtonsClicks() {
-        testFragmentInflation(fragmentInflationTestHandler)
+        testCase(fragmentInflationTestHandler)
     }
-
-
 }
