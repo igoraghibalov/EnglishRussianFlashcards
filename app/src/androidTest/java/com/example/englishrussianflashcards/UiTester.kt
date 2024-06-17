@@ -18,9 +18,7 @@ import org.junit.Before
  */
 abstract class UiTester: TestEnvironmentSetuper,
                          CaseTester,
-                         ScreenRotator,
-                         ViewClickHandler,
-                         ViewAppearanceTester {
+                         ScreenRotator {
 
     protected lateinit var mainActivityScenario: ActivityScenario<MainActivity>
     protected val applicationContext: Context = ApplicationProvider.getApplicationContext<Application>()
@@ -38,16 +36,5 @@ abstract class UiTester: TestEnvironmentSetuper,
 
     override fun rotateScreen() {
         UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationLeft()
-    }
-
-
-    override fun clickOnView(viewId: Int) {
-        Espresso.onView(ViewMatchers.withId(viewId))
-            .perform(ViewActions.click())
-    }
-
-    override fun checkViewAppearance(viewId: Int) {
-        Espresso.onView(ViewMatchers.withId(viewId))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }
