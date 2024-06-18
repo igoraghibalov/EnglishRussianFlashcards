@@ -77,7 +77,7 @@ class ApplicationDatabaseTester {
                          translation = applicationResources.getString(R.string.earth_card_translation),
                          transcription = applicationResources.getString(R.string.earth_card_transcription),
                          group = planetGroupName,
-                         isDisplayed = false)
+                         isDisplayed = applicationResources.getBoolean(R.bool.is_apple_card_displayed))
     }
 
 
