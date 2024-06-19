@@ -21,10 +21,11 @@ abstract class UiTester: TestEnvironmentSetuper,
                          ScreenRotator {
 
     protected lateinit var mainActivityScenario: ActivityScenario<MainActivity>
-    protected val applicationContext: Context = ApplicationProvider.getApplicationContext<Application>()
+    protected lateinit var applicationContext: Context
 
     @Before
     override fun setupTestEnvironment() {
+        applicationContext = ApplicationProvider.getApplicationContext<Application>()
         mainActivityScenario = ActivityScenario.launch(MainActivity::class.java)
     }
 
