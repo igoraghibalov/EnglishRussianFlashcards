@@ -8,9 +8,9 @@ import androidx.test.espresso.matcher.ViewMatchers
 /**
  * Created by Igor Aghibalov on 16.06.2024
  */
-abstract class CaseTestHandler: ViewClickHandler, ViewAppearanceTester  {
-    abstract fun handleCaseTest()
-    abstract fun doAfterCaseTestHandling()
+abstract class CaseUiTestHandler: ViewClickHandler,
+                                  ViewAppearanceTester,
+                                  CaseTestHandler {
 
     override fun clickOnView(viewId: Int) {
         Espresso.onView(ViewMatchers.withId(viewId))
