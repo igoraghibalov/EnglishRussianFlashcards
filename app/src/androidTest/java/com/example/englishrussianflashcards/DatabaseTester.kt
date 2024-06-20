@@ -10,7 +10,7 @@ import kotlin.coroutines.CoroutineContext
  * Created by Igor Aghibalov on 20.06.2024
  */
 abstract class DatabaseTester: Tester() {
-    private lateinit var applicationDatabase: ApplicationDatabase
-    private lateinit var additionalTestCoroutineContext: CoroutineContext
+    protected lateinit var applicationDatabase: ApplicationDatabase
+    protected lateinit var additionalTestCoroutineContext: CoroutineContext
 
 }

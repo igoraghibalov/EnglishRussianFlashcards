@@ -27,11 +27,9 @@ import com.example.englishrussianflashcards.domain.DictionaryDao
  * Created by Igor Aghibalov on 20.05.2024
  */
 @RunWith(AndroidJUnit4::class)
-class ApplicationDatabaseTester {
-    private lateinit var applicationDatabase: ApplicationDatabase
+class ApplicationDatabaseTester: DatabaseTester() {
     private lateinit var cardDao: CardDao
     private lateinit var dictionaryDao: DictionaryDao
-    private lateinit var additionalTestCoroutineContext: CoroutineContext
     private lateinit var appleCard: Card
     private lateinit var earthCard: Card
     private lateinit var appleCardTranslation: String
@@ -45,7 +43,7 @@ class ApplicationDatabaseTester {
 
 
     @Before
-    fun setupDatabaseEnvironment() {
+    override fun setupTestEnvironment() {
         val databaseContext = ApplicationProvider.getApplicationContext<Application>()
         val applicationResources = databaseContext.resources
         applicationDatabase = Room.inMemoryDatabaseBuilder(databaseContext, ApplicationDatabase::class.java).build()
