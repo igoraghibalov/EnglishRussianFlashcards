@@ -81,14 +81,8 @@ class ApplicationDatabaseTester: DatabaseTester() {
 
     @Test
     fun testCardListExtraction() {
-
-        runBlocking {
-            val fakeCardList = listOf(appleCard)
-            val cardInsertionJob = launch(additionalTestCoroutineContext) { cardDao.insertCard(appleCard) }
-            cardInsertionJob.join()
-            val cardList = withContext(additionalTestCoroutineContext) { cardDao.getCardList() }
-            assertEquals(true, cardList == fakeCardList)
-        }
+        val testHandler = CardListExtractionTestHandler(appleCard, additionalTestCoroutineContext, cardDao)
+        testCase(testHandler)
     }
 
     @Test
