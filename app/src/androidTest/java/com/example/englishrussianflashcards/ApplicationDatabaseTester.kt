@@ -85,22 +85,14 @@ class ApplicationDatabaseTester: DatabaseTester() {
         testCase(testHandler)
     }
 
+
     @Test
     fun testWordMapExtraction() {
-
-        runBlocking {
-            val date = LocalDate.now().format(DateTimeFormatter.ofPattern(cardDateFormatPattern))
-            val postInsertionWordMap = mapOf(appleCardWord to date)
-            val deferredWordMap: Deferred<Map<String, String>>
-
-            val wordMapInsertionJob
-                    = launch(additionalTestCoroutineContext) { cardDao.insertHistoryEntry(appleCardWord, date) }
-            wordMapInsertionJob.join()
-
-            deferredWordMap = async(additionalTestCoroutineContext) { cardDao.getWordMap() }
-
-            assertEquals(postInsertionWordMap, deferredWordMap.await())
-        }
+        val testHandler = WordMapExtractionTestHandler(cardDateFormatPattern,
+                                                       appleCardWord,
+                                                       additionalTestCoroutineContext,
+                                                       cardDao)
+        testCase(testHandler)
     }
 
 
