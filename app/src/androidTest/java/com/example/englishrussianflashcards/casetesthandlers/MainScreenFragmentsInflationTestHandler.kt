@@ -1,16 +1,13 @@
-package com.example.englishrussianflashcards
+package com.example.englishrussianflashcards.casetesthandlers
 
 import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.matcher.ViewMatchers
-import org.junit.Test
+import com.example.englishrussianflashcards.CaseUiTestHandler
 
 /**
  * Created by Igor Aghibalov on 15.06.2024
  */
 class MainScreenFragmentsInflationTestHandler(private val clickedViewToInflatedFragmentViewMap: Map<Int, Int>)
-        : CaseTestHandler() {
+        : CaseUiTestHandler() {
 
 
     override fun handleCaseTest() {

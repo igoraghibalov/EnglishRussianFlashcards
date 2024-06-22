@@ -6,7 +6,7 @@ package com.example.englishrussianflashcards
 abstract class Tester: TestEnvironmentSetuper, CaseTester {
 
 
-    override fun testCase(caseTestHandler: CaseUiTestHandler) {
+    override fun testCase(caseTestHandler: CaseTestHandler) {
         caseTestHandler.handleCaseTest()
         caseTestHandler.doAfterCaseTestHandling()
     }

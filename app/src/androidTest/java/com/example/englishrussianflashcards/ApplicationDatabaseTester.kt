@@ -4,21 +4,17 @@ import android.app.Application
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.englishrussianflashcards.casetesthandlers.CardGroupMapExtractionTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.CardListExtractionTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.DictionaryEntryExtractionTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.GroupTitleListExtractionTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.WordMapExtractionTestHandler
 import com.example.englishrussianflashcards.domain.ApplicationDatabase
-import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 import org.junit.After
-import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import kotlin.coroutines.CoroutineContext
 import com.example.englishrussianflashcards.domain.Card
 import com.example.englishrussianflashcards.domain.CardDao
 import com.example.englishrussianflashcards.domain.DictionaryDao
@@ -81,117 +77,48 @@ class ApplicationDatabaseTester: DatabaseTester() {
 
     @Test
     fun testCardListExtraction() {
-        val testHandler = CardListExtractionTestHandler(appleCard, additionalTestCoroutineContext, cardDao)
-        testCase(testHandler)
+        testCase(caseTestHandler = CardListExtractionTestHandler(appleCard,
+                                                                 additionalTestCoroutineContext,
+                                                                 cardDao))
     }
 
 
     @Test
     fun testWordMapExtraction() {
-        val testHandler = WordMapExtractionTestHandler(cardDateFormatPattern,
-                                                       appleCardWord,
-                                                       additionalTestCoroutineContext,
-                                                       cardDao)
-        testCase(testHandler)
+        testCase(caseTestHandler = WordMapExtractionTestHandler(cardDateFormatPattern,
+                                                                appleCardWord,
+                                                                additionalTestCoroutineContext,
+                                                                cardDao))
     }
 
 
     @Test
     fun testCardGroupMapExtraction() {
-
-        runBlocking {
-            val cardGroupTitle = appleCardGroup
-            val deferredCardGroupMap: Deferred<Map<String, List<Card>>>
-            val fruitCardList = listOf(appleCard)
-            val fruitCardGroupMap: Map<String, List<Card>> = mapOf(cardGroupTitle to fruitCardList)
-
-            val wordMapInsertionJob = launch(additionalTestCoroutineContext) {
-                cardDao.insertCard(appleCard)
-            }
-            wordMapInsertionJob.join()
-
-            deferredCardGroupMap = async(additionalTestCoroutineContext) { cardDao.getCardGroupMap() }
-
-            assertEquals(fruitCardGroupMap, deferredCardGroupMap.await())
-        }
+        testCase(caseTestHandler = CardGroupMapExtractionTestHandler(appleCardGroup,
+                                                                     appleCard,
+                                                                     additionalTestCoroutineContext,
+                                                                     cardDao))
     }
 
 
     @Test
-    fun testWordListExtraction() {
-        val deferredWordList: Deferred<List<String>>
-
-        runBlocking {
-
-            deferredWordList = async(additionalTestCoroutineContext) {
-                dictionaryDao.getWordList(userCharSequenceTyped)
-            }
-
-            assertEquals(false, deferredWordList.await().isEmpty())
-        }
+    fun testDictionaryEntryExtraction() {
+        testCase(caseTestHandler = DictionaryEntryExtractionTestHandler(additionalTestCoroutineContext,
+                                                                        dictionaryDao,
+                                                                        userCharSequenceTyped,
+                                                                        appleCardWord,
+                                                                        appleCardTranscription,
+                                                                        appleCardTranslation))
     }
 
-    @Test
-    fun testTranslationListExtraction() {
-        val deferredTranslationList: Deferred<List<String>>
-
-        runBlocking {
-
-            deferredTranslationList = async(additionalTestCoroutineContext) {
-                dictionaryDao.getTranslationList(appleCardWord)
-            }
-
-            assertEquals(false, deferredTranslationList.await().isEmpty())
-        }
-    }
-
-    @Test
-    fun testTranscriptionExtraction() {
-        val deferredTranscription: Deferred<String>
-
-        runBlocking {
-
-            deferredTranscription = async(additionalTestCoroutineContext) {
-                dictionaryDao.getTranscription(appleCardWord)
-            }
-
-            assertEquals(appleCardTranscription, deferredTranscription.await())
-        }
-    }
-
-    @Test
-    fun testExampleListExtraction() {
-        val deferredExampleList: Deferred<List<String>>
-
-        runBlocking {
-
-            deferredExampleList = async(additionalTestCoroutineContext) {
-                dictionaryDao.getExampleList(appleCardWord, appleCardTranslation)
-            }
-
-            assertEquals(false, deferredExampleList.await().isEmpty())
-        }
-    }
 
     @Test
     fun testGroupTitleListExtraction() {
-        val deferredGroupTitleList: Deferred<List<String>>
-        val groupTitleListToCompare = listOf(planetGroupName, fruitGroupName)
-
-        runBlocking {
-
-            val cardInsertionJob = launch(additionalTestCoroutineContext){
-                cardDao.insertCard(appleCard)
-                launch { cardDao.insertCard(earthCard) }
-            }
-            cardInsertionJob.join()
-
-            deferredGroupTitleList = async(additionalTestCoroutineContext) {
-                dictionaryDao.getGroupTitleList()
-            }
-
-            assertEquals(groupTitleListToCompare, deferredGroupTitleList.await())
-        }
+        testCase(caseTestHandler = GroupTitleListExtractionTestHandler(expectedGroupTitlesPair = Pair(planetGroupName, fruitGroupName),
+                                                                       cardPairWithGroupTitles = Pair(appleCard, earthCard),
+                                                                       cardDao,
+                                                                       dictionaryDao,
+                                                                       additionalTestCoroutineContext))
     }
 
 

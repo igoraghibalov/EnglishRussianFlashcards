@@ -1,5 +1,6 @@
-package com.example.englishrussianflashcards
+package com.example.englishrussianflashcards.casetesthandlers
 
+import com.example.englishrussianflashcards.CaseTestHandler
 import com.example.englishrussianflashcards.domain.Card
 import com.example.englishrussianflashcards.domain.CardDao
 import kotlinx.coroutines.launch
@@ -13,7 +14,8 @@ import kotlin.coroutines.CoroutineContext
  */
 class CardListExtractionTestHandler(private val card: Card,
                                     private val additionalTestCoroutineContext: CoroutineContext,
-                                    private val cardDao: CardDao): CaseTestHandler {
+                                    private val cardDao: CardDao):
+    CaseTestHandler {
 
 
     override fun handleCaseTest() {
