@@ -1,11 +1,13 @@
-package com.example.englishrussianflashcards
+package com.example.englishrussianflashcards.casetesthandlers
 
+import com.example.englishrussianflashcards.CaseUiTestHandler
 import com.example.englishrussianflashcards.domain.CardDao
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
+import org.junit.Assert.assertEquals
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import kotlin.coroutines.CoroutineContext
@@ -16,7 +18,8 @@ import kotlin.coroutines.CoroutineContext
 class WordMapExtractionTestHandler(private val cardDateFormatPattern: String,
                                    private val cardWord: String,
                                    private val additionalTestCoroutineContext: CoroutineContext,
-                                   private val cardDao: CardDao): CaseUiTestHandler() {
+                                   private val cardDao: CardDao)
+    : CaseUiTestHandler() {
 
 
     override fun handleCaseTest() {
@@ -32,7 +35,7 @@ class WordMapExtractionTestHandler(private val cardDateFormatPattern: String,
 
             deferredWordMap = async(additionalTestCoroutineContext) { cardDao.getWordMap() }
 
-            Assert.assertEquals(postInsertionWordMap, deferredWordMap.await())
+            assertEquals(postInsertionWordMap, deferredWordMap.await())
         }
     }
 

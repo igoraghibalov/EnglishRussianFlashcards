@@ -9,6 +9,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
+import org.junit.Assert.assertEquals
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -37,7 +38,7 @@ class GroupTitleListExtractionTestHandler(private val expectedGroupTitlesPair: P
                 dictionaryDao.getGroupTitleList()
             }
 
-            Assert.assertEquals(expectedGroupTitlesPair.toList(), deferredGroupTitleList.await())
+            assertEquals(expectedGroupTitlesPair.toList(), deferredGroupTitleList.await())
         }
     }
 

@@ -5,8 +5,12 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.example.englishrussianflashcards.CaseUiTestHandler
 import com.example.englishrussianflashcards.ProcessDeathTestEnvironmentSetuper
 import com.example.englishrussianflashcards.R
@@ -27,13 +31,13 @@ class CardCreationFragmentOnProcessDeathTestHandler(private val applicationConte
         clickOnView(R.id.new_button)
         checkViewAppearance(R.id.word_typing_text_view)
 
-        onView(ViewMatchers.withId(R.id.word_typing_text_view))
-            .perform(ViewActions.typeText(defaultTypingText))
+        onView(withId(R.id.word_typing_text_view))
+            .perform(typeText(defaultTypingText))
 
         mainActivityScenario.recreate()
 
         onView(ViewMatchers.withId(R.id.word_typing_text_view))
-            .check(ViewAssertions.matches(ViewMatchers.withText(defaultTypingText)))
+            .check(matches(withText(defaultTypingText)))
     }
 
 

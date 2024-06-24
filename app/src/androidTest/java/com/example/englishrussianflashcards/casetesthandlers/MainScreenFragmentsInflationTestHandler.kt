@@ -1,6 +1,7 @@
 package com.example.englishrussianflashcards.casetesthandlers
 
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.pressBack
 import com.example.englishrussianflashcards.CaseUiTestHandler
 
 /**
@@ -20,6 +21,6 @@ class MainScreenFragmentsInflationTestHandler(private val clickedViewToInflatedF
 
 
     override fun doAfterCaseTestHandling() {
-        Espresso.pressBack()
+        pressBack()
     }
 }

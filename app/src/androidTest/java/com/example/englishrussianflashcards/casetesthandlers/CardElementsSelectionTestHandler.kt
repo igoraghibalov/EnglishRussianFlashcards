@@ -7,14 +7,18 @@ import android.widget.ImageView
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.example.englishrussianflashcards.CaseUiTestHandler
 import com.example.englishrussianflashcards.R
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
+import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 import org.hamcrest.TypeSafeMatcher
 
@@ -32,8 +36,8 @@ class CardElementsSelectionTestHandler(private val applicationContext: Context):
         clickOnView(R.id.new_button)
         checkViewAppearance(R.id.word_typing_text_view)
 
-        onView(ViewMatchers.withId(R.id.word_typing_text_view))
-            .perform(ViewActions.typeText(defaultTypingCharSequence))
+        onView(withId(R.id.word_typing_text_view))
+            .perform(typeText(defaultTypingCharSequence))
 
         checkUserSelectedItemPresence(R.id.translation_selection_text_view, stringClassObject, defaultTextMatcher)
         checkUserSelectedItemPresence(R.id.english_example_selection_text_view, stringClassObject, defaultTextMatcher)
@@ -46,10 +50,10 @@ class CardElementsSelectionTestHandler(private val applicationContext: Context):
                                                          itemClassObject: Class<T>,
                                                          itemMatcher: Matcher<View>) {
         clickOnView(viewId)
-        onData(Matchers.allOf(Matchers.instanceOf(itemClassObject)))
+        onData(allOf(Matchers.instanceOf(itemClassObject)))
             .atPosition(0)
-            .perform(ViewActions.click())
-        onView(ViewMatchers.withId(viewId)).check(matches(itemMatcher))
+            .perform(click())
+        onView(withId(viewId)).check(matches(itemMatcher))
     }
 
 

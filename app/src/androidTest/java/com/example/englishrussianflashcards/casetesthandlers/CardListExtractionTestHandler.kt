@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.junit.Assert
+import org.junit.Assert.assertEquals
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -25,7 +26,7 @@ class CardListExtractionTestHandler(private val card: Card,
             val cardInsertionJob = launch(additionalTestCoroutineContext) { cardDao.insertCard(card) }
             cardInsertionJob.join()
             val cardList = withContext(additionalTestCoroutineContext) { cardDao.getCardList() }
-            Assert.assertEquals(expectedCardList, cardList)
+            assertEquals(expectedCardList, cardList)
         }
     }
 

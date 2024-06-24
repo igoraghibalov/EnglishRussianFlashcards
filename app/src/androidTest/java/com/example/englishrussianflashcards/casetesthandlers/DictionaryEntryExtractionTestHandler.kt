@@ -6,6 +6,7 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
+import org.junit.Assert.assertEquals
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -49,7 +50,7 @@ class DictionaryEntryExtractionTestHandler(private val additionalTestCoroutineCo
                 dictionaryDao.getTranscription(cardWord)
             }
 
-            Assert.assertEquals(
+            assertEquals(
                 cardTranscription,
                 deferredTranscription.await()
             )

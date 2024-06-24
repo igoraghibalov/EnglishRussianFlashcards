@@ -8,6 +8,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
+import org.junit.Assert.assertEquals
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -34,7 +35,7 @@ class CardGroupMapExtractionTestHandler(private val cardGroupTitle: String,
 
             deferredCardGroupMap = async(additionalTestCoroutineContext) { cardDao.getCardGroupMap() }
 
-            Assert.assertEquals(fruitCardGroupMap, deferredCardGroupMap.await())
+            assertEquals(fruitCardGroupMap, deferredCardGroupMap.await())
         }
     }
 
