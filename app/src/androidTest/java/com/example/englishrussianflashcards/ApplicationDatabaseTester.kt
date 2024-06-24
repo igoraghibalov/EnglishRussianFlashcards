@@ -1,6 +1,7 @@
 package com.example.englishrussianflashcards
 
 import android.app.Application
+import android.content.res.Resources
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -36,12 +37,13 @@ class ApplicationDatabaseTester: DatabaseTester() {
     private lateinit var userCharSequenceTyped: String
     private lateinit var planetGroupName: String
     private lateinit var fruitGroupName: String
+    private lateinit var applicationResources: Resources
 
 
     @Before
     override fun setupTestEnvironment() {
         val databaseContext = ApplicationProvider.getApplicationContext<Application>()
-        val applicationResources = databaseContext.resources
+        applicationResources = databaseContext.resources
         applicationDatabase = Room.inMemoryDatabaseBuilder(databaseContext, ApplicationDatabase::class.java).build()
 
         cardDao = applicationDatabase.getCardDao()
@@ -64,13 +66,6 @@ class ApplicationDatabaseTester: DatabaseTester() {
                          translation = appleCardTranslation,
                          group = appleCardGroup,
                          transcription = appleCardTranscription,
-                         isDisplayed = applicationResources.getBoolean(R.bool.is_apple_card_displayed))
-
-        earthCard = Card(id = applicationResources.getInteger(R.integer.earth_card_id),
-                         word = applicationResources.getString(R.string.earth_card_word),
-                         translation = applicationResources.getString(R.string.earth_card_translation),
-                         transcription = applicationResources.getString(R.string.earth_card_transcription),
-                         group = planetGroupName,
                          isDisplayed = applicationResources.getBoolean(R.bool.is_apple_card_displayed))
     }
 
@@ -114,6 +109,13 @@ class ApplicationDatabaseTester: DatabaseTester() {
 
     @Test
     fun testGroupTitleListExtraction() {
+        earthCard = Card(id = applicationResources.getInteger(R.integer.earth_card_id),
+                         word = applicationResources.getString(R.string.earth_card_word),
+                         translation = applicationResources.getString(R.string.earth_card_translation),
+                         transcription = applicationResources.getString(R.string.earth_card_transcription),
+                         group = planetGroupName,
+                         isDisplayed = applicationResources.getBoolean(R.bool.is_apple_card_displayed))
+
         testCase(caseTestHandler = GroupTitleListExtractionTestHandler(expectedGroupTitlesPair = Pair(planetGroupName, fruitGroupName),
                                                                        cardPairWithGroupTitles = Pair(appleCard, earthCard),
                                                                        cardDao,
