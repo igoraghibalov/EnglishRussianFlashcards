@@ -36,7 +36,7 @@ class CardCreationFragmentOnProcessDeathTestHandler(private val applicationConte
 
         mainActivityScenario.recreate()
 
-        onView(ViewMatchers.withId(R.id.word_typing_text_view))
+        onView(withId(R.id.word_typing_text_view))
             .check(matches(withText(defaultTypingText)))
     }
 
