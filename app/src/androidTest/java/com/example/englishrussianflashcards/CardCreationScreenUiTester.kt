@@ -1,7 +1,5 @@
 package com.example.englishrussianflashcards
 
-import android.graphics.drawable.Drawable
-import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
@@ -9,54 +7,45 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.instanceOf
+import com.example.englishrussianflashcards.casetesthandlers.CardCreationFragmentOnProcessDeathTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.CardCreationFragmentOnScreenRotationTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.CardDemoDialogFragmentInflationTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.CardElementsSelectionTestHandler
 import org.junit.Test
 
 /**
  * Created by Igor Aghibalov on 29.04.2024
  */
 class CardCreationScreenUiTester: UiTester() {
+    private lateinit var defaultTypingText: String
 
-    //TODO: refactor code duplication
+    override fun setupTestEnvironment() {
+        super.setupTestEnvironment()
+        defaultTypingText = applicationContext.resources.getString(R.string.default_typing_char_sequence)
+    }
+
     @Test
-    fun testCardConfirmationDialogFragmentInflationOnCreateButtonClick() {
-        val defaultTypingCharSequence = applicationContext.resources.getString(R.string.default_typing_char_sequence)
-        val defaultWordGroupName = applicationContext.resources.getString(R.string.default_word_group_name)
+    fun testCardElementsSelection() {
+        testCase(caseTestHandler = CardElementsSelectionTestHandler(applicationContext))
+    }
 
-        testFragmentInflation(R.id.new_button, R.id.word_typing_text_view)
 
-        onView(withId(R.id.word_typing_text_view)).perform(typeText(defaultTypingCharSequence))
-
-        onView(withId(R.id.translation_selection_text_view)).perform(click())
-        onData(allOf(instanceOf(String::class.java))).atPosition(0).perform(click())
-
-        onView(withId(R.id.english_example_selection_text_view)).perform(click())
-        onData(allOf(instanceOf(String::class.java))).atPosition(0).perform(click())
-
-        onView(withId(R.id.image_selection_text_view)).perform(click())
-        onData(allOf(instanceOf(Drawable::class.java))).atPosition(0).perform(click())
-
-        onView(withId(R.id.word_typing_text_view)).perform(typeText(defaultWordGroupName))
-
-        testFragmentInflation(R.id.card_creation_button, R.id.card_front_side_view)
+    @Test
+    fun testCardDemoDialogFragmentInflationOnCreateButtonClick() {
+        testCase(caseTestHandler = CardDemoDialogFragmentInflationTestHandler())
     }
 
 
     @Test
     fun testCardCreationFragmentDataRetentionAfterScreenRotation() {
-        val defaultTypingText = applicationContext.resources.getString(R.string.default_typing_char_sequence)
-        onView(withId(R.id.word_typing_text_view)).perform(typeText(defaultTypingText))
-        rotateScreen()
-        onView(withId(R.id.word_typing_text_view)).check(matches(withText(defaultTypingText)))
+        testCase(caseTestHandler = CardCreationFragmentOnScreenRotationTestHandler(defaultTypingText))
     }
 
 
     @Test
     fun testCardCreationFragmentDataRetentionAfterProcessDeath() {
-        setupProcessDeathTestEnvironment()
-        testFragmentInflation(R.id.new_button, R.id.word_typing_text_view)
-        mainActivityScenario.recreate()
-        onView(withId(R.id.word_typing_text_view)).check(matches(isDisplayed()))
+        testCase(caseTestHandler = CardCreationFragmentOnProcessDeathTestHandler(applicationContext,
+                                                                                 mainActivityScenario,
+                                                                                 defaultTypingText))
     }
 }
