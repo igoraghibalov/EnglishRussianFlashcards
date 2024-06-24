@@ -12,7 +12,7 @@ import org.junit.Before
 /**
  * Created by Igor Aghibalov on 22.04.2024
  */
-abstract class UiTester: Tester(), ScreenRotator {
+abstract class UiTester: Tester() {
 
     protected lateinit var mainActivityScenario: ActivityScenario<MainActivity>
     protected lateinit var applicationContext: Context
@@ -21,10 +21,5 @@ abstract class UiTester: Tester(), ScreenRotator {
     override fun setupTestEnvironment() {
         applicationContext = ApplicationProvider.getApplicationContext<Application>()
         mainActivityScenario = ActivityScenario.launch(MainActivity::class.java)
-    }
-
-
-    override fun rotateScreen() {
-        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationLeft()
     }
 }
