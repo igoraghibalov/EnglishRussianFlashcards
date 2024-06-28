@@ -1,30 +1,26 @@
 package com.example.englishrussianflashcards
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import com.example.englishrussianflashcards.presentation.GroupCardViewHolder
+import com.example.englishrussianflashcards.casetesthandlers.GroupCardsSuccessfulDisplayTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.WordGroupFragmentInflationTestHandler
 import org.junit.Test
 
 /**
  * Created by Igor Aghibalov on 25.04.2024
  */
+//TODO: 1) create testGridScrollPositionRetention() method;
+//      2) refactor process death and screen rotation tests
 class CardGroupsScreenUiTester: UiTester() {
 
-    override fun setup() {
-        super.setup()
+
+    @Test
+    fun testGroupCardsCorrectDisplay() {
+        testCase(caseTestHandler = GroupCardsSuccessfulDisplayTestHandler(applicationContext))
     }
 
 
     @Test
     fun testWordGroupFragmentInflationOnGroupCardClick() {
-        testFragmentInflation(R.id.cards_button, R.id.card_group_recycler_view)
-        val cardGroupRecyclerViewMatcher = withId(R.id.card_group_recycler_view)
-        val cardGroupRecyclerViewInteraction = onView(cardGroupRecyclerViewMatcher)
-        val cardGroupRecyclerViewItemClickAction = RecyclerViewActions.actionOnItemAtPosition<GroupCardViewHolder>(0, click())
-        cardGroupRecyclerViewInteraction.perform(cardGroupRecyclerViewItemClickAction)
-        checkViewAppearance(R.id.add_word_button)
+        testCase(caseTestHandler = WordGroupFragmentInflationTestHandler())
     }
 
 
