@@ -24,8 +24,7 @@ import org.hamcrest.Matchers
  * Created by Igor Aghibalov on 29.06.2024
  */
 
-class ScrollPositionRetentionOnScreenRotationTestHandler(private val applicationContext: Context,
-                                                         private val mainActivityScenario: ActivityScenario<MainActivity>): CaseUiTestHandler() {
+class ScrollPositionRetentionOnScreenRotationTestHandler(private val applicationContext: Context): CaseUiTestHandler() {
 
 
     override fun handleCaseTest() {
