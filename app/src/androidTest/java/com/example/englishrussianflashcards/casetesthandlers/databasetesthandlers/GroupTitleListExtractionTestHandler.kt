@@ -1,4 +1,4 @@
-package com.example.englishrussianflashcards.casetesthandlers
+package com.example.englishrussianflashcards.casetesthandlers.databasetesthandlers
 
 import com.example.englishrussianflashcards.CaseUiTestHandler
 import com.example.englishrussianflashcards.domain.Card
@@ -8,7 +8,6 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert
 import org.junit.Assert.assertEquals
 import kotlin.coroutines.CoroutineContext
 
