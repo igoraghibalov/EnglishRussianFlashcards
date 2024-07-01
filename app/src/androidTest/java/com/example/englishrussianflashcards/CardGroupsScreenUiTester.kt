@@ -1,8 +1,8 @@
 package com.example.englishrussianflashcards
 
-import com.example.englishrussianflashcards.casetesthandlers.GroupCardsSuccessfulDisplayTestHandler
-import com.example.englishrussianflashcards.casetesthandlers.ScrollPositionRetentionOnScreenRotationTestHandler
-import com.example.englishrussianflashcards.casetesthandlers.WordGroupFragmentInflationTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.inflation.GroupCardsSuccessfulDisplayTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.screenrotation.ScrollPositionRetentionOnScreenRotationTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.inflation.WordGroupFragmentInflationTestHandler
 import org.junit.Test
 
 /**
@@ -24,6 +24,8 @@ class CardGroupsScreenUiTester: UiTester() {
 
     @Test
     fun testGridScrollPositionRetention() {
-        testCase(caseTestHandler = ScrollPositionRetentionOnScreenRotationTestHandler(applicationContext))
+        testCase(caseTestHandler = ScrollPositionRetentionOnScreenRotationTestHandler(R.id.card_group_recycler_view,
+                                                                                      R.id.word_group_name_text_view,
+                                                                                      applicationContext))
     }
 }
