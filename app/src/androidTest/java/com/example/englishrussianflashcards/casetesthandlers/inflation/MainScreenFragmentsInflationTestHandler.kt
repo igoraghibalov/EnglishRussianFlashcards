@@ -1,6 +1,5 @@
-package com.example.englishrussianflashcards.casetesthandlers
+package com.example.englishrussianflashcards.casetesthandlers.inflation
 
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.pressBack
 import com.example.englishrussianflashcards.CaseUiTestHandler
 

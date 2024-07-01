@@ -1,10 +1,5 @@
-package com.example.englishrussianflashcards.casetesthandlers
+package com.example.englishrussianflashcards.casetesthandlers.inflation
 
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.matcher.ViewMatchers
 import com.example.englishrussianflashcards.CaseUiTestHandler
 import com.example.englishrussianflashcards.R
 

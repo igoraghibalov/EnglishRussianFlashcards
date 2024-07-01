@@ -1,4 +1,4 @@
-package com.example.englishrussianflashcards.casetesthandlers.databasetesthandlers
+package com.example.englishrussianflashcards.casetesthandlers.database
 
 import com.example.englishrussianflashcards.CaseUiTestHandler
 import com.example.englishrussianflashcards.domain.CardDao

@@ -1,14 +1,8 @@
-package com.example.englishrussianflashcards.casetesthandlers
+package com.example.englishrussianflashcards.casetesthandlers.inflation
 
 import android.content.Context
-import android.view.View
-import android.widget.TextView
-import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.UiController
-import androidx.test.espresso.ViewAction
 import androidx.test.espresso.matcher.ViewMatchers
 import com.example.englishrussianflashcards.CaseUiTestHandler
 import com.example.englishrussianflashcards.GroupCardPresenceCheckAction
@@ -18,8 +12,6 @@ import com.example.englishrussianflashcards.domain.Card
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.Matcher
-import org.hamcrest.Matchers
 
 /**
  * Created by Igor Aghibalov on 26.06.2024

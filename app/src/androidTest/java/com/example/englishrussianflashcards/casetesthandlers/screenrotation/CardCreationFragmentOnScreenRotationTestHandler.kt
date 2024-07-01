@@ -1,4 +1,4 @@
-package com.example.englishrussianflashcards.casetesthandlers
+package com.example.englishrussianflashcards.casetesthandlers.screenrotation
 
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
