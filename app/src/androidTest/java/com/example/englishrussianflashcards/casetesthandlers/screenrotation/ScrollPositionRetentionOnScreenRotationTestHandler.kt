@@ -1,11 +1,11 @@
-package com.example.englishrussianflashcards.casetesthandlers
+package com.example.englishrussianflashcards.casetesthandlers.screenrotation
 
 import android.content.Context
 import android.view.View
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
@@ -14,9 +14,7 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import com.example.englishrussianflashcards.CaseUiTestHandler
-import com.example.englishrussianflashcards.R
 import com.example.englishrussianflashcards.presentation.CardHistoryViewHolder
-import com.example.englishrussianflashcards.presentation.MainActivity
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 
@@ -24,18 +22,20 @@ import org.hamcrest.Matchers
  * Created by Igor Aghibalov on 29.06.2024
  */
 
-class ScrollPositionRetentionOnScreenRotationTestHandler(private val applicationContext: Context): CaseUiTestHandler() {
-
+class ScrollPositionRetentionOnScreenRotationTestHandler(private val recyclerViewId: Int,
+                                                         private val itemChildIdInPositionToCompare: Int,
+                                                         private val applicationContext: Context)
+    : CaseUiTestHandler() {
 
     override fun handleCaseTest() {
-        val recyclerViewItem: TextView
+        val recyclerViewItem: CardView
         val itemText: String
         val lastVisibleItemPosition = getRecyclerViewLastVisibleItemPosition()
         val positionToScroll = lastVisibleItemPosition + 1
 
         scrollRecyclerViewThroughOneItem(lastVisibleItemPosition)
         recyclerViewItem = getRecyclerViewItemAtPosition(positionToScroll)
-        itemText = recyclerViewItem.findViewById<TextView>(R.id.word_text_view).text as String
+        itemText = recyclerViewItem.findViewById<TextView>(itemChildIdInPositionToCompare).text as String
         rotateScreen()
         onView(ViewMatchers.withText(itemText))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -47,16 +47,16 @@ class ScrollPositionRetentionOnScreenRotationTestHandler(private val application
         val positionToScroll: Int
         val scrollingDownThroughOneItemAction: ViewAction
 
-        cardHistoryRecyclerViewInteraction = onView(ViewMatchers.withId(R.id.card_history_recycler_view))
+        cardHistoryRecyclerViewInteraction = onView(ViewMatchers.withId(recyclerViewId))
         positionToScroll = lastVisibleItemPosition + 1
         scrollingDownThroughOneItemAction = RecyclerViewActions.scrollToPosition<CardHistoryViewHolder>(positionToScroll)
         cardHistoryRecyclerViewInteraction.perform(scrollingDownThroughOneItemAction)
     }
 
 
-    fun getRecyclerViewItemAtPosition(itemPosition: Int): TextView {
-        var viewItem = TextView(applicationContext)
-        val cardHistoryRecyclerViewInteraction = onView(ViewMatchers.withId(R.id.card_history_recycler_view))
+    fun getRecyclerViewItemAtPosition(itemPosition: Int): CardView {
+        var viewItem = CardView(applicationContext)
+        val cardHistoryRecyclerViewInteraction = onView(ViewMatchers.withId(recyclerViewId))
 
         val recyclerViewItemAtPositionExtraction = object: ViewAction {
 
@@ -74,7 +74,7 @@ class ScrollPositionRetentionOnScreenRotationTestHandler(private val application
             override fun perform(uiController: UiController?, view: View?) {
                 val cardHistoryRecyclerView = view as RecyclerView
                 val cardHistoryRecyclerViewLayoutManager = cardHistoryRecyclerView.layoutManager as LinearLayoutManager
-                viewItem = cardHistoryRecyclerViewLayoutManager.findViewByPosition(itemPosition) as TextView
+                viewItem = cardHistoryRecyclerViewLayoutManager.findViewByPosition(itemPosition) as CardView
             }
         }
 
@@ -85,7 +85,7 @@ class ScrollPositionRetentionOnScreenRotationTestHandler(private val application
 
     fun getRecyclerViewLastVisibleItemPosition(): Int {
         var lastVisibleItemPosition: Int = 0
-        val cardHistoryRecyclerViewInteraction = onView(ViewMatchers.withId(R.id.card_history_recycler_view))
+        val cardHistoryRecyclerViewInteraction = onView(ViewMatchers.withId(recyclerViewId))
 
         val lastVisibleItemPositionExtraction = object: ViewAction {
 
