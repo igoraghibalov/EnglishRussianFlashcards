@@ -58,7 +58,4 @@ class GroupCardsSuccessfulDisplayTestHandler(private val applicationContext: Con
         clickOnView(R.id.cards_button)
         groupCardRecyclerViewInteraction.perform(groupCardPresenceCheckAction)
     }
-
-
-    override fun doAfterCaseTestHandling() {}
 }

@@ -110,6 +110,4 @@ class ScrollPositionRetentionOnScreenRotationTestHandler(private val recyclerVie
         cardHistoryRecyclerViewInteraction.perform(lastVisibleItemPositionExtraction)
         return lastVisibleItemPosition
     }
-
-    override fun doAfterCaseTestHandling() {}
 }

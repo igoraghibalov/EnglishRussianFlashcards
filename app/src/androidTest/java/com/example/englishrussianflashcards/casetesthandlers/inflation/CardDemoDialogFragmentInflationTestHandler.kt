@@ -13,7 +13,4 @@ class CardDemoDialogFragmentInflationTestHandler: CaseUiTestHandler() {
         clickOnView(R.id.card_creation_button)
         checkViewAppearance(R.id.card_front_side_view)
     }
-
-
-    override fun doAfterCaseTestHandling() {}
 }

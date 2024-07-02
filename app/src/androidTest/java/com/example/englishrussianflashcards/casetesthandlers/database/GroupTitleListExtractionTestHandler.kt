@@ -40,7 +40,4 @@ class GroupTitleListExtractionTestHandler(private val expectedGroupTitlesPair: P
             assertEquals(expectedGroupTitlesPair.toList(), deferredGroupTitleList.await())
         }
     }
-
-
-    override fun doAfterCaseTestHandling() {}
 }

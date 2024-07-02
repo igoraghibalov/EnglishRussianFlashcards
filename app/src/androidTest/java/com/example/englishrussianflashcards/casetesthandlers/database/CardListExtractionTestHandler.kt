@@ -29,6 +29,4 @@ class CardListExtractionTestHandler(private val card: Card,
             assertEquals(expectedCardList, cardList)
         }
     }
-
-    override fun doAfterCaseTestHandling() {}
 }

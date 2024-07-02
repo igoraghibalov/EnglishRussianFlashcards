@@ -37,6 +37,4 @@ class WordMapExtractionTestHandler(private val cardDateFormatPattern: String,
             assertEquals(postInsertionWordMap, deferredWordMap.await())
         }
     }
-
-    override fun doAfterCaseTestHandling() {}
 }

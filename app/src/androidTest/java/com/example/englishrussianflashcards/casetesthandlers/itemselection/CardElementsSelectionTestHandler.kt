@@ -53,9 +53,6 @@ class CardElementsSelectionTestHandler(private val applicationContext: Context):
             .perform(click())
         onView(withId(viewId)).check(matches(itemMatcher))
     }
-
-
-    override fun doAfterCaseTestHandling() {}
 }
 
 

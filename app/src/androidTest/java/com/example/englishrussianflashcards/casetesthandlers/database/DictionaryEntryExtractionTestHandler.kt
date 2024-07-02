@@ -86,6 +86,4 @@ class DictionaryEntryExtractionTestHandler(private val additionalTestCoroutineCo
             Assert.assertEquals(false, deferredWordList.await().isEmpty())
         }
     }
-
-    override fun doAfterCaseTestHandling() {}
 }

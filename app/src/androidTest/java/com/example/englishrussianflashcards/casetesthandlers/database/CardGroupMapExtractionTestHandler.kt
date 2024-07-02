@@ -38,7 +38,4 @@ class CardGroupMapExtractionTestHandler(private val cardGroupTitle: String,
             assertEquals(fruitCardGroupMap, deferredCardGroupMap.await())
         }
     }
-
-
-    override fun doAfterCaseTestHandling() {}
 }

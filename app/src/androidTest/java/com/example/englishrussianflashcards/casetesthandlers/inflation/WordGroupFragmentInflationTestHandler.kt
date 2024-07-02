@@ -26,6 +26,4 @@ class WordGroupFragmentInflationTestHandler: CaseUiTestHandler() {
         cardGroupRecyclerViewInteraction.perform(cardGroupRecyclerViewItemClickAction)
         checkViewAppearance(R.id.add_word_button)
     }
-
-    override fun doAfterCaseTestHandling() {}
 }

@@ -39,7 +39,4 @@ class CardCreationFragmentOnProcessDeathTestHandler(private val applicationConte
         onView(withId(R.id.word_typing_text_view))
             .check(matches(withText(defaultTypingText)))
     }
-
-
-    override fun doAfterCaseTestHandling() {}
 }

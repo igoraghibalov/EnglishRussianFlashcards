@@ -5,5 +5,4 @@ package com.example.englishrussianflashcards
  */
 interface CaseTestHandler {
     fun handleCaseTest()
-    fun doAfterCaseTestHandling()
 }

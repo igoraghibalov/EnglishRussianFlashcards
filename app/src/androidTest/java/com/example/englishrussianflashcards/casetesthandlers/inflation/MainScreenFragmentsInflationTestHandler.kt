@@ -15,11 +15,7 @@ class MainScreenFragmentsInflationTestHandler(private val clickedViewToInflatedF
         clickedViewToInflatedFragmentViewMap.forEach {
             clickOnView(it.key)
             checkViewAppearance(it.value)
+            pressBack()
         }
-    }
-
-
-    override fun doAfterCaseTestHandling() {
-        pressBack()
     }
 }
