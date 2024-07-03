@@ -5,11 +5,11 @@ import android.content.res.Resources
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.englishrussianflashcards.casetesthandlers.CardGroupMapExtractionTestHandler
-import com.example.englishrussianflashcards.casetesthandlers.CardListExtractionTestHandler
-import com.example.englishrussianflashcards.casetesthandlers.DictionaryEntryExtractionTestHandler
-import com.example.englishrussianflashcards.casetesthandlers.GroupTitleListExtractionTestHandler
-import com.example.englishrussianflashcards.casetesthandlers.WordMapExtractionTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.database.CardGroupMapExtractionTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.database.CardListExtractionTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.database.DictionaryEntryExtractionTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.database.GroupTitleListExtractionTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.database.WordMapExtractionTestHandler
 import com.example.englishrussianflashcards.domain.ApplicationDatabase
 import kotlinx.coroutines.Dispatchers
 import org.junit.After
@@ -58,7 +58,7 @@ class ApplicationDatabaseTester: DatabaseTester() {
 
         appleCardWord = applicationResources.getString(R.string.apple_card_word)
         appleCardTranslation = applicationResources.getString(R.string.apple_card_translation)
-        appleCardGroup = applicationResources.getString(R.string.apple_card_group)
+        appleCardGroup = applicationResources.getString(R.string.fruit_group_name)
         appleCardTranscription = applicationResources.getString(R.string.apple_card_transcription)
 
         appleCard = Card(id = applicationResources.getInteger(R.integer.apple_card_id),
@@ -74,7 +74,8 @@ class ApplicationDatabaseTester: DatabaseTester() {
     fun testCardListExtraction() {
         testCase(caseTestHandler = CardListExtractionTestHandler(appleCard,
                                                                  additionalTestCoroutineContext,
-                                                                 cardDao))
+                                                                 cardDao)
+        )
     }
 
 
@@ -83,7 +84,8 @@ class ApplicationDatabaseTester: DatabaseTester() {
         testCase(caseTestHandler = WordMapExtractionTestHandler(cardDateFormatPattern,
                                                                 appleCardWord,
                                                                 additionalTestCoroutineContext,
-                                                                cardDao))
+                                                                cardDao)
+        )
     }
 
 
@@ -92,7 +94,8 @@ class ApplicationDatabaseTester: DatabaseTester() {
         testCase(caseTestHandler = CardGroupMapExtractionTestHandler(appleCardGroup,
                                                                      appleCard,
                                                                      additionalTestCoroutineContext,
-                                                                     cardDao))
+                                                                     cardDao)
+        )
     }
 
 
@@ -103,7 +106,8 @@ class ApplicationDatabaseTester: DatabaseTester() {
                                                                         userCharSequenceTyped,
                                                                         appleCardWord,
                                                                         appleCardTranscription,
-                                                                        appleCardTranslation))
+                                                                        appleCardTranslation)
+        )
     }
 
 
@@ -120,7 +124,8 @@ class ApplicationDatabaseTester: DatabaseTester() {
                                                                        cardPairWithGroupTitles = Pair(appleCard, earthCard),
                                                                        cardDao,
                                                                        dictionaryDao,
-                                                                       additionalTestCoroutineContext))
+                                                                       additionalTestCoroutineContext)
+        )
     }
 
 

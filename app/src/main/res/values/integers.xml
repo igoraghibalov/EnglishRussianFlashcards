@@ -5,4 +5,6 @@
     <integer name="card_fading_duration">0</integer>
     <integer name="card_revealing_offset">500</integer>
     <integer name="card_revealing_duration">0</integer>
+    <integer name="apple_card_id">0</integer>
+    <integer name="earth_card_id">1</integer>
 </resources>

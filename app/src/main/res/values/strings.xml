@@ -31,4 +31,14 @@
     <string name="group_remove_button_text">remove</string>
     <string name="group_add_button_text">add group</string>
     <string name="default_typing_char_sequence">ab</string>
+    <string name="user_char_sequence_typed">ab</string>
+    <string name="card_date_format_pattern">\"d.MM.uuuu\"</string>
+    <string name="planet_group_name">Planets</string>
+    <string name="fruit_group_name">Fruits</string>
+    <string name="apple_card_word">apple</string>
+    <string name="apple_card_translation">яблоко</string>
+    <string name="apple_card_transcription">[ˈæpəl]</string>
+    <string name="earth_card_word">Earth</string>
+    <string name="earth_card_translation">Земля</string>
+    <string name="earth_card_transcription">[ˈɝːθ]</string>
 </resources>
