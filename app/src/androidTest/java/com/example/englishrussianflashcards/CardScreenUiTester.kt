@@ -1,87 +1,46 @@
 package com.example.englishrussianflashcards
 
-import android.view.View
-import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.UiController
-import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.swipeLeft
-import androidx.test.espresso.action.ViewActions.swipeRight
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
-import org.hamcrest.Matcher
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.not
+import com.example.englishrussianflashcards.casetesthandlers.inflation.CardRemoveOnSwipeUpTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.itemselection.CardChangeTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.rotation.CardRetentionOnScreenRotationTestHandler
+import com.example.englishrussianflashcards.casetesthandlers.rotation.CardRotationTestHandler
 import org.junit.Test
 
 /**
  * Created by Igor Aghibalov on 05.05.2024
  */
 class CardScreenUiTester: UiTester() {
+    private lateinit var cardWordExtractor: TextExtractor
 
-
-    override fun setup() {
-        super.setup()
-        testFragmentInflation(R.id.continue_button, R.id.card_front_side_view)
+    override fun setupTestEnvironment() {
+        super.setupTestEnvironment()
+        onView(withId(R.id.continue_button)).perform(click())
+        cardWordExtractor = CardWordExtractor(cardViewId = R.id.card_front_side_view,
+                                              textOwnerChildViewId = R.id.english_word_text_view)
     }
 
     
     @Test
-    fun testNewCardRevealingOnSwipeLeftAndRight() {
-        val initialCardWord: String = getCardWord()
-        val cardViewInteraction = onView(withId(R.id.card_front_side_view))
-        cardViewInteraction.perform(swipeLeft())
-        onView(withText(initialCardWord)).check(matches(not(isDisplayed())))
-        cardViewInteraction.perform(swipeRight())
-        onView(withText(initialCardWord)).check(matches(isDisplayed()))
+    fun testCardChangeOnSwipeLeftAndRight() {
+        testCase(caseTestHandler = CardChangeTestHandler(R.id.card_front_side_view, cardWordExtractor))
     }
 
     @Test
     fun testCardRotationOnClick() {
-        val cardViewInteraction = onView(withId(R.id.card_front_side_view))
-        cardViewInteraction.perform(click())
-        onView(withId(R.id.word_image_view)).check(matches(isDisplayed()))
+        testCase(caseTestHandler = CardRotationTestHandler())
     }
 
     @Test
     fun testCardRetentionOnScreenRotation() {
-        val initialCardWord: String = getCardWord()
-        rotateScreen()
-        onView(withText(initialCardWord)).check(matches(isDisplayed()))
+        testCase(caseTestHandler = CardRetentionOnScreenRotationTestHandler(cardWordExtractor))
     }
+
 
     @Test
-    fun testCardRetentionAfterProcessDeath() {
-        setupProcessDeathTestEnvironment()
-        onView(withId(R.id.card_front_side_view)).perform(swipeLeft())
-        val preProcessDeathCardWord = getCardWord()
-        mainActivityScenario.recreate()
-        onView(withText(preProcessDeathCardWord)).check(matches(isDisplayed()))
-    }
-
-
-    fun getCardWord(): String {
-        var cardWord: String = ""
-        val cardViewInteraction = onView(withId(R.id.card_front_side_view))
-        val cardWordExtractionAction = object: ViewAction {
-
-            override fun getDescription(): String = "Card word extraction"
-
-            override fun getConstraints(): Matcher<View> {
-                return allOf(isAssignableFrom(CardView::class.java), isDisplayed())
-            }
-
-            override fun perform(uiController: UiController?, view: View?) {
-                cardWord = view!!.findViewById<TextView>(R.id.word_text_view).text.toString()
-            }
-
-        }
-        cardViewInteraction.perform(cardWordExtractionAction)
-        return cardWord
+    fun testCardRemoveOnSwipeUp() {
+        testCase(caseTestHandler = CardRemoveOnSwipeUpTestHandler(cardWordExtractor))
     }
 }

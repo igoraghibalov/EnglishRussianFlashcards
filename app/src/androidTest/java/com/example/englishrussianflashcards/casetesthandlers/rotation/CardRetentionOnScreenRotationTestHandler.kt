@@ -9,11 +9,12 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.example.englishrussianflashcards.CardWordExtractor
 import com.example.englishrussianflashcards.CaseUiTestHandler
+import com.example.englishrussianflashcards.TextExtractor
 
 /**
  * Created by Igor Aghibalov on 04.07.2024
  */
-class CardRetentionOnScreenRotationTestHandler(private val cardWordExtractor: CardWordExtractor)
+class CardRetentionOnScreenRotationTestHandler(private val cardWordExtractor: TextExtractor)
     : CaseUiTestHandler() {
 
 
