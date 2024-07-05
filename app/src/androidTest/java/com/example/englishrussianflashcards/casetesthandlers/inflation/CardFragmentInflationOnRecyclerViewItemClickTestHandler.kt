@@ -5,10 +5,13 @@ import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.example.englishrussianflashcards.CaseUiTestHandler
 import com.example.englishrussianflashcards.R
+import com.example.englishrussianflashcards.presentation.GroupCardViewHolder
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.instanceOf
@@ -21,8 +24,8 @@ class CardFragmentInflationOnRecyclerViewItemClickTestHandler(private val recycl
 
 
     override fun handleCaseTest() {
-        onView(withId(recyclerViewId)).perform(click())
-        onData(allOf(instanceOf(String::class.java))).atPosition(0).perform(click())
+        val groupCardRecyclerViewClickAction = actionOnItemAtPosition<GroupCardViewHolder>(0, click())
+        onView(withId(recyclerViewId)).perform(groupCardRecyclerViewClickAction)
         checkViewAppearance(R.id.card_front_side_view)
     }
 }
