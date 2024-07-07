@@ -1,10 +1,11 @@
-package com.example.englishrussianflashcards
+package com.example.englishrussianflashcards.testers
 
 import android.app.Application
 import android.content.res.Resources
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.example.englishrussianflashcards.R
 import com.example.englishrussianflashcards.casetesthandlers.database.CardGroupMapExtractionTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.database.CardListExtractionTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.database.DictionaryEntryExtractionTestHandler

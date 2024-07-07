@@ -1,9 +1,6 @@
-package com.example.englishrussianflashcards
+package com.example.englishrussianflashcards.testers
 
 import com.example.englishrussianflashcards.domain.ApplicationDatabase
-import com.example.englishrussianflashcards.domain.Card
-import com.example.englishrussianflashcards.domain.CardDao
-import com.example.englishrussianflashcards.domain.DictionaryDao
 import kotlin.coroutines.CoroutineContext
 
 /**

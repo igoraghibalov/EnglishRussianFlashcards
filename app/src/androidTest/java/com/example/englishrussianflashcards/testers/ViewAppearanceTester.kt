@@ -1,4 +1,4 @@
-package com.example.englishrussianflashcards
+package com.example.englishrussianflashcards.testers
 
 /**
  * Created by Igor Aghibalov on 15.06.2024

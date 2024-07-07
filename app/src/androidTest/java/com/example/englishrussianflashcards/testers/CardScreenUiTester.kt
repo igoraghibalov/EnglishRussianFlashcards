@@ -1,8 +1,11 @@
-package com.example.englishrussianflashcards
+package com.example.englishrussianflashcards.testers
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import com.example.englishrussianflashcards.CardWordExtractor
+import com.example.englishrussianflashcards.R
+import com.example.englishrussianflashcards.TextExtractor
 import com.example.englishrussianflashcards.casetesthandlers.inflation.CardRemoveOnSwipeUpTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.itemselection.CardChangeTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.rotation.CardRetentionOnScreenRotationTestHandler
@@ -19,7 +22,8 @@ class CardScreenUiTester: UiTester() {
         super.setupTestEnvironment()
         onView(withId(R.id.continue_button)).perform(click())
         cardWordExtractor = CardWordExtractor(cardViewId = R.id.card_front_side_view,
-                                              textOwnerChildViewId = R.id.english_word_text_view)
+                                              textOwnerChildViewId = R.id.english_word_text_view
+        )
     }
 
     
