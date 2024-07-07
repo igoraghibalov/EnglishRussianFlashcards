@@ -7,7 +7,7 @@
     android:layout_margin="@dimen/card_groups_screen_layout_margin">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/card_group_recycler_view"
+        android:id="@+id/group_card_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="9"/>

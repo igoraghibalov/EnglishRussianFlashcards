@@ -43,7 +43,6 @@ class GroupCardPresenceCheckAction(private val groupName: String,
             val groupNameView = childView.findViewById<TextView>(R.id.word_group_name_text_view)
             val wordCountView = childView.findViewById<TextView>(R.id.word_count_text_view)
 
-            //TODO: replace 'if's with polymorphism
             if (groupNameView.text == groupName
                         && wordCountView.text == groupElementsCount.toString()) {
 

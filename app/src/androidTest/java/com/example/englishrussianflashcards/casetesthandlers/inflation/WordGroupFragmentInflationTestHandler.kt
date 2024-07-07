@@ -16,9 +16,9 @@ class WordGroupFragmentInflationTestHandler: CaseUiTestHandler() {
 
     override fun handleCaseTest() {
         clickOnView(R.id.cards_button)
-        checkViewAppearance(R.id.card_group_recycler_view)
+        checkViewAppearance(R.id.group_card_recycler_view)
 
-        val cardGroupRecyclerViewMatcher = withId(R.id.card_group_recycler_view)
+        val cardGroupRecyclerViewMatcher = withId(R.id.group_card_recycler_view)
         val cardGroupRecyclerViewInteraction = onView(cardGroupRecyclerViewMatcher)
         val cardGroupRecyclerViewItemClickAction
             = RecyclerViewActions.actionOnItemAtPosition<GroupCardViewHolder>(0, click())

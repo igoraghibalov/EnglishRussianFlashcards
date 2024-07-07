@@ -19,7 +19,7 @@ class CardGroupsScreenUiTester: UiTester() {
     override fun setupTestEnvironment() {
         super.setupTestEnvironment()
         onView(withId(R.id.cards_button)).perform(click())
-        onView(withId(R.id.card_group_recycler_view)).check(matches(isDisplayed()))
+        onView(withId(R.id.group_card_recycler_view)).check(matches(isDisplayed()))
     }
 
 
@@ -36,7 +36,7 @@ class CardGroupsScreenUiTester: UiTester() {
 
     @Test
     fun testGridScrollPositionRetention() {
-        testCase(caseTestHandler = ScrollPositionRetentionOnScreenRotationTestHandler(R.id.card_group_recycler_view,
+        testCase(caseTestHandler = ScrollPositionRetentionOnScreenRotationTestHandler(R.id.group_card_recycler_view,
                                                                                       R.id.word_group_name_text_view,
                                                                                       applicationContext))
     }

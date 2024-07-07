@@ -15,14 +15,6 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 05.07.2024
  */
-/*
- * Test cases:
- * 1. recycler view item scroll position on screen rotation
- * 2. assert: groupElementRecyclerView has displayed on a groupCard click
- * 3. Every card groupTitle of recycler view == groupCard.groupTitle
- *
- *
- */
 class GroupElementsScreenUiTester: UiTester() {
 
     override fun setupTestEnvironment() {

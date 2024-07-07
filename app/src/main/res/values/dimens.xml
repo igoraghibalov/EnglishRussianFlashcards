@@ -22,4 +22,5 @@
     <dimen name="cards_screen_layout_margin">5dp</dimen>
     <dimen name="card_view_pager_margin">5dp</dimen>
     <dimen name="main_activity_fragment_container_margin">5dp</dimen>
+    <dimen name="card_groups_screen_layout_margin">5dp</dimen>
 </resources>

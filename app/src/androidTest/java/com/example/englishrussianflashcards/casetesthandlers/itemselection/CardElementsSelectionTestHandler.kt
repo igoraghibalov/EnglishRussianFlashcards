@@ -31,9 +31,6 @@ class CardElementsSelectionTestHandler(private val applicationContext: Context):
         val defaultTextMatcher = not(withText(""))
         val stringClassObject = String::class.java
 
-        clickOnView(R.id.new_button)
-        checkViewAppearance(R.id.word_typing_text_view)
-
         onView(withId(R.id.word_typing_text_view))
             .perform(typeText(defaultTypingCharSequence))
 

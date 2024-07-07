@@ -29,7 +29,7 @@ class GroupCardsSuccessfulDisplayTestHandler(private val applicationContext: Con
 
         val cardDao = applicationDatabase.getCardDao()
 
-        val groupCardRecyclerViewInteraction = onView(ViewMatchers.withId(R.id.card_group_recycler_view))
+        val groupCardRecyclerViewInteraction = onView(ViewMatchers.withId(R.id.group_card_recycler_view))
         val groupCardPresenceCheckAction = GroupCardPresenceCheckAction(groupName, groupElementsCount)
 
         val appleCard = Card(id = 0,
