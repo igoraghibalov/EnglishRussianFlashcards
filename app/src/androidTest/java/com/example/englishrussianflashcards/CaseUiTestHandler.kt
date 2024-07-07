@@ -1,28 +1,21 @@
 package com.example.englishrussianflashcards
 
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
+import com.example.englishrussianflashcards.testers.InflationOnClickTester
+import com.example.englishrussianflashcards.testers.ViewAppearanceTester
 
 /**
  * Created by Igor Aghibalov on 16.06.2024
  */
-abstract class CaseUiTestHandler: ViewClickHandler,
-                                  ViewAppearanceTester,
+abstract class CaseUiTestHandler: InflationOnClickTester(),
                                   CaseTestHandler,
                                   ScreenRotator {
-    override fun clickOnView(viewId: Int) {
-        Espresso.onView(ViewMatchers.withId(viewId))
-            .perform(ViewActions.click())
-    }
-
-    override fun checkViewAppearance(viewId: Int) {
-        Espresso.onView(ViewMatchers.withId(viewId))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
-    }
 
     override fun rotateScreen() {
         UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationLeft()
