@@ -28,7 +28,7 @@ class CardCreationScreenUiTester: UiTester() {
 
     @Test
     fun testCardDemoDialogFragmentInflationOnCreateButtonClick() {
-        testCase(caseTestHandler = CardDemoDialogFragmentInflationTestHandler())
+        testCase(caseTestHandler = CardDemoDialogFragmentInflationTestHandler(defaultTypingText))
     }
 
 
