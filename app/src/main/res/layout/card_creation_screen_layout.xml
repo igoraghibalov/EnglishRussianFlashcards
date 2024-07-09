@@ -30,45 +30,25 @@
         android:hint="@string/english_example_selection_hint"
         app:layout_constraintTop_toBottomOf="@id/translation_selection_text_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/image_views_parent" />
+        app:layout_constraintBottom_toTopOf="@id/image_spinner" />
 
-    <LinearLayout
-        android:id="@+id/image_views_parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/english_example_selection_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/group_selection_text_view">
 
-        <AutoCompleteTextView
-            android:id="@+id/image_selection_text_view"
-            android:layout_width="0dp"
+        <Spinner
+            android:id="@+id/image_spinner"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
-            android:hint="@string/image_selection_hint"/>
+            android:hint="@string/image_selection_hint"
+            app:layout_constraintTop_toBottomOf="@id/english_example_selection_text_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/group_selection_text_view"/>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageView
-            android:id="@+id/word_image_view"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/default_word_image"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/word_image_content_description"
-            android:layout_weight="3"/>
-    </LinearLayout>
 
     <AutoCompleteTextView
         android:id="@+id/group_selection_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/group_selection_hint"
-        app:layout_constraintTop_toBottomOf="@id/image_views_parent"
+        app:layout_constraintTop_toBottomOf="@id/image_spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/create_button_parent" />
 
