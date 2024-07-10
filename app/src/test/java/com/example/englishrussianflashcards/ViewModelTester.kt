@@ -1,20 +1,13 @@
 package com.example.englishrussianflashcards
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.SavedStateHandle
-import org.junit.Before
 import org.junit.Rule
 
 /**
  * Created by Igor Aghibalov on 10.05.2024
  */
-abstract class ViewModelTester {
+abstract class ViewModelTester: UnitTester() {
 
     @get: Rule
     val ruleToUpdateLiveDataValueOnPureJVM = InstantTaskExecutorRule()
-
-    protected lateinit var fakeSavedStateHandle: SavedStateHandle
-
-    @Before
-    abstract fun setup()
 }
