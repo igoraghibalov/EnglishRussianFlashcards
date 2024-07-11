@@ -13,12 +13,10 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 08.05.2024
  */
-class CardLearningScreenViewModelTester: ViewModelTester() {
+class ContinueScreenViewModelTester: ViewModelTester() {
     private lateinit var fakeCardList: List<Card>
 
-
-    @Before
-    override fun setup() {
+    override fun setupTestEnvironment() {
         val fakeCard = Card(id = 0,
                             word = "apple",
                             transcription = "[]",
@@ -33,9 +31,9 @@ class CardLearningScreenViewModelTester: ViewModelTester() {
     @Test
     fun testCardListExtractionSuccess() {
         val successResult = Result.success(fakeCardList)
-        val fakeRepository = SuccessFakeCardRepository()
-        fakeSavedStateHandle = SavedStateHandle(mapOf("cardList" to successResult))
-        val viewModel = CardScreenViewModel(fakeRepository, fakeSavedStateHandle)
+        liveDataWrapper = CardListLiveDataWrapper<Result<List<Card>>>()
+        repository = SuccessFakeCardRepository()
+        viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
 
         runTest {
             val cardListExtractionJob = launch { viewModel.extractCardList() }
@@ -47,9 +45,9 @@ class CardLearningScreenViewModelTester: ViewModelTester() {
     @Test
     fun testCardListExtractionFailure() {
         val failureResult = Result.failure<SQLiteException>(SQLiteException())
-        val fakeRepository = FailureFakeCardRepository()
-        fakeSavedStateHandle = SavedStateHandle(mapOf("cardList" to failureResult))
-        val viewModel = CardScreenViewModel(fakeRepository, fakeSavedStateHandle)
+        liveDataWrapper = CardListLiveDataWrapper<Result<SQLiteException>>()
+        repository = FailureFakeCardRepository()
+        viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
 
         runTest {
             val cardListExtractionJob = launch { viewModel.extractCardList() }
