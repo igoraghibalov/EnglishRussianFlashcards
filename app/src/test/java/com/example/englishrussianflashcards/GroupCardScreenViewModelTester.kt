@@ -2,6 +2,7 @@ package com.example.englishrussianflashcards
 
 import android.database.sqlite.SQLiteException
 import androidx.lifecycle.SavedStateHandle
+import com.example.englishrussianflashcards.presentation.FlashcardsApplicationViewModel
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -30,10 +31,8 @@ class GroupCardScreenViewModelTester: ViewModelTester() {
         repository = SuccessGroupedCardsMapRepository()
         viewModel = GroupCardScreenViewModel(repository, liveDataWrapper)
 
-        runTest {
-            viewModel.extractCardsInGroups()
-        }
-        assertEquals(true, viewModel.hasGroupedCardsMapExtractionResult(successResult))
+        extractCardsInGroups(viewModel)
+        assertGroupedCardsMapEquality(viewModel, successResult)
     }
 
     @Test
@@ -43,9 +42,21 @@ class GroupCardScreenViewModelTester: ViewModelTester() {
         liveDataWrapper = GroupedCardsMapLiveDataWrapper<Result<SQLiteException>>()
         viewModel = GroupCardsScreenViewModel(repository, liveDataWrapper)
 
+        extractCardsInGroups(viewModel)
+        assertGroupedCardsMapEquality(viewModel, failureResult)
+    }
+
+
+    fun extractCardsInGroups(viewModel: FlashcardsAppViewModel) {
+
         runTest {
             viewModel.extractCardsInGroups()
         }
-        assertEquals(true, viewModel.hasCardGroupMapExtractionResult(failureResult))
+    }
+
+
+    fun assertGroupedCardsMapEquality(viewModel: FlashcardsAppViewModel,
+                                      extractionResult: Result<*>) {
+        assertEquals(true, viewModel.hasCardGroupMapExtractionResult(extractionResult))
     }
 }
