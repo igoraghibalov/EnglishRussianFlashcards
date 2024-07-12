@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteException
 import androidx.lifecycle.SavedStateHandle
 import com.example.englishrussianflashcards.domain.Card
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -35,11 +36,8 @@ class ContinueScreenViewModelTester: ViewModelTester() {
         repository = SuccessFakeCardRepository()
         viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
 
-        runTest {
-            val cardListExtractionJob = launch { viewModel.extractCardList() }
-            cardListExtractionJob.join()
-            assertEquals(true, viewModel.hasCardListExtractionResult(successResult))
-        }
+        extractCardList(viewModel)
+        assertCardListExtractionResult(viewModel, successResult)
     }
 
     @Test
@@ -49,10 +47,20 @@ class ContinueScreenViewModelTester: ViewModelTester() {
         repository = FailureFakeCardRepository()
         viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
 
+        extractCardList(viewModel)
+        assertCardListExtractionResult(viewModel, failureResult)
+    }
+
+    fun extractCardList(viewModel: FlashcardsAppViewModel) {
+
         runTest {
             val cardListExtractionJob = launch { viewModel.extractCardList() }
             cardListExtractionJob.join()
-            assertEquals(true, viewModel.hasCardListExtractionResult(failureResult))
         }
+    }
+
+    fun assertCardListExtractionResult(viewModel: FlashcardsAppViewModel,
+                                       extractionResult: Result<*>) {
+        assertEquals(true, viewModel.hasCardListExtractionResult(extractionResult))
     }
 }
