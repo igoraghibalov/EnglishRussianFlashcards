@@ -5,6 +5,7 @@ package com.example.englishrussianflashcards.domain
  */
 interface CardExtractor {
     suspend fun getCardList(): List<Card>
+    suspend fun getCardListByGroup(groupName: String): List<Card>
     suspend fun getCardWordMap(): Map<String, String>
     suspend fun getCardGroupMap(): Map<String, List<Card>>
     suspend fun getGroupTitleList(): List<String>

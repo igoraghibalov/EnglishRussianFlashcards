@@ -3,16 +3,13 @@ package com.example.englishrussianflashcards
 import android.view.View
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
 
 /**

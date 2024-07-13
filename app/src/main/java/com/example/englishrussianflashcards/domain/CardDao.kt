@@ -6,6 +6,7 @@ package com.example.englishrussianflashcards.domain
 interface CardDao {
     suspend fun insertCard(card: Card)
     suspend fun getCardList(): List<Card>
+    suspend fun getCardListByGroup(groupName: String): List<Card>
     suspend fun insertHistoryEntry(word: String, date: String)
     suspend fun getWordMap(): Map<String, String>
     suspend fun getCardGroupMap(): Map<String, List<Card>>

@@ -52,6 +52,7 @@ android {
 
 dependencies {
     implementation("androidx.fragment:fragment-ktx:1.7.1")
+    testImplementation(project(":app"))
 
     val roomVersion = "2.6.1"
 

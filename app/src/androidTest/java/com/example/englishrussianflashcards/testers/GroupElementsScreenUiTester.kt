@@ -10,6 +10,7 @@ import com.example.englishrussianflashcards.R
 import com.example.englishrussianflashcards.casetesthandlers.inflation.RecyclerViewDisplayTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.rotation.ScrollPositionRetentionOnScreenRotationTestHandler
 import com.example.englishrussianflashcards.presentation.GroupCardViewHolder
+import com.example.englishrussianflashcards.presentation.GroupElementViewHolder
 import org.junit.Test
 
 /**

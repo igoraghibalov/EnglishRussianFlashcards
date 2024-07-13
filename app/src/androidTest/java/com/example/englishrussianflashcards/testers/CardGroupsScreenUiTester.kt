@@ -9,6 +9,7 @@ import com.example.englishrussianflashcards.R
 import com.example.englishrussianflashcards.casetesthandlers.inflation.GroupCardsSuccessfulDisplayTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.rotation.ScrollPositionRetentionOnScreenRotationTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.inflation.WordGroupFragmentInflationTestHandler
+import com.example.englishrussianflashcards.presentation.GroupCardViewHolder
 import org.junit.Test
 
 /**
@@ -36,8 +37,9 @@ class CardGroupsScreenUiTester: UiTester() {
 
     @Test
     fun testGridScrollPositionRetention() {
-        testCase(caseTestHandler = ScrollPositionRetentionOnScreenRotationTestHandler(R.id.group_card_recycler_view,
+        testCase(caseTestHandler = ScrollPositionRetentionOnScreenRotationTestHandler<GroupCardViewHolder>(R.id.group_card_recycler_view,
                                                                                       R.id.word_group_name_text_view,
-                                                                                      applicationContext))
+                                                                                      applicationContext)
+        )
     }
 }

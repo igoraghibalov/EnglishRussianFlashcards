@@ -15,8 +15,8 @@ import com.example.englishrussianflashcards.CaseUiTestHandler
 import com.example.englishrussianflashcards.R
 import org.hamcrest.Description
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.instanceOf
 import org.hamcrest.Matchers.not
 import org.hamcrest.TypeSafeMatcher
 
@@ -36,7 +36,7 @@ class CardElementsSelectionTestHandler(private val applicationContext: Context):
 
         checkUserSelectedItemPresence(R.id.translation_selection_text_view, stringClassObject, defaultTextMatcher)
         checkUserSelectedItemPresence(R.id.english_example_selection_text_view, stringClassObject, defaultTextMatcher)
-        checkUserSelectedItemPresence(R.id.image_selection_text_view, Drawable::class.java, SelectedDrawableMatcher(R.drawable.default_word_image))
+        checkUserSelectedItemPresence(R.id.image_spinner, Drawable::class.java, SelectedDrawableMatcher(R.drawable.default_word_image))
         checkUserSelectedItemPresence(R.id.group_selection_text_view, stringClassObject, defaultTextMatcher)
     }
 
@@ -45,7 +45,7 @@ class CardElementsSelectionTestHandler(private val applicationContext: Context):
                                                          itemClassObject: Class<T>,
                                                          itemMatcher: Matcher<View>) {
         clickOnView(viewId)
-        onData(allOf(Matchers.instanceOf(itemClassObject)))
+        onData(allOf(instanceOf(itemClassObject)))
             .atPosition(0)
             .perform(click())
         onView(withId(viewId)).check(matches(itemMatcher))

@@ -13,7 +13,6 @@ import org.junit.Test
 
 class GroupCardScreenViewModelTester: ViewModelTester() {
 
-    //TODO: replace 'lateinit var' with a default class object initialization
     private lateinit var fakeGroupedCardsMap: Map<String, List<Card>>
 
 

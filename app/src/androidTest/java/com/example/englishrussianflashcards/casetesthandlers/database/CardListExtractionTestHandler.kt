@@ -6,7 +6,6 @@ import com.example.englishrussianflashcards.domain.CardDao
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import org.junit.Assert
 import org.junit.Assert.assertEquals
 import kotlin.coroutines.CoroutineContext
 

@@ -10,9 +10,9 @@ import org.junit.Rule
  * Created by Igor Aghibalov on 10.05.2024
  */
 abstract class ViewModelTester: UnitTester() {
-    protected var liveDataWrapper: LiveDataWrapper<*> = LiveDataWrapper.DefaultLiveDataWrapper()
-    protected var repository: Repository = DefaultRepository()
-    protected var viewModel: FlashcardsAppViewModel = DefaultViewModel()
+    protected lateinit var liveDataWrapper: LiveDataWrapper
+    protected lateinit var repository: Repository
+    protected lateinit var viewModel: FlashcardsAppViewModel
 
     @get: Rule
     val ruleToUpdateLiveDataValueOnPureJVM = InstantTaskExecutorRule()

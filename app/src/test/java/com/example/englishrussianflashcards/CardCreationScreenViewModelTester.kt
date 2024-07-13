@@ -27,7 +27,7 @@ class CardCreationScreenViewModelTester: ViewModelTester() {
     private lateinit var failureDataExtractionViewModel: CardCreationScreenViewModel
     private lateinit var successDataExtractionViewModel: CardCreationScreenViewModel
 
-    override fun setup() {
+    override fun setupTestEnvironment() {
         fakeGroupTitleList = listOf("Fruits", "Animals")
         fakeWordList = listOf("Apple", "Arrow")
         fakeWord = "Apple"

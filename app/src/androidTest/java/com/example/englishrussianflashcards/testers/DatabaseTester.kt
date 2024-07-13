@@ -1,5 +1,6 @@
 package com.example.englishrussianflashcards.testers
 
+import com.example.englishrussianflashcards.Tester
 import com.example.englishrussianflashcards.domain.ApplicationDatabase
 import kotlin.coroutines.CoroutineContext
 
