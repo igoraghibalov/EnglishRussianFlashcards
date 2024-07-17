@@ -23,7 +23,7 @@ class ImageRepositoryTester: UnitTester() {
 
         runTest {
             val errorImageService = ErrorImageService()
-            imageRepository = ImageRepository(errorFakeImageService)
+            imageRepository = ImageRepository(errorImageService)
             val uiState = imageRepository.getImageList()
             assertTrue("", uiState is UiState.Error)
         }
