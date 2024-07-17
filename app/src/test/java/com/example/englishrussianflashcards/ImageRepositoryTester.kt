@@ -1,46 +1,31 @@
 package com.example.englishrussianflashcards
 
-import android.graphics.drawable.Drawable
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
-import org.junit.Assert.assertEquals
-import org.junit.Before
+import junit.framework.Assert.assertTrue
+import kotlinx.coroutines.test.runTest
 import org.junit.Test
-import kotlin.coroutines.CoroutineContext
 
 /**
- * Created by Igor Aghibalov on 24.05.2024
+ * Created by Igor Aghibalov on 15.07.2024
  */
-class ImageRepositoryTester(): RepositoryTester, ListExtractionTester {
-    private lateinit var additionalCoroutineContext: CoroutineContext
+/*TODO: test cases
+ * - no internet connection before/during data transfer
+ * - data extraction success
+ * - api is not available before data transfer
+ */
+class ImageRepositoryTester: UnitTester() {
     private lateinit var imageRepository: ImageRepository
 
-
-    @Before
-    fun setup() {
-        imageRepository = FakeImageRepository()
-        additionalCoroutineContext = Dispatchers.Default
-    }
+    override fun setupTestEnvironment() {}
 
 
     @Test
-    override fun testDataExtraction() {
-        testListExtraction()
-    }
+    fun testNoInternetConnectionBeforeDataTransferCase() {
 
-
-    override fun testListExtraction() {
-
-        runBlocking {
-            val word = "apple"
-
-            val deferredImageList: Deferred<List<Drawable>> = async(additionalCoroutineContext) {
-                imageRepository.getImageList(word)
-            }
-
-            assertEquals("Image list loading failure", true, deferredImageList.await().isNotEmpty())
+        runTest {
+            val errorImageService = ErrorImageService()
+            imageRepository = ImageRepository(errorFakeImageService)
+            val uiState = imageRepository.getImageList()
+            assertTrue("", uiState is UiState.Error)
         }
     }
 }
