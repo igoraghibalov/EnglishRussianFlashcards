@@ -1,7 +1,7 @@
 package com.example.englishrussianflashcards
 
 import junit.framework.Assert.assertTrue
-import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 /**
@@ -19,13 +19,39 @@ class ImageRepositoryTester: UnitTester() {
 
 
     @Test
-    fun testNoInternetConnectionBeforeDataTransferCase() {
+    fun testNoInternetConnectionInDataTransferCase() {
 
-        runTest {
+        runBlocking {
             val errorImageService = ErrorImageService()
             imageRepository = ImageRepository(errorImageService)
             val uiState = imageRepository.getImageList()
-            assertTrue("", uiState is UiState.Error)
+
+            assertTrue(NO_INTERNET_CONNECTION_TEST_FAILURE_MESSAGE, uiState is UiState.Error)
+
+            assertTrue(NO_INTERNET_CONNECTION_TEST_WRONG_RESPONSE_STATUS_MESSAGE,
+                       uiState.hasResponseStatus(NO_INTERNET_CONNECTION_RESPONSE_STATUS))
+        }
+    }
+
+    @Test
+    fun testDataExtractionSuccess() {
+
+        runBlocking {
+            val successImageService = SuccessImageService()
+            imageRepository = ImageRepository(successImageService)
+            val uiState = imageRepository.getImageList()
+            assertTrue("List<Image> extraction failure", uiState is UiState.Success)
+        }
+    }
+
+    @Test
+    fun testNotAvailableApiCase() {
+
+        runBlocking {
+            val unavailableApiImageService = UnavailableApiImageService()
+            imageRepository = ImageRepository(unavailableApiImageService)
+            val uiState = imageRepository.getImageList()
+            assertTrue("Unavailable Api case wrong handling", uiState is UiState.Error)
         }
     }
 }
