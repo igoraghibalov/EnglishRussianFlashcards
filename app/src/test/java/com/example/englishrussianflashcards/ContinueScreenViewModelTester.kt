@@ -4,9 +4,11 @@ import android.database.sqlite.SQLiteException
 import androidx.lifecycle.SavedStateHandle
 import com.example.englishrussianflashcards.domain.Card
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
@@ -50,6 +52,26 @@ class ContinueScreenViewModelTester: ViewModelTester() {
         extractCardList(viewModel)
         assertCardListExtractionResult(viewModel, failureResult)
     }
+
+
+    @Test
+    fun testBundleDataRestore() {
+        val bundleWrapper = FakeBundleWrapper()
+        liveDataWrapper = CardListLiveDataWrapper<Result<List<Card>>>()
+        repository = SuccessFakeCardRepository()
+        viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
+
+        runBlocking {
+            viewModel.fetchCardList()
+            viewModel.saveData(bundleWrapper)
+
+            viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
+            viewModel.restoreData(bundleWrapper)
+
+            assertTrue(DATA_RESTORE_TEST_FAILURE_MESSAGE, viewModel.containsData(fakeCardList))
+        }
+    }
+
 
     fun extractCardList(viewModel: FlashcardsAppViewModel) {
 

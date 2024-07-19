@@ -9,11 +9,14 @@ import org.junit.runners.JUnit4
  */
 @RunWith(JUnit4::class)
 abstract class UnitTester: Tester() {
+
+    @JvmField
+    @Rule
+    val mainDispatcherRule = MainDispatcherRule()
     protected val NO_INTERNET_CONNECTION_TEST_FAILURE_MESSAGE = "Internet connection failure wrong handling"
     protected val SUCCESSFUL_DATA_EXTRACTION_TEST_FAILURE_MESSAGE = "Internet connection failure wrong handling"
     protected val NO_INTERNET_CONNECTION_TEST_WRONG_RESPONSE_STATUS_MESSAGE = "Internet connection failure wrong handling"
     protected val NO_INTERNET_CONNECTION_RESPONSE_STATUS = 503
-    @JvmField
-    @Rule
-    val mainDispatcherRule = MainDispatcherRule()
+    protected val DATA_RESTORE_TEST_FAILURE_MESSAGE = "data restore test failure"
+
 }
