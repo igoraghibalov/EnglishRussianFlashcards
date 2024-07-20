@@ -16,7 +16,7 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 08.05.2024
  */
-class ContinueScreenViewModelTester: ViewModelTester() {
+class ContinueScreenViewModelTester: ViewModelTester<List<Card>>() {
     private lateinit var fakeCardList: List<Card>
 
     override fun setupTestEnvironment() {
@@ -28,16 +28,15 @@ class ContinueScreenViewModelTester: ViewModelTester() {
                             group = "Fruits")
 
         fakeCardList = listOf(fakeCard)
+        liveDataWrapper = CardListLiveDataWrapper<Result<List<Card>>>()
+        repository = SuccessFakeCardRepository()
+        viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
     }
 
 
     @Test
     fun testCardListExtractionSuccess() {
         val successResult = Result.success(fakeCardList)
-        liveDataWrapper = CardListLiveDataWrapper<Result<List<Card>>>()
-        repository = SuccessFakeCardRepository()
-        viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
-
         extractCardList(viewModel)
         assertCardListExtractionResult(viewModel, successResult)
     }
@@ -53,23 +52,8 @@ class ContinueScreenViewModelTester: ViewModelTester() {
         assertCardListExtractionResult(viewModel, failureResult)
     }
 
-
-    @Test
-    fun testBundleDataRestore() {
-        val bundleWrapper = FakeBundleWrapper()
-        liveDataWrapper = CardListLiveDataWrapper<Result<List<Card>>>()
-        repository = SuccessFakeCardRepository()
+    override fun recreateViewModel() {
         viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
-
-        runBlocking {
-            viewModel.fetchCardList()
-            viewModel.saveData(bundleWrapper)
-
-            viewModel = ContinueScreenViewModel(repository, liveDataWrapper)
-            viewModel.restoreData(bundleWrapper)
-
-            assertTrue(DATA_RESTORE_TEST_FAILURE_MESSAGE, viewModel.containsData(fakeCardList))
-        }
     }
 
 
