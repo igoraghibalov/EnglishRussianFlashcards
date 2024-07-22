@@ -15,12 +15,12 @@ import org.junit.Test
 /**
  * Created by Igor Aghibalov on 10.05.2024
  */
-abstract class ViewModelTester <T: Any>: UnitTester() {
+abstract class ViewModelTester: UnitTester() {
     protected lateinit var liveDataWrapper: LiveDataWrapper
     protected lateinit var repository: Repository
     protected lateinit var viewModel: FlashcardsAppViewModel
-    protected lateinit var bundleWrapper: BundleWrapper<T>
-    protected lateinit var expectedData: T
+    protected lateinit var bundleWrapper: BundleWrapper
+    protected lateinit var expectedData: UiState
 
     @get: Rule
     val ruleToUpdateLiveDataValueOnPureJVM = InstantTaskExecutorRule()

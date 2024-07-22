@@ -14,51 +14,51 @@ import java.time.format.DateTimeFormatter
  * Created by Igor Aghibalov on 19.05.2024
  */
 class HistoryScreenViewModelTester: ViewModelTester() {
-    private lateinit var successDataExtractionViewModel: HistoryScreenViewModel
     private lateinit var failureDataExtractionViewModel: HistoryScreenViewModel
     private lateinit var fakeDate: String
-    private lateinit var failureResultValue: SQLException
-    private lateinit var successResultValue: Map<String, String>
+    private lateinit var failureResultValue: UiState.Error
+    private lateinit var successResultValue: UiState.Success
+
+    override fun recreateViewModel() {
+        viewModel = HistoryScreenViewModel(liveDataWrapper, repository)
+    }
 
 
-    override fun setup() {
+    override fun setupTestEnvironment() {
         fakeDate = LocalDate.now().format(DateTimeFormatter.ofPattern("d.MM.yyyy"))
-        successResultValue = mapOf("apple" to fakeDate)
-        failureResultValue = SQLException()
-        val successWordMapExtractionFakeRepository = SuccessWordMapExtractionFakeRepository()
-        val failureWordMapExtractionFakeRepository = FailureWordMapExtractionFakeRepository()
-        fakeSavedStateHandle = SavedStateHandle()
-        successDataExtractionViewModel = HistoryScreenViewModel(successWordMapExtractionFakeRepository, fakeSavedStateHandle)
-        failureDataExtractionViewModel = HistoryScreenViewModel(failureWordMapExtractionFakeRepository, fakeSavedStateHandle)
+        successResultValue = UiState.Success(listOf("apple" to fakeDate))
+        failureResultValue = UiState.Error(SQLException())
     }
 
 
     @Test
     fun testSuccessWordMapExtraction() {
-        val successWordMapExtractionResult = Result.success(successResultValue)
+        liveDataWrapper = CardHistoryEntryListLiveDataWrapper()
+        repository = FakeCardRepository()
+        bundleWrapper = FakeBundleWrapper()
+        viewModel = HistoryScreenViewModel(liveDataWrapper, repository)
 
         runTest {
-            assertWordMapExtractionResult(successDataExtractionViewModel, successWordMapExtractionResult, this)
+            assertWordMapExtractionResult(viewModel, successResultValue, this)
         }
     }
 
 
     @Test
     fun testFailureWordMapExtraction() {
-        val failureWordMapExtractionResult = Result.failure<Throwable>(failureResultValue)
 
         runTest {
-            assertWordMapExtractionResult(failureDataExtractionViewModel, failureWordMapExtractionResult, this)
+            assertWordMapExtractionResult(failureDataExtractionViewModel, failureResultValue, this)
         }
     }
 
 
-    suspend fun<T: Any> assertWordMapExtractionResult(viewModel: HistoryScreenViewModel,
-                                                      extractionResult: Result<T>,
-                                                      testScope: TestScope) {
+    suspend fun assertWordMapExtractionResult(viewModel: HistoryScreenViewModel,
+                                              uiState: UiState,
+                                              testScope: TestScope) {
 
-        val wordMapExtractionJob = testScope.launch { viewModel.getWordMap() }
+        val wordMapExtractionJob = testScope.launch { viewModel.getCardHistoryEntryList() }
         wordMapExtractionJob.join()
-        assertEquals(true, viewModel.hasDataExtractionResult(extractionResult))
+        assertEquals(true, viewModel.hasDataExtractionResult(uiState))
     }
 }

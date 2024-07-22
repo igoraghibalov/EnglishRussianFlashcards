@@ -25,7 +25,7 @@
     <string name="translation_selection_hint">choose a translation</string>
     <string name="english_example_selection_hint">choose english example</string>
     <string name="image_selection_hint">choose an image</string>
-    <string name="group_selection_hint">choose a group</string>
+    <string name="group_selection_hint">type a group</string>
     <string name="add_group_button_text">+ Add</string>
     <string name="default_date">dd.mm.yyyy</string>
     <string name="group_remove_button_text">remove</string>
