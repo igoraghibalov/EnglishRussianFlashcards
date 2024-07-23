@@ -3,16 +3,33 @@ package com.example.englishrussianflashcards
 import android.graphics.Picture
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
+import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
 import com.almworks.sqlite4java.SQLiteException
+import com.example.englishrussianflashcards.domain.LiveDataWrapper
+import com.example.englishrussianflashcards.domain.Repository
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.io.Serializable
 
 /**
  * Created by Igor Aghibalov on 15.05.2024
+ */
+
+/*
+TODO:
+ 1) Implement test cases:
+       a) (Translation, Example, Image) selection attempt on no word typing
+       b) Data extraction success
+       c) Image extraction failure
+               a) No internet connection
+               b) IoException(data transfer failure)
+       d) Transcription not found in a DictionaryRepository
+  2) Remove redundant properties to use base class ones
  */
 class CardCreationScreenViewModelTester: ViewModelTester() {
     private lateinit var fakeGroupTitleList: List<String>
@@ -26,6 +43,10 @@ class CardCreationScreenViewModelTester: ViewModelTester() {
     private val coilFailureResult = Result.failure<FakeImageLoadingException>(FakeImageLoadingException())
     private lateinit var failureDataExtractionViewModel: CardCreationScreenViewModel
     private lateinit var successDataExtractionViewModel: CardCreationScreenViewModel
+
+    override fun recreateViewModel() {
+        TODO("Not yet implemented")
+    }
 
     override fun setupTestEnvironment() {
         fakeGroupTitleList = listOf("Fruits", "Animals")
@@ -56,8 +77,7 @@ class CardCreationScreenViewModelTester: ViewModelTester() {
 
         failureDataExtractionViewModel = CardCreationScreenViewModel(fakeRepository,
                                                                      failureFakeImageRepository,
-                                                                     failureFakeDictionaryRepository,
-                                                                     SavedStateHandle())
+                                                                     failureFakeDictionaryRepository)
         fakeRepository = SuccessFakeCardRepository()
 
         successDataExtractionViewModel = CardCreationScreenViewModel(fakeRepository,
@@ -82,6 +102,19 @@ class CardCreationScreenViewModelTester: ViewModelTester() {
         runTest {
             joinViewModelDataExtractionJob(this, failureDataExtractionViewModel)
             assertEquals(true, failureDataExtractionViewModel.hasDataExtractionResult(dataExtractionFailureResultMap))
+        }
+    }
+
+
+    @Test
+    fun testTranslationSelectionOnNoWordTyping() {
+        repository = FakeDictionaryRepository()
+        viewModel = CardCreationScreenViewModel(repository)
+
+        runBlocking {
+            val expectedUiState: UiState = UiState.Error(EMPTY_WORD_EXCEPTION_MESSAGE)
+            val actualUiState: UiState = viewModel.getTranslationList(word = "")
+            assertEquals(expectedUiState, actualUiState)
         }
     }
 
