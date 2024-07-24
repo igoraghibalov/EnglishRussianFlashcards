@@ -3,18 +3,14 @@ package com.example.englishrussianflashcards
 import android.graphics.Picture
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
-import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
 import com.almworks.sqlite4java.SQLiteException
-import com.example.englishrussianflashcards.domain.LiveDataWrapper
-import com.example.englishrussianflashcards.domain.Repository
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import java.io.Serializable
 
 /**
  * Created by Igor Aghibalov on 15.05.2024
@@ -23,12 +19,14 @@ import java.io.Serializable
 /*
 TODO:
  1) Implement test cases:
-       a) (Translation, Example, Image) selection attempt on no word typing
-       b) Data extraction success
-       c) Image extraction failure
+       - (Translation, Example, Image) selection attempt on no word typing
+       - Data extraction success
+       - Image extraction failure
                a) No internet connection
                b) IoException(data transfer failure)
-       d) Transcription not found in a DictionaryRepository
+       - Transcription not found in a DictionaryRepository
+       - Translation not found in a DictionaryRepository
+       - Example not found in a DictionaryRepository
   2) Remove redundant properties to use base class ones
  */
 class CardCreationScreenViewModelTester: ViewModelTester() {
@@ -107,14 +105,21 @@ class CardCreationScreenViewModelTester: ViewModelTester() {
 
 
     @Test
-    fun testTranslationSelectionOnNoWordTyping() {
+    fun testElementSelectionOnWordNoTyping() {
         repository = FakeDictionaryRepository()
         viewModel = CardCreationScreenViewModel(repository)
 
         runBlocking {
-            val expectedUiState: UiState = UiState.Error(EMPTY_WORD_EXCEPTION_MESSAGE)
-            val actualUiState: UiState = viewModel.getTranslationList(word = "")
-            assertEquals(expectedUiState, actualUiState)
+            val emptyWord = ""
+            expectedData = UiState.Error(EMPTY_WORD_EXCEPTION_MESSAGE)
+            var actualUiState: UiState = viewModel.getTranslationList(emptyWord)
+            assertEquals(expectedData, actualUiState)
+
+            actualUiState = viewModel.getExampleList(emptyWord)
+            assertEquals(expectedData, actualUiState)
+
+            actualUiState = viewModel.getImageList(emptyWord)
+            assertEquals(expectedData, actualUiState)
         }
     }
 
