@@ -3,8 +3,6 @@ package com.example.englishrussianflashcards
 import android.graphics.Picture
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
-import androidx.lifecycle.SavedStateHandle
-import com.almworks.sqlite4java.SQLiteException
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestScope
@@ -27,7 +25,6 @@ TODO:
        - Transcription not found in a DictionaryRepository
        - Translation not found in a DictionaryRepository
        - Example not found in a DictionaryRepository
-  2) Remove redundant properties to use base class ones
  */
 class CardCreationScreenViewModelTester: ViewModelTester() {
     private lateinit var fakeGroupTitleList: List<String>
@@ -35,77 +32,60 @@ class CardCreationScreenViewModelTester: ViewModelTester() {
     private lateinit var fakeWord: String
     private lateinit var fakeImageList: List<Drawable>
     private lateinit var fakeTranscription: String
-    private lateinit var dataExtractionSuccessResultMap: Map<String, Result<Any>>
-    private lateinit var dataExtractionFailureResultMap: Map<String, Result<Any>>
-    private val roomFailureResult = Result.failure<SQLiteException>(android.database.sqlite.SQLiteException())
-    private val coilFailureResult = Result.failure<FakeImageLoadingException>(FakeImageLoadingException())
-    private lateinit var failureDataExtractionViewModel: CardCreationScreenViewModel
-    private lateinit var successDataExtractionViewModel: CardCreationScreenViewModel
+    private lateinit var dataExtractionSuccessResultMap: Map<String, UiState>
+    private lateinit var dataExtractionFailureResultMap: Map<String, UiState>
+    private val roomFailureResult = UiState.Error(android.database.sqlite.SQLiteException())
+    private val networkFailureResult = UiState.Error(Throwable())
 
-    override fun recreateViewModel() {
-        TODO("Not yet implemented")
-    }
 
     override fun setupTestEnvironment() {
-        fakeGroupTitleList = listOf("Fruits", "Animals")
-        fakeWordList = listOf("Apple", "Arrow")
-        fakeWord = "Apple"
-        fakeImageList = listOf(PictureDrawable(Picture()))
-        fakeTranscription = "[ˈæpəl]"
-        dataExtractionSuccessResultMap = mapOf("groupTitleList" to Result.success(fakeGroupTitleList),
-                                                "wordList" to Result.success(fakeWordList),
-                                                "word" to Result.success(fakeWord),
-                                                "imageList" to Result.success(fakeImageList),
-                                                "transcription" to Result.success(fakeTranscription))
+        fakeGroupTitleList = UiState.Success(listOf("Fruits", "Animals"))
+        fakeWordList = UiState.Success(listOf("Apple", "Arrow"))
+        fakeWord = UiState.Success("Apple")
+        fakeImageList = UiState.Success(listOf(PictureDrawable(Picture())))
+        fakeTranscription = UiState.Success("[ˈæpəl]")
+        dataExtractionSuccessResultMap = mapOf("groupTitleList" to fakeGroupTitleList,
+                                                "wordList" to fakeWordList,
+                                                "word" to fakeWord,
+                                                "imageList" to fakeImageList,
+                                                "transcription" to fakeTranscription)
 
         dataExtractionFailureResultMap = mapOf("groupTitleList" to roomFailureResult,
                                                 "wordList" to roomFailureResult,
                                                 "word" to roomFailureResult,
-                                                "imageList" to coilFailureResult,
+                                                "imageList" to networkFailureResult,
                                                 "transcription" to roomFailureResult)
-
-
-
-        var fakeRepository = FailureFakeCardRepository()
-        val failureFakeImageRepository = FailureFakeImageRepository()
-        val failureFakeDictionaryRepository = FailureFakeDictionaryRepository()
-
-        val successFakeImageRepository = SuccessFakeImageRepository()
-        val successFakeDictionaryRepository = SuccessFakeDictionaryRepository()
-
-        failureDataExtractionViewModel = CardCreationScreenViewModel(fakeRepository,
-                                                                     failureFakeImageRepository,
-                                                                     failureFakeDictionaryRepository)
-        fakeRepository = SuccessFakeCardRepository()
-
-        successDataExtractionViewModel = CardCreationScreenViewModel(fakeRepository,
-                                                                     successFakeImageRepository,
-                                                                     successFakeDictionaryRepository,
-                                                                     SavedStateHandle())
     }
 
 
     @Test
     fun testSuccessfulDataExtraction() {
+        val dictionaryRepository = FakeSuccessDictionaryRepository()
+        val imageRepository = FakeSuccessImageRepository()
+        viewModel = CardCreationScreenViewModel(dictionaryRepository, imageRepository)
 
         runTest {
-            joinViewModelDataExtractionJob(this, successDataExtractionViewModel)
-            assertEquals(true, successDataExtractionViewModel.hasDataExtractionResult(dataExtractionSuccessResultMap))
+            joinViewModelDataExtractionJob(this, viewModel)
+            assertEquals(true, viewModel.hasDataExtractionResult(dataExtractionSuccessResultMap))
         }
     }
 
     @Test
     fun testFailureDataExtraction() {
+        val dictionaryRepository = FakeFailureDictionaryRepository()
+        val imageRepository = FakeFailureImageRepository()
+        viewModel = CardCreationScreenViewModel(dictionaryRepository, imageRepository)
 
         runTest {
-            joinViewModelDataExtractionJob(this, failureDataExtractionViewModel)
-            assertEquals(true, failureDataExtractionViewModel.hasDataExtractionResult(dataExtractionFailureResultMap))
+            joinViewModelDataExtractionJob(this, viewModel)
+            assertEquals(true, viewModel.hasDataExtractionResult(dataExtractionFailureResultMap))
         }
     }
 
 
     @Test
     fun testElementSelectionOnWordNoTyping() {
+
         repository = FakeDictionaryRepository()
         viewModel = CardCreationScreenViewModel(repository)
 
@@ -125,14 +105,14 @@ class CardCreationScreenViewModelTester: ViewModelTester() {
 
 
     fun applyMultipleDataExtractionCall(cardCreationScreenViewModel: CardCreationScreenViewModel) {
+        val word = "apple"
 
         cardCreationScreenViewModel.apply {
-            getWordList()
-            getImageList()
-            getTranslationList()
-            getTranscription()
-            getExampleList()
-            getGroupTitleList()
+            getWordList(word)
+            getImageList(word)
+            getTranslationList(word)
+            getTranscription(word)
+            getExampleList(word)
         }
     }
 

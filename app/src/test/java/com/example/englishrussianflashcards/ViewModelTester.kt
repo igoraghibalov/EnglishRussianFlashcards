@@ -25,7 +25,9 @@ abstract class ViewModelTester: UnitTester() {
     @get: Rule
     val ruleToUpdateLiveDataValueOnPureJVM = InstantTaskExecutorRule()
 
-    abstract fun recreateViewModel()
+    fun recreateViewModel() {
+        viewModel.reset()
+    }
 
     @Test
     fun testBundleDataRestore() {
