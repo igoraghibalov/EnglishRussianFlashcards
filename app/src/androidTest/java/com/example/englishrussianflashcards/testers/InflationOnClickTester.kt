@@ -1,25 +1,8 @@
 package com.example.englishrussianflashcards.testers
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.example.englishrussianflashcards.ViewClickHandler
 
 /**
- * Created by Igor Aghibalov on 07.07.2024
+ * Created by Igor Aghibalov on 26.07.2024
  */
-open class InflationOnClickTester: ViewAppearanceTester, ViewClickHandler {
-
-
-    override fun clickOnView(viewId: Int) {
-        onView(withId(viewId))
-            .perform(click())
-    }
-
-    override fun checkViewAppearance(viewId: Int) {
-        onView(withId(viewId))
-            .check(matches(isDisplayed()))
-    }
-}
+interface InflationOnClickTester: ViewAppearanceTester, ViewClickHandler
