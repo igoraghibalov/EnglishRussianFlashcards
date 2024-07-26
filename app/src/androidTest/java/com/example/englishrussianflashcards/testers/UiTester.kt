@@ -24,6 +24,6 @@ abstract class UiTester: Tester() {
     override fun setupTestEnvironment() {
         applicationContext = ApplicationProvider.getApplicationContext<Application>()
         mainActivityScenario = ActivityScenario.launch(MainActivity::class.java)
-        inflationOnClickTester = InflationOnClickTester()
+        inflationOnClickTester = BaseInflationOnClickTester()
     }
 }
