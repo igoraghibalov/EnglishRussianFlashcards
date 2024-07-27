@@ -41,4 +41,5 @@
     <string name="earth_card_word">Earth</string>
     <string name="earth_card_translation">Земля</string>
     <string name="earth_card_transcription">[ˈɝːθ]</string>
+    <string name="card_groups_button_text">Cards</string>
 </resources>
