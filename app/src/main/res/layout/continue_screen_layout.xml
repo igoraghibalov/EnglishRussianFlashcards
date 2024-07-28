@@ -25,7 +25,7 @@
         android:layout_gravity="end"
         android:layout_margin="@dimen/card_groups_button_margin"
         android:text="@string/card_groups_button_text"
-        android:textSize="30sp"
+        android:textSize="@dimen/button_text_size"
         android:layout_weight="1"/>
 
 </LinearLayout>
