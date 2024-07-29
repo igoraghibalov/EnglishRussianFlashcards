@@ -9,7 +9,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 /**
  * Created by Igor Aghibalov on 07.07.2024
  */
-class BaseInflationOnClickTester: InflationOnClickTester {
+open class BaseInflationOnClickTester: InflationOnClickTester {
 
 
     override fun clickOnView(viewId: Int) {
