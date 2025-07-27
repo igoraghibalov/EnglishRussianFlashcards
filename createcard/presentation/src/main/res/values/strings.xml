@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_string_pattern">\\\\w+</string>
+    <string name="word_typing_hint">type a word</string>
+    <string name="translation_selection_hint">choose a translation</string>
+    <string name="english_example_selection_hint">choose english example</string>
+    <string name="image_selection_hint">choose an image</string>
+    <string name="group_selection_hint">type a group</string>
+    <string name="card_creation_button_text">create</string>
+</resources>
