@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_margin="@dimen/root_view_margin">
 
     <AutoCompleteTextView
-        android:id="@+id/word_typing_text_view"
+        android:id="@+id/word_auto_complete_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/word_typing_hint"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/translation_selection_text_view" />
+        app:layout_constraintBottom_toTopOf="@id/translation_spinner" />
 
-    <AutoCompleteTextView
-        android:id="@+id/translation_selection_text_view"
+    <Spinner
+        android:id="@+id/translation_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/translation_selection_hint"
-        app:layout_constraintTop_toBottomOf="@id/word_typing_text_view"
+        app:layout_constraintTop_toBottomOf="@id/word_auto_complete_text_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/english_example_selection_text_view" />
+        app:layout_constraintBottom_toTopOf="@id/example_spinner" />
 
-    <AutoCompleteTextView
-        android:id="@+id/english_example_selection_text_view"
+    <Spinner
+        android:id="@+id/example_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/english_example_selection_hint"
-        app:layout_constraintTop_toBottomOf="@id/translation_selection_text_view"
+        app:layout_constraintTop_toBottomOf="@id/translation_spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/image_spinner" />
 
@@ -38,13 +40,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/image_selection_hint"
-            app:layout_constraintTop_toBottomOf="@id/english_example_selection_text_view"
+            app:layout_constraintTop_toBottomOf="@id/example_spinner"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/group_selection_text_view"/>
+            app:layout_constraintBottom_toTopOf="@id/group_selection_auto_complete_text_view"/>
 
 
     <AutoCompleteTextView
-        android:id="@+id/group_selection_text_view"
+        android:id="@+id/group_selection_auto_complete_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/group_selection_hint"
@@ -58,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
-        app:layout_constraintTop_toBottomOf="@id/group_selection_text_view"
+        app:layout_constraintTop_toBottomOf="@id/group_selection_auto_complete_text_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
