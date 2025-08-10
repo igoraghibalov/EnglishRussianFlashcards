@@ -51,11 +51,13 @@ android {
 }
 
 dependencies {
-    implementation("androidx.fragment:fragment-ktx:1.7.1")
+    implementation(project(":createcard"))
+    implementation(project(":createcard:presentation"))
     testImplementation(project(":app"))
 
     val roomVersion = "2.6.1"
 
+    implementation("androidx.fragment:fragment-ktx:1.7.1")
     implementation("androidx.room:room-runtime:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
     implementation(libs.androidx.room.ktx)
