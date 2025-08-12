@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:weightSum="10">
+
+    <AutoCompleteTextView
+        android:id="@+id/auto_complete_text_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:hint="@string/word_typing_hint"
+        android:drawableEnd="@drawable/close_24px"
+        android:layout_weight="7"/>
+
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_margin="@dimen/ok_button_margin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ok_button_shape"
+        android:visibility="visible"
+        android:layout_gravity="center"
+        android:text="@string/ok_button_text"
+        android:layout_weight="3"/>
+
+</LinearLayout>
