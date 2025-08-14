@@ -18,7 +18,7 @@
         android:text="@string/cards_button_name"/>
 
     <Button
-        android:id="@+id/new_button"
+        android:id="@+id/create_card_button"
         style="@style/MainMenuButtonStyle"
         android:text="@string/new_button_name"/>
 

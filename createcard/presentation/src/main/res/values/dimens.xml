@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="root_view_margin">16dp</dimen>
+    <dimen name="card_creation_button_end_margin">10dp</dimen>
+    <dimen name="ok_button_margin">5dp</dimen>
+</resources>
