@@ -7,4 +7,5 @@
     <string name="image_selection_hint">choose an image</string>
     <string name="group_selection_hint">type a group</string>
     <string name="card_creation_button_text">create</string>
+    <string name="ok_button_text">ok</string>
 </resources>

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.englishrussianflashcards.createcard.presentation"
+    namespace = "com.example.englishrussianflashcards.customviews"
     compileSdk = 34
 
     defaultConfig {
@@ -39,18 +39,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    androidTestImplementation("androidx.fragment:fragment-testing:1.8.5")
-    androidTestImplementation(libs.androidx.uiautomator)
-
-//    implementation(libs.androidx.core.ktx)
-//    implementation(libs.androidx.appcompat)
-//    implementation(libs.material)
-//    testImplementation(libs.junit)
-//    androidTestImplementation(libs.androidx.junit)
-//    androidTestImplementation(libs.androidx.espresso.core)
-//    androidTestImplementation(libs.androidx.fragment.testing)
-//    debugImplementation(libs.androidx.core)
-//    runtimeOnly(libs.core.ktx)
-//    testImplementation("androidx.test:core:1.6.1")
-//    androidTestImplementation(project(":commoninterfaces"))
 }

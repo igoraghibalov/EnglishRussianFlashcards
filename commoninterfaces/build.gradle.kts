@@ -1,3 +1,12 @@
+//import org.gradle.kotlin.dsl.implementation
+//
+//plugins {
+//    alias(libs.plugins.org.jetbrains.kotlin.jvm)
+//}
+//
+//dependencies {
+//    implementation(libs.androidx.espresso.core)
+//}
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -5,7 +14,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.englishrussianflashcards.createcard.presentation"
+    namespace = "com.example.commoninterfaces"
     compileSdk = 34
 
     defaultConfig {
@@ -36,11 +45,11 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.espresso.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation("androidx.fragment:fragment-testing:1.8.5")
-    androidTestImplementation(libs.androidx.uiautomator)
 
 //    implementation(libs.androidx.core.ktx)
 //    implementation(libs.androidx.appcompat)
@@ -51,6 +60,6 @@ dependencies {
 //    androidTestImplementation(libs.androidx.fragment.testing)
 //    debugImplementation(libs.androidx.core)
 //    runtimeOnly(libs.core.ktx)
-//    testImplementation("androidx.test:core:1.6.1")
+    testImplementation("androidx.test:core:1.6.1")
 //    androidTestImplementation(project(":commoninterfaces"))
 }
