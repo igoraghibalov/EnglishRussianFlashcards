@@ -1,7 +1,6 @@
 package com.example.englishrussianflashcards.testers
 
 import com.example.englishrussianflashcards.R
-import com.example.englishrussianflashcards.casetesthandlers.CardCreationFragmentOnProcessDeathTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.rotation.CardCreationFragmentOnScreenRotationTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.inflation.CardDemoDialogFragmentInflationTestHandler
 import com.example.englishrussianflashcards.casetesthandlers.itemselection.CardElementsSelectionTestHandler
@@ -15,7 +14,7 @@ class CardCreationScreenUiTester: UiTester() {
 
     override fun setupTestEnvironment() {
         super.setupTestEnvironment()
-        inflationOnClickTester.clickOnView(R.id.new_button)
+        inflationOnClickTester.clickOnView(R.id.create_card_button)
         inflationOnClickTester.checkViewAppearance(R.id.word_typing_text_view)
         defaultTypingText = applicationContext.resources.getString(R.string.default_typing_char_sequence)
     }
