@@ -7,29 +7,21 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/root_view_margin">
 
-    <!--TODO: replace with custom view-->
-    <include
-        android:id="@+id/word_auto_complete_text_view_with_ok_button"
+    <com.example.customviews.InputConfirmingAutoCompleteTextView
+        android:id="@+id/word_auto_complete_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/translation_spinner"
-        layout="@layout/auto_complete_text_view_with_ok_button"/>
+        app:layout_constraintBottom_toTopOf="@id/translation_spinner" />
 
-<!--    <AutoCompleteTextView-->
-<!--        android:id="@+id/word_auto_complete_text_view"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="@string/word_typing_hint"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/translation_spinner" />-->
 
     <Spinner
         android:id="@+id/translation_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/translation_selection_hint"
-        app:layout_constraintTop_toBottomOf="@id/word_auto_complete_text_view_with_ok_button"
+        app:layout_constraintTop_toBottomOf="@id/word_auto_complete_text_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/example_spinner" />
 
@@ -53,7 +45,7 @@
             app:layout_constraintBottom_toTopOf="@id/group_selection_auto_complete_text_view"/>
 
 
-    <AutoCompleteTextView
+    <com.example.customviews.InputConfirmingAutoCompleteTextView
         android:id="@+id/group_selection_auto_complete_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
