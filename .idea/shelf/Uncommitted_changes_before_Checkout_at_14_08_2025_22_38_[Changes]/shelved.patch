@@ -1,0 +1,459 @@
+Index: .idea/render.experimental.xml
+===================================================================
+diff --git a/.idea/render.experimental.xml b/.idea/render.experimental.xml
+deleted file mode 100644
+--- a/.idea/render.experimental.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ /dev/null	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RenderSettings">
+-    <option name="showDecorations" value="true" />
+-    <option name="useLiveRendering" value="false" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/deploymentTargetDropDown.xml
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+deleted file mode 100644
+--- a/.idea/deploymentTargetDropDown.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ /dev/null	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
+@@ -1,19 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="deploymentTargetDropDown">
+-    <value>
+-      <entry key="app">
+-        <State />
+-      </entry>
+-      <entry key="data">
+-        <State />
+-      </entry>
+-      <entry key="presentation">
+-        <State />
+-      </entry>
+-      <entry key="testFragmentInflationsOnMainMenuButtonsClicks()">
+-        <State />
+-      </entry>
+-    </value>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/validation.xml
+===================================================================
+diff --git a/.idea/validation.xml b/.idea/validation.xml
+deleted file mode 100644
+--- a/.idea/validation.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ /dev/null	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ValidationConfiguration">
+-    <option name="VALIDATE_ON_BUILD" value="true" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/stacktrace-idea.xml
+===================================================================
+diff --git a/.idea/stacktrace-idea.xml b/.idea/stacktrace-idea.xml
+deleted file mode 100644
+--- a/.idea/stacktrace-idea.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ /dev/null	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
+@@ -1,21 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="StacktraceSettings">
+-    <option name="folders">
+-      <set>
+-        <option value="$PROJECT_DIR$/app/src/androidTest/java" />
+-        <option value="$PROJECT_DIR$/app/src/main/java" />
+-        <option value="$PROJECT_DIR$/app/src/main/res" />
+-        <option value="$PROJECT_DIR$/app/src/test/java" />
+-      </set>
+-    </option>
+-    <option name="packages">
+-      <set>
+-        <option value="com.example.data" />
+-        <option value="com.example.domain" />
+-        <option value="com.example.englishrussianflashcards" />
+-        <option value="com.example.presentation" />
+-      </set>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ /dev/null	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
+@@ -1,4 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-.idea
+Index: .idea/androidTestResultsUserPreferences.xml
+===================================================================
+diff --git a/.idea/androidTestResultsUserPreferences.xml b/.idea/androidTestResultsUserPreferences.xml
+deleted file mode 100644
+--- a/.idea/androidTestResultsUserPreferences.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ /dev/null	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
+@@ -1,48 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="AndroidTestResultsUserPreferences">
+-    <option name="androidTestResultsTableState">
+-      <map>
+-        <entry key="1767873907">
+-          <value>
+-            <AndroidTestResultsTableState>
+-              <option name="preferredColumnWidths">
+-                <map>
+-                  <entry key="Duration" value="90" />
+-                  <entry key="Pixel_3_API_34" value="120" />
+-                  <entry key="Tests" value="360" />
+-                </map>
+-              </option>
+-            </AndroidTestResultsTableState>
+-          </value>
+-        </entry>
+-        <entry key="2041852758">
+-          <value>
+-            <AndroidTestResultsTableState>
+-              <option name="preferredColumnWidths">
+-                <map>
+-                  <entry key="Duration" value="90" />
+-                  <entry key="Pixel_3_API_34" value="120" />
+-                  <entry key="Tests" value="360" />
+-                </map>
+-              </option>
+-            </AndroidTestResultsTableState>
+-          </value>
+-        </entry>
+-        <entry key="2042776279">
+-          <value>
+-            <AndroidTestResultsTableState>
+-              <option name="preferredColumnWidths">
+-                <map>
+-                  <entry key="Duration" value="90" />
+-                  <entry key="Pixel_3_API_34" value="120" />
+-                  <entry key="Tests" value="360" />
+-                </map>
+-              </option>
+-            </AndroidTestResultsTableState>
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+deleted file mode 100644
+--- a/.idea/inspectionProfiles/Project_Default.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ /dev/null	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
+@@ -1,41 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <profile version="1.0">
+-    <option name="myName" value="Project Default" />
+-    <inspection_tool class="PreviewAnnotationInFunctionWithParameters" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewApiLevelMustBeValid" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewDimensionRespectsLimit" enabled="true" level="WARNING" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewFontScaleMustBeGreaterThanZero" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewMultipleParameterProviders" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewMustBeTopLevelFunction" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewNeedsComposableAnnotation" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewNotSupportedInUnitTestFiles" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-    <inspection_tool class="PreviewPickerAnnotation" enabled="true" level="ERROR" enabled_by_default="true">
+-      <option name="composableFile" value="true" />
+-      <option name="previewFile" value="true" />
+-    </inspection_tool>
+-  </profile>
+-</component>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"jbr-17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ b/.idea/misc.xml	(date 1754161613281)
+@@ -1,6 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: settings.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>pluginManagement {\r\n    repositories {\r\n        google()\r\n        mavenCentral()\r\n        gradlePluginPortal()\r\n    }\r\n}\r\ndependencyResolutionManagement {\r\n    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)\r\n    repositories {\r\n        google()\r\n        mavenCentral()\r\n    }\r\n}\r\n\r\nrootProject.name = \"EnglishRussianFlashcards\"\r\ninclude(\":app\")\r\ninclude(\":createcard\")\r\ninclude(\":commoninterfaces\")\r\ninclude(\":createcard:presentation\")\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/settings.gradle.kts b/settings.gradle.kts
+--- a/settings.gradle.kts	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ b/settings.gradle.kts	(date 1754943658460)
+@@ -18,3 +18,4 @@
+ include(":createcard")
+ include(":commoninterfaces")
+ include(":createcard:presentation")
++include(":customviews")
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+new file mode 100644
+--- /dev/null	(date 1754944490078)
++++ b/.idea/deploymentTargetSelector.xml	(date 1754944490078)
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetSelector">
++    <selectionStates>
++      <SelectionState runConfigName="app">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++      <SelectionState runConfigName="commoninterfaces">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++      <SelectionState runConfigName="createcard.presentation">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++      <SelectionState runConfigName="customviews">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++    </selectionStates>
++  </component>
++</project>
+\ No newline at end of file
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Sat Mar 23 01:00:22 MSK 2024\r\ndistributionBase=GRADLE_USER_HOME\r\ndistributionPath=wrapper/dists\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-8.2-bin.zip\r\nzipStoreBase=GRADLE_USER_HOME\r\nzipStorePath=wrapper/dists\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+--- a/gradle/wrapper/gradle-wrapper.properties	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ b/gradle/wrapper/gradle-wrapper.properties	(date 1754156622419)
+@@ -1,6 +1,6 @@
+-#Sat Mar 23 01:00:22 MSK 2024
++#Sat Aug 02 20:43:42 MSK 2025
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-8.2-bin.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-8.9-bin.zip
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"#GRADLE_LOCAL_JAVA_HOME\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveExternalAnnotations\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ b/.idea/gradle.xml	(date 1754944121135)
+@@ -4,12 +4,17 @@
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
++        <option name="testRunner" value="CHOOSE_PER_TEST" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+             <option value="$PROJECT_DIR$/app" />
++            <option value="$PROJECT_DIR$/commoninterfaces" />
++            <option value="$PROJECT_DIR$/createcard" />
++            <option value="$PROJECT_DIR$/createcard/presentation" />
++            <option value="$PROJECT_DIR$/customviews" />
+           </set>
+         </option>
+         <option name="resolveExternalAnnotations" value="false" />
+Index: app/src/androidTest/java/com/example/englishrussianflashcards/testers/MainScreenUiTester.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.englishrussianflashcards.testers\r\n\r\nimport com.example.englishrussianflashcards.CaseTestHandler\r\nimport com.example.englishrussianflashcards.R\r\nimport com.example.englishrussianflashcards.casetesthandlers.inflation.MainScreenFragmentsInflationTestHandler\r\nimport org.junit.Test\r\n\r\n/**\r\n * Created by Igor Aghibalov on 22.04.2024\r\n */\r\nclass MainScreenUiTester: UiTester() {\r\n    private lateinit var clickedViewToInflatedFragmentViewMap: Map<Int, Int>\r\n    private lateinit var fragmentInflationTestHandler: CaseTestHandler\r\n\r\n\r\n    override fun setupTestEnvironment() {\r\n        super.setupTestEnvironment()\r\n        clickedViewToInflatedFragmentViewMap = mapOf(\r\n            R.id.new_button to R.id.word_typing_text_view,\r\n                                                     R.id.continue_button to R.id.card_view_pager,\r\n                                                     R.id.cards_button to R.id.group_card_recycler_view,\r\n                                                     R.id.history_button to R.id.card_history_recycler_view\r\n        )\r\n        fragmentInflationTestHandler = MainScreenFragmentsInflationTestHandler(clickedViewToInflatedFragmentViewMap)\r\n    }\r\n\r\n\r\n    @Test\r\n    fun testFragmentInflationsOnMainMenuButtonsClicks() {\r\n        testCase(fragmentInflationTestHandler)\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/androidTest/java/com/example/englishrussianflashcards/testers/MainScreenUiTester.kt b/app/src/androidTest/java/com/example/englishrussianflashcards/testers/MainScreenUiTester.kt
+--- a/app/src/androidTest/java/com/example/englishrussianflashcards/testers/MainScreenUiTester.kt	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ b/app/src/androidTest/java/com/example/englishrussianflashcards/testers/MainScreenUiTester.kt	(date 1754229186865)
+@@ -16,7 +16,7 @@
+     override fun setupTestEnvironment() {
+         super.setupTestEnvironment()
+         clickedViewToInflatedFragmentViewMap = mapOf(
+-            R.id.new_button to R.id.word_typing_text_view,
++            R.id.create_card_button to R.id.word_typing_text_view,
+                                                      R.id.continue_button to R.id.card_view_pager,
+                                                      R.id.cards_button to R.id.group_card_recycler_view,
+                                                      R.id.history_button to R.id.card_history_recycler_view
+Index: .idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/runConfigurations.xml b/.idea/runConfigurations.xml
+new file mode 100644
+--- /dev/null	(date 1754161578061)
++++ b/.idea/runConfigurations.xml	(date 1754161578061)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RunConfigurationProducerService">
++    <option name="ignoredProducers">
++      <set>
++        <option value="com.intellij.execution.junit.AbstractAllInDirectoryConfigurationProducer" />
++        <option value="com.intellij.execution.junit.AllInPackageConfigurationProducer" />
++        <option value="com.intellij.execution.junit.PatternConfigurationProducer" />
++        <option value="com.intellij.execution.junit.TestInClassConfigurationProducer" />
++        <option value="com.intellij.execution.junit.UniqueIdConfigurationProducer" />
++        <option value="com.intellij.execution.junit.testDiscovery.JUnitTestDiscoveryConfigurationProducer" />
++        <option value="org.jetbrains.kotlin.idea.junit.KotlinJUnitRunConfigurationProducer" />
++        <option value="org.jetbrains.kotlin.idea.junit.KotlinPatternConfigurationProducer" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/androidTest/java/com/example/englishrussianflashcards/testers/CardCreationScreenUiTester.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.englishrussianflashcards.testers\r\n\r\nimport com.example.englishrussianflashcards.R\r\nimport com.example.englishrussianflashcards.casetesthandlers.CardCreationFragmentOnProcessDeathTestHandler\r\nimport com.example.englishrussianflashcards.casetesthandlers.rotation.CardCreationFragmentOnScreenRotationTestHandler\r\nimport com.example.englishrussianflashcards.casetesthandlers.inflation.CardDemoDialogFragmentInflationTestHandler\r\nimport com.example.englishrussianflashcards.casetesthandlers.itemselection.CardElementsSelectionTestHandler\r\nimport org.junit.Test\r\n\r\n/**\r\n * Created by Igor Aghibalov on 29.04.2024\r\n */\r\nclass CardCreationScreenUiTester: UiTester() {\r\n    private lateinit var defaultTypingText: String\r\n\r\n    override fun setupTestEnvironment() {\r\n        super.setupTestEnvironment()\r\n        inflationOnClickTester.clickOnView(R.id.new_button)\r\n        inflationOnClickTester.checkViewAppearance(R.id.word_typing_text_view)\r\n        defaultTypingText = applicationContext.resources.getString(R.string.default_typing_char_sequence)\r\n    }\r\n\r\n    @Test\r\n    fun testCardElementsSelection() {\r\n        testCase(caseTestHandler = CardElementsSelectionTestHandler(applicationContext))\r\n    }\r\n\r\n\r\n    @Test\r\n    fun testCardDemoDialogFragmentInflationOnCreateButtonClick() {\r\n        testCase(caseTestHandler = CardDemoDialogFragmentInflationTestHandler(defaultTypingText))\r\n    }\r\n\r\n\r\n    @Test\r\n    fun testCardCreationFragmentDataRetentionAfterScreenRotation() {\r\n        testCase(caseTestHandler = CardCreationFragmentOnScreenRotationTestHandler(defaultTypingText))\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/androidTest/java/com/example/englishrussianflashcards/testers/CardCreationScreenUiTester.kt b/app/src/androidTest/java/com/example/englishrussianflashcards/testers/CardCreationScreenUiTester.kt
+--- a/app/src/androidTest/java/com/example/englishrussianflashcards/testers/CardCreationScreenUiTester.kt	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ b/app/src/androidTest/java/com/example/englishrussianflashcards/testers/CardCreationScreenUiTester.kt	(date 1754229186849)
+@@ -1,7 +1,6 @@
+ package com.example.englishrussianflashcards.testers
+ 
+ import com.example.englishrussianflashcards.R
+-import com.example.englishrussianflashcards.casetesthandlers.CardCreationFragmentOnProcessDeathTestHandler
+ import com.example.englishrussianflashcards.casetesthandlers.rotation.CardCreationFragmentOnScreenRotationTestHandler
+ import com.example.englishrussianflashcards.casetesthandlers.inflation.CardDemoDialogFragmentInflationTestHandler
+ import com.example.englishrussianflashcards.casetesthandlers.itemselection.CardElementsSelectionTestHandler
+@@ -15,7 +14,7 @@
+ 
+     override fun setupTestEnvironment() {
+         super.setupTestEnvironment()
+-        inflationOnClickTester.clickOnView(R.id.new_button)
++        inflationOnClickTester.clickOnView(R.id.create_card_button)
+         inflationOnClickTester.checkViewAppearance(R.id.word_typing_text_view)
+         defaultTypingText = applicationContext.resources.getString(R.string.default_typing_char_sequence)
+     }
+Index: gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[versions]\r\ncoroutines-test = \"1.8.1-Beta\"\r\nroom-test = \"1.8.1-Beta\"\r\norg-jetbrains-kotlin-jvm = \"1.9.21\"\r\nagp = \"8.2.0\"\r\nkotlin = \"1.9.21\"\r\ncore-ktx = \"1.13.1\"\r\njunit = \"4.13.2\"\r\nandroidx-test-ext-junit = \"1.1.5\"\r\nespresso-core = \"3.5.1\"\r\nappcompat = \"1.6.1\"\r\nmaterial = \"1.12.0\"\r\nroom-ktx = \"2.6.1\"\r\nroom-runtime-jvm = \"2.7.0-alpha02\"\r\nroom-runtime-android = \"2.7.0-alpha02\"\r\n\r\n[libraries]\r\nandroidx-room-runtime = { module = \"androidx.room:room-runtime\", version.ref = \"room-ktx\" }\r\nkotlinx-coroutines-test = {group = \"org.jetbrains.kotlinx\", name = \"kotlinx-coroutines-test\", version.ref = \"coroutines-test\" }\r\ncore-ktx = { group = \"androidx.core\", name = \"core-ktx\", version.ref = \"core-ktx\" }\r\njunit = { group = \"junit\", name = \"junit\", version.ref = \"junit\" }\r\nandroidx-test-ext-junit = { group = \"androidx.test.ext\", name = \"junit\", version.ref = \"androidx-test-ext-junit\" }\r\nespresso-core = { group = \"androidx.test.espresso\", name = \"espresso-core\", version.ref = \"espresso-core\" }\r\nappcompat = { group = \"androidx.appcompat\", name = \"appcompat\", version.ref = \"appcompat\" }\r\nmaterial = { group = \"com.google.android.material\", name = \"material\", version.ref = \"material\" }\r\nandroidx-room-ktx = { group = \"androidx.room\", name = \"room-ktx\", version.ref = \"room-ktx\" }\r\nandroidx-room-runtime-jvm = { group = \"androidx.room\", name = \"room-runtime-jvm\", version.ref = \"room-runtime-jvm\" }\r\nandroidx-room-runtime-android = { group = \"androidx.room\", name = \"room-runtime-android\", version.ref = \"room-runtime-android\" }\r\n[plugins]\r\norg-jetbrains-kotlin-jvm = { id = \"org.jetbrains.kotlin.jvm\", version.ref = \"org-jetbrains-kotlin-jvm\" }\r\nandroidLibrary = { id = \"com.android.library\", version.ref = \"agp\" }\r\nkotlinAndroid = { id = \"org.jetbrains.kotlin.android\", version.ref = \"kotlin\" }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+--- a/gradle/libs.versions.toml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ b/gradle/libs.versions.toml	(date 1754165596248)
+@@ -13,6 +13,7 @@
+ room-ktx = "2.6.1"
+ room-runtime-jvm = "2.7.0-alpha02"
+ room-runtime-android = "2.7.0-alpha02"
++uiautomator = "2.3.0"
+ 
+ [libraries]
+ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-ktx" }
+@@ -26,6 +27,7 @@
+ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room-ktx" }
+ androidx-room-runtime-jvm = { group = "androidx.room", name = "room-runtime-jvm", version.ref = "room-runtime-jvm" }
+ androidx-room-runtime-android = { group = "androidx.room", name = "room-runtime-android", version.ref = "room-runtime-android" }
++androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
+ [plugins]
+ org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+ androidLibrary = { id = "com.android.library", version.ref = "agp" }
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <bytecodeTargetLevel target=\"17\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ b/.idea/compiler.xml	(date 1754165495309)
+@@ -1,6 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel target="17" />
++    <bytecodeTargetLevel>
++      <module name="EnglishRussianFlashcards.createcard.lib" target="21" />
++      <module name="EnglishRussianFlashcards.createcard.lib.main" target="21" />
++      <module name="EnglishRussianFlashcards.createcard.lib.test" target="21" />
++    </bytecodeTargetLevel>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GitSharedSettings\">\r\n    <option name=\"FORCE_PUSH_PROHIBITED_PATTERNS\">\r\n      <list />\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision 6f6612badbb0629305cd1b114f33284c9bcb4f0d)
++++ b/.idea/vcs.xml	(date 1754161578082)
+@@ -1,11 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="GitSharedSettings">
+-    <option name="FORCE_PUSH_PROHIBITED_PATTERNS">
+-      <list />
+-    </option>
+-  </component>
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
