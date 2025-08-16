@@ -108,9 +108,9 @@ abstract class UiTest {
     }
 
     fun isViewHighlighted(viewMatcher: Matcher<View>, highlightBackgroundId: Int) {
-        val highlightedViewMatcher = object: BoundedMatcher<View, Spinner>(Spinner::class.java) {
+        val highlightedViewMatcher = object: BoundedMatcher<View, View>(View::class.java) {
 
-            override fun matchesSafely(item: Spinner?): Boolean {
+            override fun matchesSafely(item: View?): Boolean {
                 return item!!.background == ResourcesCompat.getDrawable(item.resources,
                                                                         highlightBackgroundId,
                                                                         null)
