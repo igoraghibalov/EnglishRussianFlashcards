@@ -1,7 +1,9 @@
 package com.example.englishrussianflashcards
 
 import android.view.View
+import android.widget.Spinner
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.test.espresso.DataInteraction
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
@@ -12,14 +14,19 @@ import androidx.test.espresso.action.ViewActions.clearText
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
+import com.example.englishrussianflashcards.createcard.presentation.R
 import com.example.englishrussianflashcards.presentation.MainActivity
+import org.hamcrest.BaseMatcher
+import org.hamcrest.Description
 import org.hamcrest.Matcher
+import org.hamcrest.Matchers.allOf
 import org.junit.Before
 import org.junit.Rule
 
@@ -98,5 +105,23 @@ abstract class UiTest {
 
     fun clearText(viewId: Int) {
         onView(withId(viewId)).perform(clearText())
+    }
+
+    fun isViewHighlighted(viewMatcher: Matcher<View>, highlightBackgroundId: Int) {
+        val highlightedViewMatcher = object: BoundedMatcher<View, Spinner>(Spinner::class.java) {
+
+            override fun matchesSafely(item: Spinner?): Boolean {
+                return item!!.background == ResourcesCompat.getDrawable(item.resources,
+                                                                        highlightBackgroundId,
+                                                                        null)
+            }
+
+            override fun describeTo(description: Description?) {
+                description!!.appendText("Matches view highlighted by respective background drawable")
+            }
+
+        }
+        testViewPresence(allOf(viewMatcher, highlightedViewMatcher))
+
     }
 }
