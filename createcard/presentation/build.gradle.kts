@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":customviews"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
@@ -40,7 +41,6 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation("androidx.fragment:fragment-testing:1.8.5")
-    androidTestImplementation(libs.androidx.uiautomator)
 
 //    implementation(libs.androidx.core.ktx)
 //    implementation(libs.androidx.appcompat)
