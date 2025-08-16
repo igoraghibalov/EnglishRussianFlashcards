@@ -1,1 +1,8 @@
-/build
+/build/
+.gradle/
+*.apk
+*.ap_
+*.dex
+*.class
+/app/build/
+/app/.externalNativeBuild/
