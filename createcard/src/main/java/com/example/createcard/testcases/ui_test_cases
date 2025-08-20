@@ -1,144 +1,51 @@
-1. Select word
 
-    Success
+    1) Create card using database
 
-        1) Word selection from dropdown menu:
-            - "ab" characters typing
-            - dropdown menu has shown
-            - select a word in a dropdown menu
-            - wordAutoCompleteTextView shows selected word
+         a) Word selection from dropdown menu:
+             - "ab" characters typing
+             - dropdown menu has shown
+             - select a word in a dropdown menu
+             - wordAutoCompleteTextView shows selected word
 
-        2) Manual word typing, - word not found in a database dictionary:
-            - "yqzyqz" characters typing
-            - click 'ok' button
-            - wordAutoCompleteTextView shows confirmed word
-            - translation spinner highlight is on
+         b) Select a translation in list extracted from database
+             - click translationSpinner
+             - click on the item in a dropdown menu
+             - clicked item is in the translationSpinner
 
-    Error
+         c) Select an example pair(sentence - translation) in a list extracted from database
+             - click exampleSpinner
+             - click on the item in a dropdown menu
+             - clicked item is in the exampleSpinner
 
-        1) Database error on word typing
-            - type "ab" characters
-            - database error is thrown
-            - show a message: "database error, type a word manually, please"
-
-
-2. Select translation
-
-    Success
-
-        1) Select a translation in list extracted from database
-            - click translationSpinner
-            - click on the item in a dropdown menu
-            - clicked item is in the translationSpinner
-
-    Error
-
-        2) Database error on attempt to select translation from dropDownMenu
-            - click translationSpinner
-            - database error is thrown
-            - show a message: "database error, type a translation manually, please"
-
-
-3. Select example
-
-    Success
-        1) Select an example pair(sentence - translation) in a list extracted from database
-            - click exampleSpinner
-            - click on the item in a dropdown menu
-            - clicked item is in the exampleSpinner
-
-    Error
-        1) Database error on attempt to select an example pair(sentence - translation)
-            in a list extracted from database
-
-                - click exampleSpinner
-                - database error is thrown
-                - show a message: "database error, type an example manually, please"
-
-4. Select image
-
-    Success
-
-        1) Select image in a imageSpinner filled by image Api
-
-            - click imageSpinner
-            - click the image in a dropdown menu
-            - selected image in a collapsed imageSpinner
-
-    Error
-
-        1) NoConnectivityException is thrown on an imageSpinner click:
-
-             - turn off internet
+         d) Select image in an imageSpinner, filled by image Api
              - click imageSpinner
-             - show a message: "check your network connection to load an image"
-             - enable internet
-             - imageSpinner loads without extra click on it
-             - network error message dismiss
+             - click the image in a dropdown menu
+             - selected image is in a collapsed imageSpinner
 
-        2) Network connection timeout has expired:
+         e) Select a group title
+             - type group name first two characters
+             - select a group name in a dropdown menu
+             - check: wordAutoCompleteTextView shows selected word
 
-            - turn off internet
-            - click imageSpinner
-            - show a message: "check your network connection to load an image"
-            - wait for 30 seconds
-            - dismiss `network connection check message`
-            - show a dialog:
-                    "no internet connection:
-                            - skip image selection
-                            - download the image from gallery"
+         f) createButton click appends new card to cardGroupFragment
+             - click create button
+             - cardGroupFragment inflation
+             - check a new card view presence, mapping selected on card creation:
+                    word, translation, example, image, group name;
 
-        3) server ConnectException
+    //TODO: refactor in detail
+    2) Create card manually
+        - type a word, click ok
+        - type a translation, click ok
+        - type an example, click ok
+        - select an image
+        - type a card group title, click ok
+        - click create card
+        - check: inflated CardGroupFragment has a new card view; map typed on a card creation elements:
+                  word, translation, example, image, group name;
 
-            - click imageSpinner
-            - server connection exception is thrown
-            - show a dialog: "image source connection error:
-                                    - skip image selection
-                                    - download from gallery"
-
-5. Select group title
-
-    Success
-
-        a. typing group is in a database and dropdown is shown, group is selected
-                - type "fr"(`fruits` is supposed)
-                - select a word in a dropdown menu
-                - check: wordAutoCompleteTextView shows selected word
-
-        b. typing group is not found, user types manually, clicks ok to confirm group name
-                - type "fruits" characters
-                - click ok button
-                - wordGroupAutoCompleteTextView shows respective group name
-                - createButton highlight is on
+    //TODO: do in detail
+    3) testNetworkConnectionErrorMessageHandling
+    4) testImageApiServerErrorMessageHandling
 
 
-    Error
-        a. In a moment of group typing a database error is thrown,
-            - type "fr" characters
-            - show a message: "database error: type a group manually"
-
-
-6. CreateButton click
-
-    Success
-
-        1. createButton click appends new card to cardGroupFragment
-            - click create button
-            - cardGroupFragment inflation
-            - check new card presence
-
-    Error
-        1. Error inflating class fragment
-            - click create button
-            - show a message: "Error: card group list could not be shown"
-
-7. Skip image selection
-
-    - click skipImage button
-    - imageSpinner replaced with noImageTextView
-    - focus gained by cardGroupAutoCompleteTextView
-
-8. Download image from gallery
-    - click downloadImageFromGalleryButton
-    - select image from spinner
-    - selected image in a collapsed imageSpinner
