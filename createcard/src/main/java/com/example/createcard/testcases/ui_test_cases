@@ -1,51 +1,100 @@
+Brief:
 
-    1) Create card using database
+    - card creation success using dictionaryRoomDatabase and imageApi
+    - database error: any DictionaryRepository Exception, - manual card creation feature applied
+    - imageApi serverError: response.code() -> 500; 503
+    - imageApi NoInternetConnectionException
+
+
+Details:
+
+    1) Card creation success using dictionaryRoomDatabase and imageApi
 
          a) Word selection from dropdown menu:
              - "ab" characters typing
              - dropdown menu has shown
              - select a word in a dropdown menu
-             - wordAutoCompleteTextView shows selected word
+             - wordAutoCompleteEditText shows selected word
 
-         b) Select a translation in list extracted from database
+         b) Select a translation:
              - click translationSpinner
              - click on the item in a dropdown menu
              - clicked item is in the translationSpinner
 
-         c) Select an example pair(sentence - translation) in a list extracted from database
+         c) Select an example pair(sentence - translation):
              - click exampleSpinner
              - click on the item in a dropdown menu
              - clicked item is in the exampleSpinner
 
-         d) Select image in an imageSpinner, filled by image Api
+         d) Select image:
              - click imageSpinner
              - click the image in a dropdown menu
              - selected image is in a collapsed imageSpinner
 
-         e) Select a group title
-             - type group name first two characters
+         e) Select a group title:
+             - type group name characters
              - select a group name in a dropdown menu
-             - check: wordAutoCompleteTextView shows selected word
+             - check: wordAutoCompleteEditText shows selected word
 
          f) createButton click appends new card to cardGroupFragment
              - click create button
              - cardGroupFragment inflation
-             - check a new card view presence, mapping selected on card creation:
+             - check a new CardView presence, containing selected items:
                     word, translation, example, image, group name;
 
-    //TODO: refactor in detail
-    2) Create card manually
-        - type a word, click ok
-        - type a translation, click ok
-        - type an example, click ok
-        - select an image
-        - type a card group title, click ok
-        - click create card
-        - check: inflated CardGroupFragment has a new card view; map typed on a card creation elements:
+
+    2) Database error: any DictionaryRepository Exception, - manual card creation feature applied
+
+        - type a word in a wordAutoCompleteTextView,
+        - show database error message:"database error, you may create a card manually (ok)"
+        - click errorMessageOkButton
+        - inflate manual_card_creation_layout
+        - type a word in a wordTextView
+        - click wordConfirmationOkButton
+        - translationEditText's highlighted
+        - type a translation, click translationOkButton
+        - exampleEditText's highlighted
+        - type an example, click exampleOkButton
+        - imageSpinner's highlighted
+        - click imageSpinner
+        - select 0 position image in a dropdown menu
+        - cardGroupTitleEditText's highlighted
+        - type a card group title, click cardGroupTitleOkButton
+        - click createCardButton
+        - check: whether an inflated CardGroupFragment has a new CardView containing respective:
                   word, translation, example, image, group name;
 
-    //TODO: do in detail
-    3) testNetworkConnectionErrorMessageHandling
-    4) testImageApiServerErrorMessageHandling
+
+    3) imageApi serverError: response.code() -> 500; 503
+
+        - type a word in a wordAutoCompleteTextView
+        - click imageSpinner
+        - show a message: "image data source error: skip image selection (ok)"
+        - click ok button
+        - dismiss imageSpinner
+
+    4) imageApi NoInternetConnectionException
+
+        a) internet connection established finally
+            - enable airplane mode
+            - type a word in a wordAutoCompleteTextView
+            - click imageSpinner
+            - show a message: "no internet connection, please check it (network spinner)"
+            - disable airplane mode
+            - error message with spinner dismissed
+            - click image spinner
+            - select image
+            - imageSpinner replaced with image
+
+        b) no internet connection eventually
+
+            - enable airplane mode
+            - type a word in a wordAutoCompleteTextView
+            - click imageSpinner
+            - show a message: "no internet connection, please check it (network spinner)"
+            - 10 seconds later show the message:
+                "you may skip image selection for a while and append this one later (wait)|(ok)"
+            - click ok
+            - dismiss image spinner
 
 
