@@ -25,7 +25,7 @@ class CardCreationSuccessUiTest: UiTest() {
 
     @Module
     @InstallIn(ViewModelComponent::class)
-    class DictionaryRepositorySuccessTestModule {
+    class SuccessDictionaryRepositoryTestModule {
 
         @Provides
         @ViewModelScoped
@@ -37,7 +37,7 @@ class CardCreationSuccessUiTest: UiTest() {
 
     @Module
     @InstallIn(ViewModelComponent::class)
-    class ImageRepositorySuccessTestModule {
+    class SuccessImageRepositoryTestModule {
 
         @Provides
         @ViewModelScoped

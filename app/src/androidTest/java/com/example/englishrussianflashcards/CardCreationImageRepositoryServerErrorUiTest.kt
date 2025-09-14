@@ -32,7 +32,7 @@ class CardCreationImageRepositoryServerErrorUiTest: UiTest() {
 
     @Module
     @InstallIn(ViewModelComponent::class)
-    class DictionaryRepositorySuccessTestModule {
+    class SuccessDictionaryRepositoryTestModule {
 
         @Provides
         @ViewModelScoped

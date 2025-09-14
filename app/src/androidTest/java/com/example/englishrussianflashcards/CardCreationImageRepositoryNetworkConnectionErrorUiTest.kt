@@ -19,7 +19,7 @@ class CardCreationImageRepositoryNetworkConnectionErrorUiTest: UiTest() {
 
     @Module
     @InstallIn(ViewModelComponent::class)
-    class ImageRepositoryNetworkConnectionErrorTestModule {
+    class NetworkConnectionErrorImageRepositoryTestModule {
 
         @Provides
         @ViewModelScoped
@@ -32,7 +32,7 @@ class CardCreationImageRepositoryNetworkConnectionErrorUiTest: UiTest() {
 
     @Module
     @InstallIn(ViewModelComponent::class)
-    class DictionaryRepositorySuccessTestModule {
+    class SuccessDictionaryRepositoryTestModule {
 
         @Provides
         @ViewModelScoped
