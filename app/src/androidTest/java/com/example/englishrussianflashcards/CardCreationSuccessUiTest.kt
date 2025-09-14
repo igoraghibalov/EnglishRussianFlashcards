@@ -20,13 +20,7 @@ import org.junit.Rule
  */
 @UninstallModules(DictionaryRepositoryModule::class, ImageRepositoryModule::class)
 @HiltAndroidTest
-class CardCreationSuccessUiTest {
-
-    @get: Rule(order = 0)
-    val hiltRule = HiltAndroidRule(this)
-
-    @get: Rule(order = 1)
-    val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+class CardCreationSuccessUiTest: UiTest() {
 
 
     @Module
@@ -54,7 +48,7 @@ class CardCreationSuccessUiTest {
     
 
     @Before
-    fun setUp() {
+    override fun setUp() {
         hiltRule.inject()
     }
 
