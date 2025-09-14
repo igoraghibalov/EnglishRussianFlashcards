@@ -23,6 +23,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import com.example.englishrussianflashcards.createcard.presentation.R
 import com.example.englishrussianflashcards.presentation.MainActivity
+import dagger.hilt.android.testing.HiltAndroidRule
 import org.hamcrest.BaseMatcher
 import org.hamcrest.Description
 import org.hamcrest.Matcher
@@ -35,93 +36,12 @@ import org.junit.Rule
  */
 abstract class UiTest {
 
-    @get: Rule
+    @get: Rule(order = 0)
+    val hiltRule = HiltAndroidRule(this)
+
+    @get: Rule(order = 1)
     val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Before
     abstract fun setUp()
-
-
-    fun clickViewById(viewId: Int) {
-        onView(withId(viewId)).perform(click())
-    }
-
-
-    fun clickViewByData(dataPosition: Int, dataMatcher: Matcher<*>) {
-        onData(dataMatcher)
-            .atPosition(dataPosition)
-            .perform(click())
-    }
-
-
-    fun clickViewByDataWithinRoot(rootMatcher: Matcher<Root>, dataMatcher: Matcher<*>, dataPosition: Int) {
-        onData(dataMatcher)
-            .inRoot(rootMatcher)
-            .atPosition(dataPosition)
-            .perform(click())
-    }
-
-
-    fun testViewPresence(viewMatcher: Matcher<View>) {
-        onView(viewMatcher).check(matches(isDisplayed()))
-    }
-
-    fun typeCharacters(viewIdToWriteIn: Int, typingCharacters: String) {
-        onView(withId(viewIdToWriteIn)).perform(typeText(typingCharacters))
-    }
-
-    fun rotateDeviceToLeft() {
-        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationLeft()
-    }
-
-    fun rotateDeviceToNatural() {
-        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).setOrientationNatural()
-    }
-
-
-    fun extractTextFromDropdownMenuItem(itemPosition: Int,
-                                        dropDownMenuRootMatcher: Matcher<Root>,
-                                        dataMatcher: Matcher<*>): String {
-        var text: String = ""
-
-        val textExtractionAction = object: ViewAction {
-
-            override fun getDescription(): String? = "Text extraction from dropdown menu item"
-
-            override fun getConstraints(): Matcher<View?>? = isAssignableFrom(TextView::class.java)
-
-            override fun perform(uiController: UiController?, view: View?) {
-                text = (view as TextView).text.toString()
-            }
-        }
-
-        onData(dataMatcher)
-            .inRoot(dropDownMenuRootMatcher)
-            .atPosition(itemPosition)
-            .perform(textExtractionAction).perform(click())
-        return text
-    }
-
-
-    fun clearText(viewId: Int) {
-        onView(withId(viewId)).perform(clearText())
-    }
-
-    fun isViewHighlighted(viewMatcher: Matcher<View>, highlightBackgroundId: Int) {
-        val highlightedViewMatcher = object: BoundedMatcher<View, View>(View::class.java) {
-
-            override fun matchesSafely(item: View?): Boolean {
-                return item!!.background == ResourcesCompat.getDrawable(item.resources,
-                                                                        highlightBackgroundId,
-                                                                        null)
-            }
-
-            override fun describeTo(description: Description?) {
-                description!!.appendText("Matches view highlighted by respective background drawable")
-            }
-
-        }
-        testViewPresence(allOf(viewMatcher, highlightedViewMatcher))
-
-    }
 }
