@@ -1,17 +1,10 @@
 package com.example.englishrussianflashcards.appscreens
 
-import androidx.test.espresso.Espresso.onData
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.typeText
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
-import com.example.englishrussianflashcards.Card
 import com.example.englishrussianflashcards.CELLULAR_DATA_DISABLING_ADB_SHELL_COMMAND
 import com.example.englishrussianflashcards.CELLULAR_DATA_ENABLING_ADB_SHELL_COMMAND
-import com.example.englishrussianflashcards.ViewDataExtraction
+import com.example.englishrussianflashcards.Card
 import com.example.englishrussianflashcards.WI_FI_DISABLING_ADB_SHELL_COMMAND
 import com.example.englishrussianflashcards.WI_FI_ENABLING_ADB_SHELL_COMMAND
 import com.example.englishrussianflashcards.screenuielements.AutoCompleteListItemSelectionUi
@@ -20,10 +13,6 @@ import com.example.englishrussianflashcards.screenuielements.DialogUi
 import com.example.englishrussianflashcards.screenuielements.DroppableListItemSelectionUi
 import com.example.englishrussianflashcards.screenuielements.ListItemSelectionUi
 import com.example.englishrussianflashcards.screenuielements.TextUi
-import com.google.android.material.internal.CheckableImageButton
-import org.hamcrest.Matcher
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.instanceOf
 import javax.inject.Inject
 
 
