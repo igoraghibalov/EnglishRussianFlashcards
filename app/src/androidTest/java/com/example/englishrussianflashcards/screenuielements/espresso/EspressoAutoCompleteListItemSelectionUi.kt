@@ -1,5 +1,6 @@
 package com.example.englishrussianflashcards.screenuielements.espresso
 
+import android.view.View
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -20,7 +21,8 @@ import org.hamcrest.Matchers.instanceOf
 class EspressoAutoCompleteListItemSelectionUi(private val listItemSelectionTask: ListItemSelectionTask,
                                               private val typingCharacters: String,
                                               private val listShowTriggerId: Int,
-                                              private val wordExtraction: ViewDataExtraction<String>)
+                                              private val wordExtraction: ViewDataExtraction<String>,
+                                              private val textClearButtonMatcher: Matcher<View>)
     : AutoCompleteListItemSelectionUi {
 
 
@@ -29,10 +31,7 @@ class EspressoAutoCompleteListItemSelectionUi(private val listItemSelectionTask:
     }
 
     override fun clearText() {
-        onView(allOf(instanceOf(CheckableImageButton::class.java),
-                     isDisplayed(),
-                     ClearButtonOwnerMatcher(listShowTriggerId)))
-            .perform(click())
+        onView(textClearButtonMatcher).perform(click())
     }
 
     override fun showList() {
