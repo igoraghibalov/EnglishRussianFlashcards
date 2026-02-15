@@ -1,7 +1,7 @@
 Word learning with cards;
 
 &emsp;- tdd;\
-&emsp;- view/xml (it is expected to be rewritten in Compose to encompass both technologies)
+&emsp;- view/xml (it will be rewritten in Compose to learn both technologies)
 		
 &emsp;- kotlin;\
 &emsp;- coroutines;\
