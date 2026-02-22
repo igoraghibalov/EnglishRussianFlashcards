@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="default_string_pattern">\\\\w+</string>
-    <string name="word_typing_hint">type a word</string>
+    <string name="text_typing_hint">type text</string>
     <string name="translation_selection_hint">choose a translation</string>
     <string name="english_example_selection_hint">choose english example</string>
     <string name="image_selection_hint">choose an image</string>
     <string name="group_selection_hint">type a group</string>
     <string name="card_creation_button_text">create</string>
     <string name="ok_button_text">ok</string>
+    <string name="default_transcription_text">[...]</string>
+    <string name="image_selection_button_text">select</string>
+    <string name="word_title_text">Word:</string>
+    <string name="transcription_title_text">Transcription:</string>
+    <string name="translation_title_text">Translation:</string>
+    <string name="example_title_text">Example:</string>
+    <string name="image_title_text">Image:</string>
+    <string name="group_title_text">Group:</string>
 </resources>

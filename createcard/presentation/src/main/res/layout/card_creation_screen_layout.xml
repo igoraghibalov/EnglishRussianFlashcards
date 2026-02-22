@@ -7,143 +7,167 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/root_view_margin">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/title_vertical_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="@integer/title_vertical_guideline_percent"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/selection_views_vertical_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="@integer/selection_views_vertical_guideline_percent"/>
+
+    <Space
+        android:id="@+id/top_space"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/top_space_height"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/word_title_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:text="@string/word_title_text"
         android:textSize="@dimen/text_size"
-        app:layout_constraintEnd_toStartOf="@id/word_auto_complete_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
+        app:layout_constraintStart_toEndOf="@id/title_vertical_guideline"
+        app:layout_constraintTop_toBottomOf="@id/top_space" />
 
 
     <include
         android:id="@+id/word_auto_complete_text_view"
         layout="@layout/cleanable_auto_complete_text_view_layout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/word_title_text_view"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toEndOf="@id/selection_views_vertical_guideline"
+        app:layout_constraintTop_toBottomOf="@id/top_space"/>
 
 
     <TextView
         android:id="@+id/transcription_title_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:text="@string/transcription_title_text"
         android:textSize="@dimen/text_size"
         app:layout_constraintTop_toBottomOf="@id/word_auto_complete_text_view"
-        app:layout_constraintEnd_toStartOf="@id/transcription_text_view"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
+        app:layout_constraintStart_toEndOf="@id/title_vertical_guideline" />
 
 
     <TextView
         android:id="@+id/transcription_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:text="@string/default_transcription_text"
         app:layout_constraintTop_toBottomOf="@id/word_auto_complete_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/transcription_title_text_view" />
+        app:layout_constraintStart_toEndOf="@id/selection_views_vertical_guideline"/>
 
 
     <TextView
         android:id="@+id/translation_title_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:text="@string/translation_title_text"
         android:textSize="@dimen/text_size"
         app:layout_constraintTop_toBottomOf="@id/transcription_text_view"
-        app:layout_constraintEnd_toStartOf="@id/translation_spinner"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
+        app:layout_constraintStart_toEndOf="@id/title_vertical_guideline" />
 
 
     <Spinner
         android:id="@+id/translation_spinner"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:background="@drawable/stroke"
         android:hint="@string/translation_selection_hint"
         app:layout_constraintTop_toBottomOf="@id/transcription_text_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/translation_title_text_view" />
+        app:layout_constraintStart_toEndOf="@id/selection_views_vertical_guideline"/>
 
 
     <TextView
         android:id="@+id/example_title_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:text="@string/example_title_text"
         android:textSize="@dimen/text_size"
-        app:layout_constraintTop_toBottomOf="@id/translation_spinner"
-        app:layout_constraintEnd_toStartOf="@id/example_spinner"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
+        app:layout_constraintTop_toBottomOf="@id/translation_title_text_view"
+        app:layout_constraintStart_toEndOf="@id/title_vertical_guideline"/>
 
     <Spinner
         android:id="@+id/example_spinner"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:background="@drawable/stroke"
         android:hint="@string/english_example_selection_hint"
-        app:layout_constraintTop_toBottomOf="@id/translation_spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/example_title_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/translation_title_text_view"
+        app:layout_constraintStart_toEndOf="@id/selection_views_vertical_guideline" />
 
 
     <TextView
         android:id="@+id/image_title_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:text="@string/image_title_text"
         android:textSize="@dimen/text_size"
-        app:layout_constraintTop_toBottomOf="@id/example_spinner"
-        app:layout_constraintEnd_toStartOf="@id/image_button"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/example_title_text_view"
+        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
+        app:layout_constraintStart_toEndOf="@id/title_vertical_guideline" />
 
 
     <Button
         android:id="@+id/image_button"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:text="@string/image_selection_button_text"
-        app:layout_constraintTop_toBottomOf="@id/example_spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/image_title_text_view" />
+        app:layout_constraintTop_toBottomOf="@id/example_title_text_view"
+        app:layout_constraintStart_toEndOf="@id/selection_views_vertical_guideline"/>
 
 
     <TextView
         android:id="@+id/group_title_text_view"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         android:text="@string/group_title_text"
         android:textSize="@dimen/text_size"
-        app:layout_constraintEnd_toStartOf="@id/group_auto_complete_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_button" />
+        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
+        app:layout_constraintStart_toEndOf="@id/title_vertical_guideline"
+        app:layout_constraintBottom_toTopOf="@id/create_button_linear_layout_parent"
+        app:layout_constraintTop_toBottomOf="@id/image_title_text_view"/>
 
 
     <include
         android:id="@+id/group_auto_complete_text_view"
         layout="@layout/cleanable_auto_complete_text_view_layout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/group_title_text_view"
-        app:layout_constraintTop_toBottomOf="@id/image_button" />
+        app:layout_constraintStart_toEndOf="@id/selection_views_vertical_guideline"
+        app:layout_constraintBottom_toTopOf="@id/create_button_linear_layout_parent"
+        app:layout_constraintTop_toBottomOf="@id/image_title_text_view"/>
 
 
     <LinearLayout
@@ -155,7 +179,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/group_title_text_view">
 
         <Button
             android:id="@+id/card_creation_button"
