@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+        android:id="@+id/cleanable_auto_complete_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding"
+        android:background="@drawable/stroke"
+        android:hint="@string/text_typing_hint"/>
+
+</com.google.android.material.textfield.TextInputLayout>
