@@ -1,18 +1,16 @@
 package com.example.englishrussianflashcards
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule
+import com.example.englishrussianflashcards.appscreens.CardCreationScreen
 import org.junit.Test
-import com.example.englishrussianflashcards.presentation.MainActivity
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
-import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
 import org.junit.Before
-import org.junit.Rule
+import javax.inject.Inject
 
 
 /**
@@ -21,6 +19,12 @@ import org.junit.Rule
 @UninstallModules(DictionaryRepositoryModule::class, ImageRepositoryModule::class)
 @HiltAndroidTest
 class CardCreationSuccessUiTest: UiTest() {
+
+    @Inject
+    lateinit var cardCreationScreen: CardCreationScreen
+
+    @Inject
+    lateinit var cardGroupScreen: CardGroupScreen
 
 
     @Module
@@ -55,26 +59,25 @@ class CardCreationSuccessUiTest: UiTest() {
 
     @Test
     fun testSuccessfulCardCreation() {
-        val cardCreationScreen = CardCreationScreen()
-        val typingWordCharacters = "ap"
-        val typingCardGroupNameCharacters = "fr"
-        val createdCard: Card
-        val cardGroupScreen = CardGroupScreen()
+        val expectedCard: Card
 
-        with(cardCreationScreen) {
-            typeWord(typingWordCharacters)
-            selectWordFromDropdownMenu(wordPosition = 0)
-            selectTranslation(translationPosition = 0)
-            selectExample(examplePosition = 0)
-            selectImage(imagePosition = 0)
-            typeCardGroupName(typingCardGroupNameCharacters)
-            selectCardGroupNameFromDropdownMenu(cardGroupNamePosition = 0)
-
+        with<CardCreationScreen, Unit>(cardCreationScreen) {
+            typeWordCharacters()
+            selectWord()
+            clearWord()
+            typeWordCharacters()
+            selectWord()
+            selectTranslation()
+            selectExample()
+            selectImage()
+            dropImage()
+            selectImage()
+            typeCardGroupName()
+            selectCardGroupName()
+            expectedCard = provideExpectedCard()
             createCard()
 
-            createdCard = provideCreatedCard()
-
-            cardGroupScreen.checkCardPresence(createdCard)
+            cardGroupScreen.checkCardPresence(expectedCard)
         }
     }
 }
