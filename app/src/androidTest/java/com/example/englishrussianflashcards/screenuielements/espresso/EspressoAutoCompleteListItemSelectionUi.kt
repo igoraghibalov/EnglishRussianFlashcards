@@ -1,29 +1,22 @@
 package com.example.englishrussianflashcards.screenuielements.espresso
 
-import android.view.View
-import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.example.englishrussianflashcards.ListItemSelectionTask
 import com.example.englishrussianflashcards.ViewDataExtraction
 import com.example.englishrussianflashcards.screenuielements.AutoCompleteListItemSelectionUi
-import com.google.android.material.internal.CheckableImageButton
-import org.hamcrest.Matcher
-import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.instanceOf
+import com.example.englishrussianflashcards.screenuielements.ClickableUi
 
 /**
 * Created by Igor Aghibalov on 07.02.2026
 */
-class EspressoAutoCompleteListItemSelectionUi(private val listItemSelectionTask: ListItemSelectionTask,
-                                              private val typingCharacters: String,
-                                              private val listShowTriggerId: Int,
-                                              private val wordExtraction: ViewDataExtraction<String>,
-                                              private val textClearButtonMatcher: Matcher<View>)
-    : AutoCompleteListItemSelectionUi {
+class EspressoAutoCompleteListItemSelectionUi<T: Any>(private val listItemSelectionTask: ListItemSelectionTask,
+                                                      private val typingCharacters: String,
+                                                      private val listShowTriggerId: Int,
+                                                      private val wordExtraction: ViewDataExtraction<T>,
+                                                      private val textClearingUi: ClickableUi)
+    : AutoCompleteListItemSelectionUi<T> {
 
 
     override fun typeCharacters() {
@@ -31,7 +24,7 @@ class EspressoAutoCompleteListItemSelectionUi(private val listItemSelectionTask:
     }
 
     override fun clearText() {
-        onView(textClearButtonMatcher).perform(click())
+        textClearingUi.click()
     }
 
     override fun showList() {
@@ -42,5 +35,5 @@ class EspressoAutoCompleteListItemSelectionUi(private val listItemSelectionTask:
         listItemSelectionTask.run()
     }
 
-    override fun extractViewData(): String = wordExtraction.extractViewData()
+    override fun extractViewData(): T = wordExtraction.extractViewData()
 }
