@@ -1,8 +1,5 @@
 package com.example.englishrussianflashcards.screenuielements.espresso
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.example.englishrussianflashcards.ListItemSelectionTask
 import com.example.englishrussianflashcards.ViewDataExtraction
 import com.example.englishrussianflashcards.screenuielements.ClickableUi
@@ -13,13 +10,13 @@ import com.example.englishrussianflashcards.screenuielements.ListItemSelectionUi
  */
 class EspressoListItemSelectionUi<T: Any>(private val listItemSelectionTask: ListItemSelectionTask,
                                           private val viewDataExtraction: ViewDataExtraction<T>,
-                                          private val clickableUi: ClickableUi)
+                                          private val listShowUi: ClickableUi)
     : ListItemSelectionUi<T> {
 
 
 
     override fun showList() {
-        clickableUi.click()
+        listShowUi.click()
     }
 
     override fun selectItem() {
