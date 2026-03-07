@@ -20,12 +20,12 @@ import javax.inject.Inject
  * Created by Igor Aghibalov on 14.09.2025
  */
 class CardCreationScreen @Inject constructor(
-    @EspressoWordSelectionUi private val wordSelectionUi: AutoCompleteListItemSelectionUi,
-    @EspressoTranslationSelectionUi private val translationSelectionUi: ListItemSelectionUi,
-    @EspressoExampleSelectionUi private val exampleSelectionUi: ListItemSelectionUi,
+    @EspressoWordSelectionUi private val wordSelectionUi: AutoCompleteListItemSelectionUi<String>,
+    @EspressoTranslationSelectionUi private val translationSelectionUi: ListItemSelectionUi<String>,
+    @EspressoExampleSelectionUi private val exampleSelectionUi: ListItemSelectionUi<String>,
     @EspressoTextViewTranscriptionUi private val transcriptionUi: TextUi<String>,
-    @EspressoImageSelectionUi private val imageSelectionUi: DroppableListItemSelectionUi,
-    @EspressoCardGroupTitleSelectionUi private val cardGroupTitleSelectionUi: AutoCompleteListItemSelectionUi,
+    @EspressoImageSelectionUi private val imageSelectionUi: DroppableListItemSelectionUi<String>,
+    @EspressoCardGroupTitleSelectionUi private val cardGroupTitleSelectionUi: AutoCompleteListItemSelectionUi<String>,
     @EspressoCardCreationButtonUi private val cardCreationButtonUi: ButtonUi,
     @EspressoImageApiServerErrorDialogUi private val imageApiServerErrorDialogUi: DialogUi,
     @EspressoNetworkConnectionErrorDialogUi private val networkConnectionErrorDialogUi: DialogUi) {
