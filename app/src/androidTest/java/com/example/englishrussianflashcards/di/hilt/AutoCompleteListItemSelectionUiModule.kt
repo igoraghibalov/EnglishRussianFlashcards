@@ -2,6 +2,7 @@ package com.example.englishrussianflashcards.di.hilt
 
 import android.widget.TextView
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import com.example.englishrussianflashcards.ClearButtonOwnerMatcher
 import com.example.englishrussianflashcards.DEFAULT_STRING
 import com.example.englishrussianflashcards.EspressoListItemSelectionTask
 import com.example.englishrussianflashcards.EspressoViewDataExtraction
@@ -12,6 +13,7 @@ import org.hamcrest.Matchers.instanceOf
 import com.example.englishrussianflashcards.createcard.presentation.R
 import com.example.englishrussianflashcards.screenuielements.espresso.EspressoClickableUi
 import com.google.android.material.internal.CheckableImageButton
+import dagger.Provides
 import org.hamcrest.Matchers.allOf
 
 /**
@@ -24,6 +26,8 @@ private const val WORD_EXTRACTION_DESCRIPTION = "word extraction"
 @Module
 object AutoCompleteListItemSelectionUiModule {
 
+    @Provides
+    @EspressoWordSelectionUi
     fun provideWordSelectionUi(): AutoCompleteListItemSelectionUi<String> {
         return EspressoAutoCompleteListItemSelectionUi(
            EspressoListItemSelectionTask<String>(itemDataMatcher = instanceOf(String::class.java),
@@ -37,8 +41,6 @@ object AutoCompleteListItemSelectionUiModule {
                                                        dataExtractionLambda =  { view -> (view as TextView).text.toString() }),
            textClearingUi = EspressoClickableUi(allOf(instanceOf(CheckableImageButton::class.java),
                                                       isDisplayed(),
-                                                      ClearButtonOwnerMatcher(
-                                                                ownerId = R.id.word_auto_complete_text_view)))
-        )
+                                                      ClearButtonOwnerMatcher(ownerId = R.id.word_auto_complete_text_view))))
     }
 }
