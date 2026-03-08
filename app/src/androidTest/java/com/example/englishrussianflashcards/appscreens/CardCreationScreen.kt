@@ -7,6 +7,8 @@ import com.example.englishrussianflashcards.CELLULAR_DATA_ENABLING_ADB_SHELL_COM
 import com.example.englishrussianflashcards.Card
 import com.example.englishrussianflashcards.WI_FI_DISABLING_ADB_SHELL_COMMAND
 import com.example.englishrussianflashcards.WI_FI_ENABLING_ADB_SHELL_COMMAND
+import com.example.englishrussianflashcards.di.hilt.EspressoCardGroupTitleSelectionUi
+import com.example.englishrussianflashcards.di.hilt.EspressoWordSelectionUi
 import com.example.englishrussianflashcards.screenuielements.AutoCompleteListItemSelectionUi
 import com.example.englishrussianflashcards.screenuielements.ButtonUi
 import com.example.englishrussianflashcards.screenuielements.DialogUi

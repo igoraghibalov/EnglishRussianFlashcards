@@ -20,8 +20,10 @@ import org.hamcrest.Matchers.allOf
  * Created by Igor Aghibalov on 04.03.2026
  */
 
-private const val TYPING_WORD_CHARACTERS = "ab"
+private const val TYPING_WORD_CHARACTERS = "ap"
+private const val TYPING_CARD_GROUP_CHARACTERS = "fr"
 private const val WORD_EXTRACTION_DESCRIPTION = "word extraction"
+private const val CARD_GROUP_EXTRACTION_DESCRIPTION = "card group title extraction"
 
 @Module
 object AutoCompleteListItemSelectionUiModule {
@@ -42,5 +44,24 @@ object AutoCompleteListItemSelectionUiModule {
            textClearingUi = EspressoClickableUi(allOf(instanceOf(CheckableImageButton::class.java),
                                                       isDisplayed(),
                                                       ClearButtonOwnerMatcher(ownerId = R.id.word_auto_complete_text_view))))
+    }
+
+
+    @Provides
+    @EspressoCardGroupTitleSelectionUi
+    fun provideCardGroupTitleSelectionUi(): AutoCompleteListItemSelectionUi<String> {
+        return EspressoAutoCompleteListItemSelectionUi(
+           EspressoListItemSelectionTask<String>(itemDataMatcher = instanceOf(String::class.java),
+                                                 itemPosition = 0),
+           typingCharacters = TYPING_CARD_GROUP_CHARACTERS,
+           listShowTriggerId = R.id.card_group_auto_complete_text_view,
+           wordExtraction = EspressoViewDataExtraction(defaultDataValue = DEFAULT_STRING,
+                                                       dataViewId = R.id.card_group_auto_complete_text_view,
+                                                       dataViewMatcher = instanceOf(String::class.java),
+                                                       dataExtractionDescription = CARD_GROUP_EXTRACTION_DESCRIPTION,
+                                                       dataExtractionLambda =  { view -> (view as TextView).text.toString() }),
+           textClearingUi = EspressoClickableUi(allOf(instanceOf(CheckableImageButton::class.java),
+                                                      isDisplayed(),
+                                                      ClearButtonOwnerMatcher(ownerId = R.id.card_group_auto_complete_text_view))))
     }
 }

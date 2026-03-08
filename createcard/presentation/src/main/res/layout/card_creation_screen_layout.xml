@@ -159,7 +159,7 @@
 
 
     <include
-        android:id="@+id/group_auto_complete_text_view"
+        android:id="@+id/card_group_auto_complete_text_view"
         layout="@layout/cleanable_auto_complete_text_view_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

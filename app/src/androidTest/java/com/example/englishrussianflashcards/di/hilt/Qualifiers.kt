@@ -10,3 +10,8 @@ import javax.inject.Qualifier
 annotation class EspressoWordSelectionUi
 
 
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoCardGroupTitleSelectionUi
+
+
