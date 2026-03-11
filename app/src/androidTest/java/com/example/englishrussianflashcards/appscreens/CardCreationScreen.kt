@@ -8,6 +8,8 @@ import com.example.englishrussianflashcards.Card
 import com.example.englishrussianflashcards.WI_FI_DISABLING_ADB_SHELL_COMMAND
 import com.example.englishrussianflashcards.WI_FI_ENABLING_ADB_SHELL_COMMAND
 import com.example.englishrussianflashcards.di.hilt.EspressoCardGroupTitleSelectionUi
+import com.example.englishrussianflashcards.di.hilt.EspressoExampleSelectionUi
+import com.example.englishrussianflashcards.di.hilt.EspressoTranslationSelectionUi
 import com.example.englishrussianflashcards.di.hilt.EspressoWordSelectionUi
 import com.example.englishrussianflashcards.screenuielements.AutoCompleteListItemSelectionUi
 import com.example.englishrussianflashcards.screenuielements.ButtonUi
@@ -25,7 +27,7 @@ class CardCreationScreen @Inject constructor(
     @EspressoWordSelectionUi private val wordSelectionUi: AutoCompleteListItemSelectionUi<String>,
     @EspressoTranslationSelectionUi private val translationSelectionUi: ListItemSelectionUi<String>,
     @EspressoExampleSelectionUi private val exampleSelectionUi: ListItemSelectionUi<String>,
-    @EspressoTextViewTranscriptionUi private val transcriptionUi: TextUi<String>,
+    @EspressoTranscriptionUi private val transcriptionUi: TextUi<String>,
     @EspressoImageSelectionUi private val imageSelectionUi: DroppableListItemSelectionUi<String>,
     @EspressoCardGroupTitleSelectionUi private val cardGroupTitleSelectionUi: AutoCompleteListItemSelectionUi<String>,
     @EspressoCardCreationButtonUi private val cardCreationButtonUi: ButtonUi,

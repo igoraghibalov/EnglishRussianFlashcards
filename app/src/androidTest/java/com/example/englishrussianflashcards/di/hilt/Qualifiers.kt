@@ -15,3 +15,13 @@ annotation class EspressoWordSelectionUi
 annotation class EspressoCardGroupTitleSelectionUi
 
 
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoTranslationSelectionUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoExampleSelectionUi
+
+
