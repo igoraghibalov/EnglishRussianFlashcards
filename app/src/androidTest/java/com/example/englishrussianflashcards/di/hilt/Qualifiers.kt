@@ -25,3 +25,8 @@ annotation class EspressoTranslationSelectionUi
 annotation class EspressoExampleSelectionUi
 
 
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoTranscriptionUi
+
+
