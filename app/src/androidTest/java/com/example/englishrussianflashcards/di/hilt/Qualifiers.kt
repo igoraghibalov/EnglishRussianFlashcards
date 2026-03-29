@@ -34,8 +34,19 @@ annotation class EspressoTranscriptionUi
 @Retention(AnnotationRetention.BINARY)
 annotation class EspressoImageSelectionUi
 
+
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class EspressoCardCreationButtonUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoImageApiServerErrorDialogUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoNetworkConnectionErrorDialogUi
 
 
