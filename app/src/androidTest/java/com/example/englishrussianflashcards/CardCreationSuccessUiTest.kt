@@ -1,6 +1,7 @@
 package com.example.englishrussianflashcards
 
 import com.example.englishrussianflashcards.appscreens.CardCreationScreen
+import com.example.englishrussianflashcards.appscreens.MainMenuScreen
 import org.junit.Test
 import dagger.Module
 import dagger.Provides
@@ -19,6 +20,9 @@ import javax.inject.Inject
 @UninstallModules(DictionaryRepositoryModule::class, ImageRepositoryModule::class)
 @HiltAndroidTest
 class CardCreationSuccessUiTest: UiTest() {
+
+    @Inject
+    lateinit var mainMenuScreen: MainMenuScreen
 
     @Inject
     lateinit var cardCreationScreen: CardCreationScreen
@@ -60,6 +64,8 @@ class CardCreationSuccessUiTest: UiTest() {
     @Test
     fun testSuccessfulCardCreation() {
         val expectedCard: Card
+
+        mainMenuScreen.clickNewCardButton()
 
         with<CardCreationScreen, Unit>(cardCreationScreen) {
             typeWordCharacters()
