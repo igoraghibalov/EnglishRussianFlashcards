@@ -1,5 +1,6 @@
 package com.example.englishrussianflashcards.di.hilt
 
+import com.example.englishrussianflashcards.screenuielements.ButtonUi
 import javax.inject.Qualifier
 
 /**
@@ -48,5 +49,30 @@ annotation class EspressoImageApiServerErrorDialogUi
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class EspressoNetworkConnectionErrorDialogUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoMainScreenContinueButtonUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoMainScreenCardsButtonUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoMainScreenNewCardButtonUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoMainScreenHistoryButtonUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoMainScreenQuitButtonUi
 
 
