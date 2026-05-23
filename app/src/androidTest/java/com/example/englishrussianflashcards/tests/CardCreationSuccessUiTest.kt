@@ -1,6 +1,8 @@
-package com.example.englishrussianflashcards
+package com.example.englishrussianflashcards.tests
 
+import com.example.englishrussianflashcards.UiTest
 import com.example.englishrussianflashcards.appscreens.CardCreationScreen
+import com.example.englishrussianflashcards.appscreens.CardGroupScreen
 import com.example.englishrussianflashcards.appscreens.MainMenuScreen
 import org.junit.Test
 import dagger.Module
@@ -58,32 +60,45 @@ class CardCreationSuccessUiTest: UiTest() {
     @Before
     override fun setUp() {
         hiltRule.inject()
+        mainMenuScreen.clickNewCardButton()
     }
 
 
     @Test
     fun testSuccessfulCardCreation() {
-        val expectedCard: Card
+        fillCard(cardElementsSelectionPosition = 0)
 
-        mainMenuScreen.clickNewCardButton()
+        with (cardCreationScreen) {
+            clickCreateCardButton()
+            cardGroupScreen.checkCreatedCardPresence()
+        }
+    }
 
-        with<CardCreationScreen, Unit>(cardCreationScreen) {
+
+    @Test
+    fun testMessageShowOnSameCardCreationAttempt() {
+        fillCard(cardElementsSelectionPosition = 0)
+        cardGroupScreen.clickAddCardButton()
+        fillCard(0)
+        cardGroupScreen.checkCardDuplication()
+    }
+
+
+    fun fillCard(cardElementsSelectionPosition: Int) {
+
+        with (cardCreationScreen) {
             typeWordCharacters()
-            selectWord()
+            selectWord(cardElementsSelectionPosition)
             clearWord()
             typeWordCharacters()
-            selectWord()
-            selectTranslation()
-            selectExample()
-            selectImage()
+            selectWord(cardElementsSelectionPosition)
+            selectTranslation(cardElementsSelectionPosition)
+            selectExample(cardElementsSelectionPosition)
+            selectImage(cardElementsSelectionPosition)
             dropImage()
-            selectImage()
+            selectImage(cardElementsSelectionPosition)
             typeCardGroupName()
-            selectCardGroupName()
-            expectedCard = provideExpectedCard()
-            createCard()
-
-            cardGroupScreen.checkCardPresence(expectedCard)
+            selectCardGroupName(cardElementsSelectionPosition)
         }
     }
 }
