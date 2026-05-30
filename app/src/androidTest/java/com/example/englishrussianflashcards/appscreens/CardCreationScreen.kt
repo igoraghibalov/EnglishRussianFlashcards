@@ -28,6 +28,8 @@ import javax.inject.Inject
 /**
  * Created by Igor Aghibalov on 14.09.2025
  */
+
+//TODO: replace provideExpectedCard() method with json file test data source usage
 class CardCreationScreen @Inject constructor(
     @EspressoWordSelectionUi private val wordSelectionUi: AutoCompleteListItemSelectionUi<String>,
     @EspressoTranslationSelectionUi private val translationSelectionUi: ListItemSelectionUi<String>,
@@ -137,9 +139,3 @@ class CardCreationScreen @Inject constructor(
                     cardGroupName = cardGroupTitleSelectionUi.extractViewData())
     }
 }
-
-/*
-    - add itemPosition parameter to select() methods
-    - remove provideExpectedCard
-    -
- */
