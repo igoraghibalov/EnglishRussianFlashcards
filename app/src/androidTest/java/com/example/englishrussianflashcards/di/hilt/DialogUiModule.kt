@@ -1,5 +1,6 @@
 package com.example.englishrussianflashcards.di.hilt
 
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.example.englishrussianflashcards.appscreens.screenuielements.DialogUi
 import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoAlertDialogUi
 import dagger.Module
@@ -20,8 +21,8 @@ object DialogUiModule {
     @Provides
     fun provideImageApiServerErrorDialogUi(): DialogUi {
 
-        return EspressoAlertDialogUi(dialogMessage = IMAGE_API_SERVER_ERROR_DIALOG_MESSAGE,
-                                     dismissButtonText = ALERT_DIALOG_DISMISS_BUTTON_TEXT)
+        return EspressoAlertDialogUi(dialogMatcher = withText(IMAGE_API_SERVER_ERROR_DIALOG_MESSAGE),
+                                     dismissButtonMatcher = withText(ALERT_DIALOG_DISMISS_BUTTON_TEXT))
     }
 
 
@@ -29,7 +30,7 @@ object DialogUiModule {
     @Provides
     fun provideNetworkConnectionErrorDialogUi(): DialogUi {
 
-        return EspressoAlertDialogUi(dialogMessage = NETWORK_CONNECTION_ERROR_DIALOG_MESSAGE,
-                                     dismissButtonText = ALERT_DIALOG_DISMISS_BUTTON_TEXT)
+        return EspressoAlertDialogUi(dialogMatcher = withText(NETWORK_CONNECTION_ERROR_DIALOG_MESSAGE),
+                                     dismissButtonMatcher = withText(ALERT_DIALOG_DISMISS_BUTTON_TEXT))
     }
 }
