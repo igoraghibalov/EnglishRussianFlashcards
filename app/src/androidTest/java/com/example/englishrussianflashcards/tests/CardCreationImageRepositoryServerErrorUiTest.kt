@@ -1,6 +1,6 @@
 package com.example.englishrussianflashcards.tests
 
-import com.example.englishrussianflashcards.UiTest
+import com.example.englishrussianflashcards.tests.UiTest
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

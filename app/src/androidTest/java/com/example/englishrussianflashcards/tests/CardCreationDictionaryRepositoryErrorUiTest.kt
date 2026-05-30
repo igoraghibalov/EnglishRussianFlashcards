@@ -1,7 +1,7 @@
 package com.example.englishrussianflashcards.tests
 
 import com.example.englishrussianflashcards.Card
-import com.example.englishrussianflashcards.UiTest
+import com.example.englishrussianflashcards.tests.UiTest
 import com.example.englishrussianflashcards.appscreens.CardCreationScreen
 import dagger.Module
 import dagger.Provides
