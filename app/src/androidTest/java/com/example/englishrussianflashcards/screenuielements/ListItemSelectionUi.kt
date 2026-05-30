@@ -9,3 +9,8 @@ interface ListItemSelectionUi<T: Any>: ViewDataExtraction<T> {
     fun showList()
     fun selectItem()
 }
+
+
+/*
+    - append new function to interface
+ */

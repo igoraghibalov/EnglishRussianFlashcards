@@ -15,6 +15,8 @@ import com.example.englishrussianflashcards.customviews.R
 /**
  * Created by Igor Aghibalov on 12.08.2025
  */
+
+//TODO: created on custom view applying practice, remove if not needed
 @SuppressLint("ClickableViewAccessibility")
 class InputConfirmingAutoCompleteTextView: LinearLayout {
 

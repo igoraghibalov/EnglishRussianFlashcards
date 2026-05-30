@@ -86,7 +86,7 @@ class CardCreationScreen @Inject constructor(
     }
 
 
-    fun createCard() {
+    fun clickCreateCardButton() {
         cardCreationButtonUi.click()
     }
 
@@ -137,3 +137,9 @@ class CardCreationScreen @Inject constructor(
                     cardGroupName = cardGroupTitleSelectionUi.extractViewData())
     }
 }
+
+/*
+    - add itemPosition parameter to select() methods
+    - remove provideExpectedCard
+    -
+ */

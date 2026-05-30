@@ -4,6 +4,7 @@ Brief:
     - database error: any DictionaryRepository Exception, - manual card creation feature applied
     - imageApi serverError: response.code() -> 500; 503
     - imageApi NoInternetConnectionException
+    - message show on the same card creation attempt
 
 
 Details:
@@ -96,5 +97,11 @@ Details:
                 "you may skip image selection for a while and append this one later (wait)|(ok)"
             - click ok
             - dismiss image spinner
+
+    5) Message show on the same card creation attempt
+        - create card
+        - click addCard button of CardGroupScreen
+        - create same card
+        - check card duplication message presence
 
 

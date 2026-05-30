@@ -1,5 +1,16 @@
 [versions]
+appcompat-version = "1.6.1"
+constraintlayout = "2.1.4"
+core-ktx-version = "1.12.0"
+core-testing = "2.2.0"
 coroutines-test = "1.8.1-Beta"
+espresso-contrib = "3.5.1"
+espresso-core-version = "3.5.1"
+fragment-ktx = "1.7.1"
+hilt-android = "2.58"
+junit-version = "1.1.5"
+lifecycle-runtime-ktx = "2.7.0"
+room-runtime = "2.6.1"
 room-test = "1.8.1-Beta"
 org-jetbrains-kotlin-jvm = "1.9.21"
 agp = "8.2.2"
@@ -13,9 +24,27 @@ material = "1.12.0"
 room-ktx = "2.7.2"
 room-runtime-jvm = "2.7.2"
 room-runtime-android = "2.7.2"
+uiautomator = "2.3.0"
 
 [libraries]
+androidx-appcompat-v161 = { module = "androidx.appcompat:appcompat", version.ref = "appcompat-version" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+androidx-core-ktx-v1120 = { module = "androidx.core:core-ktx", version.ref = "core-ktx-version" }
+androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "core-testing" }
+androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "espresso-contrib" }
+androidx-espresso-core-v351 = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core-version" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment-ktx" }
+androidx-junit-v115 = { module = "androidx.test.ext:junit", version.ref = "junit-version" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-runtime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-ktx" }
+androidx-room-runtime-v261 = { module = "androidx.room:room-runtime", version.ref = "room-runtime" }
+androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "room-runtime" }
+androidx-uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiautomator" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android" }
+hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt-android" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-test" }
 kotlinx-coroutines-test = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

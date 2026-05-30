@@ -20,7 +20,7 @@
             android:text="@string/default_word_group_name"/>
 
         <TextView
-            android:id="@+id/word_count_text_view"
+            android:id="@+id/cards_amount_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

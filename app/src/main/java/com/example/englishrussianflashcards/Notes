@@ -1,7 +1,0 @@
-ApplicationDatabase     data
-
-CardDao     data
-DictionaryDao   data
-Card    domain
-GroupCardViewHolder presentation
-CardHistoryViewHolder presentation

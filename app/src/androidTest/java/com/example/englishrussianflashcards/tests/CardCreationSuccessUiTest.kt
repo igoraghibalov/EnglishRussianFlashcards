@@ -66,39 +66,36 @@ class CardCreationSuccessUiTest: UiTest() {
 
     @Test
     fun testSuccessfulCardCreation() {
-        fillCard(cardElementsSelectionPosition = 0)
-
-        with (cardCreationScreen) {
-            clickCreateCardButton()
-            cardGroupScreen.checkCreatedCardPresence()
-        }
+        fillCard()
+        cardCreationScreen.clickCreateCardButton()
+        cardGroupScreen.checkCreatedCardPresence()
     }
 
 
     @Test
     fun testMessageShowOnSameCardCreationAttempt() {
-        fillCard(cardElementsSelectionPosition = 0)
+        fillCard()
         cardGroupScreen.clickAddCardButton()
-        fillCard(0)
+        fillCard()
         cardGroupScreen.checkCardDuplication()
     }
 
 
-    fun fillCard(cardElementsSelectionPosition: Int) {
+    fun fillCard() {
 
         with (cardCreationScreen) {
             typeWordCharacters()
-            selectWord(cardElementsSelectionPosition)
+            selectWord()
             clearWord()
             typeWordCharacters()
-            selectWord(cardElementsSelectionPosition)
-            selectTranslation(cardElementsSelectionPosition)
-            selectExample(cardElementsSelectionPosition)
-            selectImage(cardElementsSelectionPosition)
+            selectWord()
+            selectTranslation()
+            selectExample()
+            selectImage()
             dropImage()
-            selectImage(cardElementsSelectionPosition)
+            selectImage()
             typeCardGroupName()
-            selectCardGroupName(cardElementsSelectionPosition)
+            selectCardGroupName()
         }
     }
 }
