@@ -1,4 +1,4 @@
-package com.example.englishrussianflashcards
+package com.example.englishrussianflashcards.tests
 
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
