@@ -1,7 +1,7 @@
 package com.example.englishrussianflashcards.di.hilt
 
-import com.example.englishrussianflashcards.screenuielements.DialogUi
-import com.example.englishrussianflashcards.screenuielements.espresso.EspressoAlertDialogUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.DialogUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoAlertDialogUi
 import dagger.Module
 import dagger.Provides
 

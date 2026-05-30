@@ -1,11 +1,10 @@
-package com.example.englishrussianflashcards.screenuielements.espresso
+package com.example.englishrussianflashcards.appscreens.screenuielements.espresso
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.englishrussianflashcards.ListItemSelectionTask
 import com.example.englishrussianflashcards.RecyclerViewItemSelectionTask
 import com.example.englishrussianflashcards.ViewDataExtraction
-import com.example.englishrussianflashcards.screenuielements.ClickableUi
-import com.example.englishrussianflashcards.screenuielements.DroppableListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ClickableUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.DroppableListItemSelectionUi
 
 /**
  * Created by Igor Aghibalov on 28.02.2026

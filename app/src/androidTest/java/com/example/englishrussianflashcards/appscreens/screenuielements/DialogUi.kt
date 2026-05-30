@@ -1,4 +1,4 @@
-package com.example.englishrussianflashcards.screenuielements
+package com.example.englishrussianflashcards.appscreens.screenuielements
 
 /**
  * Created by Igor Aghibalov on 12.10.2025

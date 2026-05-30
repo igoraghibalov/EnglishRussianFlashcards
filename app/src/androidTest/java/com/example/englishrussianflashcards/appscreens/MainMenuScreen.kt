@@ -5,7 +5,7 @@ import com.example.englishrussianflashcards.di.hilt.EspressoMainScreenContinueBu
 import com.example.englishrussianflashcards.di.hilt.EspressoMainScreenHistoryButtonUi
 import com.example.englishrussianflashcards.di.hilt.EspressoMainScreenNewCardButtonUi
 import com.example.englishrussianflashcards.di.hilt.EspressoMainScreenQuitButtonUi
-import com.example.englishrussianflashcards.screenuielements.ButtonUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ButtonUi
 import javax.inject.Inject
 
 /**

@@ -1,6 +1,5 @@
 package com.example.englishrussianflashcards.di.hilt
 
-import com.example.englishrussianflashcards.screenuielements.ButtonUi
 import javax.inject.Qualifier
 
 /**

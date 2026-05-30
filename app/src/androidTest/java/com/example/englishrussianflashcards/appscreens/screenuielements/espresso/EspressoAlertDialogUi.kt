@@ -1,4 +1,4 @@
-package com.example.englishrussianflashcards.screenuielements.espresso
+package com.example.englishrussianflashcards.appscreens.screenuielements.espresso
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -6,7 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import com.example.englishrussianflashcards.screenuielements.DialogUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.DialogUi
 
 /**
  * Created by Igor Aghibalov on 12.10.2025

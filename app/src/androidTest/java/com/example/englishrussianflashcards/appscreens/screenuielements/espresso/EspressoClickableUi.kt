@@ -1,9 +1,9 @@
-package com.example.englishrussianflashcards.screenuielements.espresso
+package com.example.englishrussianflashcards.appscreens.screenuielements.espresso
 
 import android.view.View
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
-import com.example.englishrussianflashcards.screenuielements.ClickableUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ClickableUi
 import org.hamcrest.Matcher
 
 /**

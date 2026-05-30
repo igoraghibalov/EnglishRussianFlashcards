@@ -1,9 +1,9 @@
 package com.example.englishrussianflashcards.di.hilt
 
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import com.example.englishrussianflashcards.screenuielements.ButtonUi
-import com.example.englishrussianflashcards.screenuielements.espresso.EspressoButtonUi
-import com.example.englishrussianflashcards.screenuielements.espresso.EspressoClickableUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ButtonUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoButtonUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoClickableUi
 import com.example.englishrussianflashcards.createcard.presentation.R as CreateCardModuleR
 import com.example.englishrussianflashcards.R as MainModuleR
 import dagger.Module

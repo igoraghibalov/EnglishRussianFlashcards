@@ -1,9 +1,9 @@
-package com.example.englishrussianflashcards.screenuielements.espresso
+package com.example.englishrussianflashcards.appscreens.screenuielements.espresso
 
 import com.example.englishrussianflashcards.ListItemSelectionTask
 import com.example.englishrussianflashcards.ViewDataExtraction
-import com.example.englishrussianflashcards.screenuielements.ClickableUi
-import com.example.englishrussianflashcards.screenuielements.ListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ClickableUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ListItemSelectionUi
 
 /**
  * Created by Igor Aghibalov on 23.02.2026

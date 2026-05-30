@@ -6,9 +6,9 @@ import com.example.englishrussianflashcards.DEFAULT_STRING
 import com.example.englishrussianflashcards.EspressoListItemSelectionTask
 import com.example.englishrussianflashcards.EspressoViewDataExtraction
 import com.example.englishrussianflashcards.createcard.presentation.R
-import com.example.englishrussianflashcards.screenuielements.ListItemSelectionUi
-import com.example.englishrussianflashcards.screenuielements.espresso.EspressoClickableUi
-import com.example.englishrussianflashcards.screenuielements.espresso.EspressoListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoClickableUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoListItemSelectionUi
 import dagger.Module
 import dagger.Provides
 import org.hamcrest.Matchers.instanceOf

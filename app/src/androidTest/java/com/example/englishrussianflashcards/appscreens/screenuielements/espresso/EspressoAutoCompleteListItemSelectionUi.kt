@@ -1,12 +1,12 @@
-package com.example.englishrussianflashcards.screenuielements.espresso
+package com.example.englishrussianflashcards.appscreens.screenuielements.espresso
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.example.englishrussianflashcards.ListItemSelectionTask
 import com.example.englishrussianflashcards.ViewDataExtraction
-import com.example.englishrussianflashcards.screenuielements.AutoCompleteListItemSelectionUi
-import com.example.englishrussianflashcards.screenuielements.ClickableUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.AutoCompleteListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ClickableUi
 
 /**
 * Created by Igor Aghibalov on 07.02.2026

@@ -16,12 +16,12 @@ import com.example.englishrussianflashcards.di.hilt.EspressoNetworkConnectionErr
 import com.example.englishrussianflashcards.di.hilt.EspressoTranscriptionUi
 import com.example.englishrussianflashcards.di.hilt.EspressoTranslationSelectionUi
 import com.example.englishrussianflashcards.di.hilt.EspressoWordSelectionUi
-import com.example.englishrussianflashcards.screenuielements.AutoCompleteListItemSelectionUi
-import com.example.englishrussianflashcards.screenuielements.ButtonUi
-import com.example.englishrussianflashcards.screenuielements.DialogUi
-import com.example.englishrussianflashcards.screenuielements.DroppableListItemSelectionUi
-import com.example.englishrussianflashcards.screenuielements.ListItemSelectionUi
-import com.example.englishrussianflashcards.screenuielements.TextUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.AutoCompleteListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ButtonUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.DialogUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.DroppableListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.TextUi
 import javax.inject.Inject
 
 

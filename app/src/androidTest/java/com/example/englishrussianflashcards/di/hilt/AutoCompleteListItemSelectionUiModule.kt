@@ -6,12 +6,12 @@ import com.example.englishrussianflashcards.ClearButtonOwnerMatcher
 import com.example.englishrussianflashcards.DEFAULT_STRING
 import com.example.englishrussianflashcards.EspressoListItemSelectionTask
 import com.example.englishrussianflashcards.EspressoViewDataExtraction
-import com.example.englishrussianflashcards.screenuielements.AutoCompleteListItemSelectionUi
-import com.example.englishrussianflashcards.screenuielements.espresso.EspressoAutoCompleteListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.AutoCompleteListItemSelectionUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoAutoCompleteListItemSelectionUi
 import dagger.Module
 import org.hamcrest.Matchers.instanceOf
 import com.example.englishrussianflashcards.createcard.presentation.R
-import com.example.englishrussianflashcards.screenuielements.espresso.EspressoClickableUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoClickableUi
 import com.google.android.material.internal.CheckableImageButton
 import dagger.Provides
 import org.hamcrest.Matchers.allOf

@@ -1,19 +1,16 @@
 package com.example.englishrussianflashcards.di.hilt
 
-import android.view.View
 import android.widget.TextView
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.example.englishrussianflashcards.EspressoViewDataExtraction
-import com.example.englishrussianflashcards.ViewDataExtraction
-import com.example.englishrussianflashcards.screenuielements.TextUi
-import com.example.englishrussianflashcards.screenuielements.espresso.EspressoTextUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.TextUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoTextUi
 import dagger.Module
 import dagger.Provides
 import com.example.englishrussianflashcards.createcard.presentation.R
 import org.hamcrest.BaseMatcher
 import org.hamcrest.Description
-import org.hamcrest.Matcher
 import org.hamcrest.Matchers.instanceOf
 
 /**
