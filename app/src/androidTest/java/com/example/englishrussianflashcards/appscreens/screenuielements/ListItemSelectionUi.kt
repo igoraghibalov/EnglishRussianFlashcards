@@ -1,16 +1,9 @@
 package com.example.englishrussianflashcards.appscreens.screenuielements
 
-import com.example.englishrussianflashcards.ViewDataExtraction
-
 /**
  * Created by Igor Aghibalov on 03.02.2026
  */
-interface ListItemSelectionUi<T: Any>: ViewDataExtraction<T> {
+interface ListItemSelectionUi<T: Any> {
     fun showList()
     fun selectItem()
 }
-
-
-/*
-    - append new function to interface
- */

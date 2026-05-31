@@ -3,15 +3,13 @@ package com.example.englishrussianflashcards.di.hilt
 import android.widget.TextView
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import com.example.englishrussianflashcards.EspressoViewDataExtraction
 import com.example.englishrussianflashcards.appscreens.screenuielements.TextUi
 import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoTextUi
+import com.example.englishrussianflashcards.createcard.presentation.R
 import dagger.Module
 import dagger.Provides
-import com.example.englishrussianflashcards.createcard.presentation.R
 import org.hamcrest.BaseMatcher
 import org.hamcrest.Description
-import org.hamcrest.Matchers.instanceOf
 
 /**
  * Created by Igor Aghibalov on 08.03.2026
@@ -30,12 +28,7 @@ object TextUiModule {
 
         return EspressoTextUi(textViewMatcher = withId(R.id.transcription_text_view),
                               textMatcher = withText(TextViewStringMatcher(pattern = RegexPattern(Regex(TRANSCRIPTION_PATTERN)),
-                                                                           stringMatchingDescription = TRANSCRIPTION_MATCH_DESCRIPTION)),
-                              viewDataExtraction = EspressoViewDataExtraction(defaultDataValue = "",
-                                                                              dataViewId = R.id.transcription_text_view,
-                                                                              dataViewMatcher = instanceOf(TextView::class.java),
-                                                                              dataExtractionDescription = "transcription extraction",
-                                                                              dataExtractionLambda = { (it as TextView).text.toString() }))
+                                                                           stringMatchingDescription = TRANSCRIPTION_MATCH_DESCRIPTION)),)
     }
 }
 

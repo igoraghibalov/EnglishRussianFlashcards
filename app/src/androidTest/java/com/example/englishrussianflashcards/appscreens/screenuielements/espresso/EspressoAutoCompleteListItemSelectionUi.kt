@@ -1,26 +1,25 @@
 package com.example.englishrussianflashcards.appscreens.screenuielements.espresso
 
+import android.view.View
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.typeText
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.ViewAction
 import com.example.englishrussianflashcards.ListItemSelectionTask
-import com.example.englishrussianflashcards.ViewDataExtraction
 import com.example.englishrussianflashcards.appscreens.screenuielements.AutoCompleteListItemSelectionUi
 import com.example.englishrussianflashcards.appscreens.screenuielements.ClickableUi
+import org.hamcrest.Matcher
 
 /**
 * Created by Igor Aghibalov on 07.02.2026
 */
 class EspressoAutoCompleteListItemSelectionUi<T: Any>(private val listItemSelectionTask: ListItemSelectionTask,
-                                                      private val typingCharacters: String,
-                                                      private val listShowTriggerId: Int,
-                                                      private val wordExtraction: ViewDataExtraction<T>,
+                                                      private val characterTypeAction: ViewAction,
+                                                      private val autoCompleteListItemSelectionUiMatcher: Matcher<View>,
                                                       private val textClearingUi: ClickableUi)
     : AutoCompleteListItemSelectionUi<T> {
 
 
     override fun typeCharacters() {
-        onView(withId(listShowTriggerId)).perform(typeText(typingCharacters))
+        onView(autoCompleteListItemSelectionUiMatcher).perform(characterTypeAction)
     }
 
     override fun clearText() {
@@ -35,5 +34,4 @@ class EspressoAutoCompleteListItemSelectionUi<T: Any>(private val listItemSelect
         listItemSelectionTask.run()
     }
 
-    override fun extractViewData(): T = wordExtraction.extractViewData()
 }

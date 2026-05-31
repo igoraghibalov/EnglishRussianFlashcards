@@ -1,20 +1,19 @@
 package com.example.englishrussianflashcards.di.hilt
 
-import android.widget.TextView
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.example.englishrussianflashcards.ClearButtonOwnerMatcher
-import com.example.englishrussianflashcards.DEFAULT_STRING
 import com.example.englishrussianflashcards.EspressoListItemSelectionTask
-import com.example.englishrussianflashcards.EspressoViewDataExtraction
 import com.example.englishrussianflashcards.appscreens.screenuielements.AutoCompleteListItemSelectionUi
 import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoAutoCompleteListItemSelectionUi
-import dagger.Module
-import org.hamcrest.Matchers.instanceOf
-import com.example.englishrussianflashcards.createcard.presentation.R
 import com.example.englishrussianflashcards.appscreens.screenuielements.espresso.EspressoClickableUi
+import com.example.englishrussianflashcards.createcard.presentation.R
 import com.google.android.material.internal.CheckableImageButton
+import dagger.Module
 import dagger.Provides
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.instanceOf
 
 /**
  * Created by Igor Aghibalov on 04.03.2026
@@ -32,15 +31,10 @@ object AutoCompleteListItemSelectionUiModule {
     @EspressoWordSelectionUi
     fun provideWordSelectionUi(): AutoCompleteListItemSelectionUi<String> {
         return EspressoAutoCompleteListItemSelectionUi(
-           EspressoListItemSelectionTask<String>(itemDataMatcher = instanceOf(String::class.java),
+           listItemSelectionTask = EspressoListItemSelectionTask<String>(itemDataMatcher = instanceOf(String::class.java),
                                                  itemPosition = 0),
-           typingCharacters = TYPING_WORD_CHARACTERS,
-           listShowTriggerId = R.id.word_auto_complete_text_view,
-           wordExtraction = EspressoViewDataExtraction(defaultDataValue = DEFAULT_STRING,
-                                                       dataViewId = R.id.word_auto_complete_text_view,
-                                                       dataViewMatcher = instanceOf(String::class.java),
-                                                       dataExtractionDescription = WORD_EXTRACTION_DESCRIPTION,
-                                                       dataExtractionLambda =  { view -> (view as TextView).text.toString() }),
+           characterTypeAction = typeText(TYPING_WORD_CHARACTERS),
+           autoCompleteListItemSelectionUiMatcher = withId(R.id.word_auto_complete_text_view),
            textClearingUi = EspressoClickableUi(allOf(instanceOf(CheckableImageButton::class.java),
                                                       isDisplayed(),
                                                       ClearButtonOwnerMatcher(ownerId = R.id.word_auto_complete_text_view))))
@@ -51,15 +45,10 @@ object AutoCompleteListItemSelectionUiModule {
     @EspressoCardGroupTitleSelectionUi
     fun provideCardGroupTitleSelectionUi(): AutoCompleteListItemSelectionUi<String> {
         return EspressoAutoCompleteListItemSelectionUi(
-           EspressoListItemSelectionTask<String>(itemDataMatcher = instanceOf(String::class.java),
-                                                 itemPosition = 0),
-           typingCharacters = TYPING_CARD_GROUP_CHARACTERS,
-           listShowTriggerId = R.id.card_group_auto_complete_text_view,
-           wordExtraction = EspressoViewDataExtraction(defaultDataValue = DEFAULT_STRING,
-                                                       dataViewId = R.id.card_group_auto_complete_text_view,
-                                                       dataViewMatcher = instanceOf(String::class.java),
-                                                       dataExtractionDescription = CARD_GROUP_EXTRACTION_DESCRIPTION,
-                                                       dataExtractionLambda =  { view -> (view as TextView).text.toString() }),
+           listItemSelectionTask = EspressoListItemSelectionTask<String>(itemDataMatcher = instanceOf(String::class.java),
+                                                                         itemPosition = 0),
+           characterTypeAction = typeText(TYPING_CARD_GROUP_CHARACTERS),
+           autoCompleteListItemSelectionUiMatcher = withId(R.id.card_group_auto_complete_text_view),
            textClearingUi = EspressoClickableUi(allOf(instanceOf(CheckableImageButton::class.java),
                                                       isDisplayed(),
                                                       ClearButtonOwnerMatcher(ownerId = R.id.card_group_auto_complete_text_view))))

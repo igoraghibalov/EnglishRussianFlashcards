@@ -2,7 +2,6 @@ package com.example.englishrussianflashcards.appscreens.screenuielements.espress
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.englishrussianflashcards.RecyclerViewItemSelectionTask
-import com.example.englishrussianflashcards.ViewDataExtraction
 import com.example.englishrussianflashcards.appscreens.screenuielements.ClickableUi
 import com.example.englishrussianflashcards.appscreens.screenuielements.DroppableListItemSelectionUi
 
@@ -12,8 +11,7 @@ import com.example.englishrussianflashcards.appscreens.screenuielements.Droppabl
 class EspressoDroppableListItemSelectionUi<T: Any, VH: RecyclerView.ViewHolder>(
                 private val selectionDropUi: ClickableUi,
                 private val showListUi: ClickableUi,
-                private val itemSelectionTask: RecyclerViewItemSelectionTask<VH>,
-                private val selectedItemExtraction: ViewDataExtraction<T>)
+                private val itemSelectionTask: RecyclerViewItemSelectionTask<VH>)
     : DroppableListItemSelectionUi<T> {
 
 
@@ -27,9 +25,5 @@ class EspressoDroppableListItemSelectionUi<T: Any, VH: RecyclerView.ViewHolder>(
 
     override fun selectItem() {
         itemSelectionTask.run()
-    }
-
-    override fun extractViewData(): T {
-        return selectedItemExtraction.extractViewData()
     }
 }
