@@ -31,12 +31,12 @@ import javax.inject.Inject
 
 
 class CardCreationScreen @Inject constructor(
-    @EspressoWordSelectionUi private val wordSelectionUi: AutoCompleteListItemSelectionUi<String>,
-    @EspressoTranslationSelectionUi private val translationSelectionUi: ListItemSelectionUi<String>,
-    @EspressoExampleSelectionUi private val exampleSelectionUi: ListItemSelectionUi<String>,
+    @EspressoWordSelectionUi private val wordSelectionUi: AutoCompleteListItemSelectionUi,
+    @EspressoTranslationSelectionUi private val translationSelectionUi: ListItemSelectionUi,
+    @EspressoExampleSelectionUi private val exampleSelectionUi: ListItemSelectionUi,
     @EspressoTranscriptionUi private val transcriptionUi: TextUi<String>,
-    @EspressoImageSelectionUi private val imageSelectionUi: DroppableListItemSelectionUi<String>,
-    @EspressoCardGroupTitleSelectionUi private val cardGroupTitleSelectionUi: AutoCompleteListItemSelectionUi<String>,
+    @EspressoImageSelectionUi private val imageSelectionUi: DroppableListItemSelectionUi,
+    @EspressoCardGroupTitleSelectionUi private val cardGroupTitleSelectionUi: AutoCompleteListItemSelectionUi,
     @EspressoCardCreationButtonUi private val cardCreationButtonUi: ButtonUi,
     @EspressoImageApiServerErrorDialogUi private val imageApiServerErrorDialogUi: DialogUi,
     @EspressoNetworkConnectionErrorDialogUi private val networkConnectionErrorDialogUi: DialogUi) {
@@ -130,7 +130,7 @@ class CardCreationScreen @Inject constructor(
     fun provideUiDevice() = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
     //TODO: replace method with common json files,
-    // containing data for test-only purpose, including expected card data and fake repositories
+    // containing data for test-only purpose, including expected card data and fake repositories data
     fun provideExpectedCard(): Card {
         return Card(word = wordSelectionUi.extractViewData(),
                     translation = translationSelectionUi.extractViewData(),

@@ -19,7 +19,7 @@ object ListItemSelectionUiModule {
 
     @Provides
     @EspressoTranslationSelectionUi
-    fun provideTranslationSelectionUi(): ListItemSelectionUi<String> {
+    fun provideTranslationSelectionUi(): ListItemSelectionUi {
 
         return EspressoListItemSelectionUi(
                         listItemSelectionTask = EspressoListItemSelectionTask<String>(
@@ -31,7 +31,7 @@ object ListItemSelectionUiModule {
 
     @Provides
     @EspressoExampleSelectionUi
-    fun provideExampleSelectionUi(): ListItemSelectionUi<String> {
+    fun provideExampleSelectionUi(): ListItemSelectionUi {
 
         return EspressoListItemSelectionUi(
                         listItemSelectionTask = EspressoListItemSelectionTask<String>(

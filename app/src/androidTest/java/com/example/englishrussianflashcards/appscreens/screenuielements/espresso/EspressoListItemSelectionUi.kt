@@ -7,9 +7,9 @@ import com.example.englishrussianflashcards.appscreens.screenuielements.ListItem
 /**
  * Created by Igor Aghibalov on 23.02.2026
  */
-class EspressoListItemSelectionUi<T: Any>(private val listItemSelectionTask: ListItemSelectionTask,
-                                          private val listShowUi: ClickableUi)
-    : ListItemSelectionUi<T> {
+class EspressoListItemSelectionUi(private val listItemSelectionTask: ListItemSelectionTask,
+                                  private val listShowUi: ClickableUi)
+    : ListItemSelectionUi {
 
 
 

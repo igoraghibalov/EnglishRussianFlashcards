@@ -29,7 +29,7 @@ object AutoCompleteListItemSelectionUiModule {
 
     @Provides
     @EspressoWordSelectionUi
-    fun provideWordSelectionUi(): AutoCompleteListItemSelectionUi<String> {
+    fun provideWordSelectionUi(): AutoCompleteListItemSelectionUi {
         return EspressoAutoCompleteListItemSelectionUi(
            listItemSelectionTask = EspressoListItemSelectionTask<String>(itemDataMatcher = instanceOf(String::class.java),
                                                  itemPosition = 0),
@@ -43,7 +43,7 @@ object AutoCompleteListItemSelectionUiModule {
 
     @Provides
     @EspressoCardGroupTitleSelectionUi
-    fun provideCardGroupTitleSelectionUi(): AutoCompleteListItemSelectionUi<String> {
+    fun provideCardGroupTitleSelectionUi(): AutoCompleteListItemSelectionUi {
         return EspressoAutoCompleteListItemSelectionUi(
            listItemSelectionTask = EspressoListItemSelectionTask<String>(itemDataMatcher = instanceOf(String::class.java),
                                                                          itemPosition = 0),

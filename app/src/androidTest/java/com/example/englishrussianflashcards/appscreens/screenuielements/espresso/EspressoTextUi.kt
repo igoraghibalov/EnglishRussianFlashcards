@@ -9,8 +9,8 @@ import org.hamcrest.Matcher
 /**
  * Created by Igor Aghibalov on 11.10.2025
  */
-class EspressoTextUi<T: Any>(private val textViewMatcher: Matcher<View>,
-                             private val textMatcher: Matcher<View>): TextUi<T> {
+class EspressoTextUi(private val textViewMatcher: Matcher<View>,
+                     private val textMatcher: Matcher<View>): TextUi {
 
     override fun hasText() {
         onView(textViewMatcher).check(matches(textMatcher))

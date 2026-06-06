@@ -8,11 +8,11 @@ import com.example.englishrussianflashcards.appscreens.screenuielements.Droppabl
 /**
  * Created by Igor Aghibalov on 28.02.2026
  */
-class EspressoDroppableListItemSelectionUi<T: Any, VH: RecyclerView.ViewHolder>(
+class EspressoDroppableListItemSelectionUi<VH: RecyclerView.ViewHolder>(
                 private val selectionDropUi: ClickableUi,
                 private val showListUi: ClickableUi,
                 private val itemSelectionTask: RecyclerViewItemSelectionTask<VH>)
-    : DroppableListItemSelectionUi<T> {
+    : DroppableListItemSelectionUi {
 
 
     override fun dropSelection() {

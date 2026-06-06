@@ -11,11 +11,11 @@ import org.hamcrest.Matcher
 /**
 * Created by Igor Aghibalov on 07.02.2026
 */
-class EspressoAutoCompleteListItemSelectionUi<T: Any>(private val listItemSelectionTask: ListItemSelectionTask,
+class EspressoAutoCompleteListItemSelectionUi(private val listItemSelectionTask: ListItemSelectionTask,
                                                       private val characterTypeAction: ViewAction,
                                                       private val autoCompleteListItemSelectionUiMatcher: Matcher<View>,
                                                       private val textClearingUi: ClickableUi)
-    : AutoCompleteListItemSelectionUi<T> {
+    : AutoCompleteListItemSelectionUi {
 
 
     override fun typeCharacters() {
@@ -33,5 +33,4 @@ class EspressoAutoCompleteListItemSelectionUi<T: Any>(private val listItemSelect
     override fun selectItem() {
         listItemSelectionTask.run()
     }
-
 }
