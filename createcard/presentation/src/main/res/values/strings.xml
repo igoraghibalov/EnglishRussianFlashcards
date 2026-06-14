@@ -16,4 +16,10 @@
     <string name="example_title_text">Example:</string>
     <string name="image_title_text">Image:</string>
     <string name="group_title_text">Group:</string>
+    <string name="dash">-</string>
+    <string name="default_word">Apple</string>
+    <string name="default_translation">Яблоко</string>
+    <string name="default_transcription">[ˈæpəl]</string>
+    <string name="default_example">Apple is on the tree - Яблоко на дереве</string>
+    <string name="default_cardGroupName">Fruits</string>
 </resources>
