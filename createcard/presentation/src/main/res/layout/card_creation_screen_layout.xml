@@ -12,22 +12,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="@integer/title_vertical_guideline_percent"/>
+        app:layout_constraintGuide_percent="@dimen/title_vertical_guideline_percent"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/selection_views_vertical_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="@integer/selection_views_vertical_guideline_percent"/>
+        app:layout_constraintGuide_percent="@dimen/selection_views_vertical_guideline_percent"/>
 
-    <Space
-        android:id="@+id/top_space"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/top_space_height"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/word_title_text_view"
@@ -36,9 +29,8 @@
         android:layout_margin="@dimen/default_margin"
         android:text="@string/word_title_text"
         android:textSize="@dimen/text_size"
-        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
         app:layout_constraintStart_toEndOf="@id/title_vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@id/top_space" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <include
@@ -49,7 +41,7 @@
         android:layout_margin="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/selection_views_vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@id/top_space"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
     <TextView
@@ -60,7 +52,6 @@
         android:text="@string/transcription_title_text"
         android:textSize="@dimen/text_size"
         app:layout_constraintTop_toBottomOf="@id/word_auto_complete_text_view"
-        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
         app:layout_constraintStart_toEndOf="@id/title_vertical_guideline" />
 
 
@@ -83,7 +74,6 @@
         android:text="@string/translation_title_text"
         android:textSize="@dimen/text_size"
         app:layout_constraintTop_toBottomOf="@id/transcription_text_view"
-        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
         app:layout_constraintStart_toEndOf="@id/title_vertical_guideline" />
 
 
@@ -92,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
-        android:background="@drawable/stroke"
+        android:background="@drawable/common_stroke"
         android:hint="@string/translation_selection_hint"
         app:layout_constraintTop_toBottomOf="@id/transcription_text_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +96,6 @@
         android:layout_margin="@dimen/default_margin"
         android:text="@string/example_title_text"
         android:textSize="@dimen/text_size"
-        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
         app:layout_constraintTop_toBottomOf="@id/translation_title_text_view"
         app:layout_constraintStart_toEndOf="@id/title_vertical_guideline"/>
 
@@ -115,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_margin"
-        android:background="@drawable/stroke"
+        android:background="@drawable/common_stroke"
         android:hint="@string/english_example_selection_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/translation_title_text_view"
@@ -130,7 +119,6 @@
         android:text="@string/image_title_text"
         android:textSize="@dimen/text_size"
         app:layout_constraintTop_toBottomOf="@id/example_title_text_view"
-        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
         app:layout_constraintStart_toEndOf="@id/title_vertical_guideline" />
 
 
@@ -142,7 +130,7 @@
         android:text="@string/image_selection_button_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/example_title_text_view"
-        app:layout_constraintStart_toEndOf="@id/selection_views_vertical_guideline"/>
+        app:layout_constraintStart_toStartOf="@id/selection_views_vertical_guideline"/>
 
 
     <TextView
@@ -152,9 +140,7 @@
         android:layout_margin="@dimen/default_margin"
         android:text="@string/group_title_text"
         android:textSize="@dimen/text_size"
-        app:layout_constraintEnd_toStartOf="@id/selection_views_vertical_guideline"
         app:layout_constraintStart_toEndOf="@id/title_vertical_guideline"
-        app:layout_constraintBottom_toTopOf="@id/create_button_linear_layout_parent"
         app:layout_constraintTop_toBottomOf="@id/image_title_text_view"/>
 
 
@@ -166,7 +152,6 @@
         android:layout_margin="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/selection_views_vertical_guideline"
-        app:layout_constraintBottom_toTopOf="@id/create_button_linear_layout_parent"
         app:layout_constraintTop_toBottomOf="@id/image_title_text_view"/>
 
 
@@ -178,13 +163,13 @@
         android:gravity="end"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/group_title_text_view">
+        app:layout_constraintStart_toStartOf="@id/selection_views_vertical_guideline"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/card_creation_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/card_creation_button_end_margin"
             android:text="@string/card_creation_button_text"
             android:textAllCaps="true" />

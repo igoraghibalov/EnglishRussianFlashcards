@@ -14,4 +14,6 @@
     <dimen name="top_space_height">300dp</dimen>
     <dimen name="dash_margin_start">5dp</dimen>
     <dimen name="dash_margin_end">5dp</dimen>
+    <item name="title_vertical_guideline_percent" type="dimen" format="float">0.05</item>
+    <item name="selection_views_vertical_guideline_percent" type="dimen" format="float">0.55</item>
 </resources>
