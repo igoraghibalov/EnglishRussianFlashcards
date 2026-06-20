@@ -10,5 +10,7 @@ class MainActivity : AppCompatActivity(R.layout.main_activity_layout) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//        val listItemCardLayoutBinding = ListItemCardLayoutBinding
     }
 }

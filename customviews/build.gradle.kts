@@ -1,12 +1,12 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.example.englishrussianflashcards.customviews"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 24

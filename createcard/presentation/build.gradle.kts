@@ -1,12 +1,12 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.example.englishrussianflashcards.createcard.presentation"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 24
@@ -40,7 +40,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    androidTestImplementation("androidx.fragment:fragment-testing:1.8.5")
+    androidTestImplementation(libs.androidx.fragment.testing)
 
 //    implementation(libs.androidx.core.ktx)
 //    implementation(libs.androidx.appcompat)

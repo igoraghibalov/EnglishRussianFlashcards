@@ -1,5 +1,6 @@
 package com.example.englishrussianflashcards
 
+import android.view.View
 import android.view.ViewParent
 import androidx.cardview.widget.CardView
 import org.hamcrest.Description
@@ -8,13 +9,13 @@ import org.hamcrest.TypeSafeMatcher
 /**
  * Created by Igor Aghibalov on 13.06.2026
  */
-class RecyclerViewCardPresenceMatcher(private val card: Card): TypeSafeMatcher<CardView>(CardView::class.java) {
+class RecyclerViewCardPresenceMatcher<T: View>(private val card: Card): TypeSafeMatcher<T>(CardView::class.java) {
 
-    override fun matchesSafely(cardView: CardView?): Boolean {
+    override fun matchesSafely(cardView: T?): Boolean {
         val rootView = provideRootView(cardView!!)
-        val cardLayoutBinding = CardLayoutBinding.bind(rootView)
+        val listItemCardLayoutBinding = ListItemCardLayoutBinding.bind(rootView)
 
-        return with(cardLayoutBinding) {
+        return with(listItemCardLayoutBinding) {
                     word == card.word &&
                     transcription == card.transcription &&
                     translation == card.translation &&
@@ -28,7 +29,7 @@ class RecyclerViewCardPresenceMatcher(private val card: Card): TypeSafeMatcher<C
         description!!.appendText("$card is present in a recyclerView")
     }
 
-    fun provideRootView(view: CardView): ViewParent {
+    fun provideRootView(view: T): ViewParent {
         val rootViewName = "com.android.internal.policy.DecorView"
         var viewParent: ViewParent = view.parent
 
