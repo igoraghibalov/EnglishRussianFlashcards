@@ -1,12 +1,13 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.com.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.com.google.dagger.hilt.android)
+    alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
     namespace = "com.example.englishrussianflashcards.createcard.presentation"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 24
@@ -26,31 +27,25 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+}
+
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
     }
 }
 
 dependencies {
     implementation(project(":customviews"))
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(libs.androidx.fragment.testing)
 
-//    implementation(libs.androidx.core.ktx)
-//    implementation(libs.androidx.appcompat)
-//    implementation(libs.material)
-//    testImplementation(libs.junit)
-//    androidTestImplementation(libs.androidx.junit)
-//    androidTestImplementation(libs.androidx.espresso.core)
-//    androidTestImplementation(libs.androidx.fragment.testing)
-//    debugImplementation(libs.androidx.core)
-//    runtimeOnly(libs.core.ktx)
-//    testImplementation("androidx.test:core:1.6.1")
-//    androidTestImplementation(project(":commoninterfaces"))
+    ksp(libs.hilt.android.compiler)
+    ksp(libs.androidx.room.compiler)
+
+    testImplementation(libs.junit)
 }

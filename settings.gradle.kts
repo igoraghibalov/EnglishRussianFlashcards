@@ -15,6 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "EnglishRussianFlashcards"
 include(":app")
-include(":createcard")
 include(":createcard:presentation")
 include(":customviews")
