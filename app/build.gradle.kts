@@ -3,16 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.com.google.dagger.hilt.android)
     alias(libs.plugins.google.devtools.ksp)
+    kotlin("plugin.serialization") version "2.3.0"
 }
 
-ksp {
-    val isTestTask = project.gradle.startParameter.taskNames.any {
-        it.contains("Test", ignoreCase = true)
-    }
-
-    if (isTestTask)
-        arg("dagger.hilt.disableModulesHaveInstallInCheck", "true")
-}
 
 android {
     namespace = "com.example.englishrussianflashcards"
@@ -46,7 +39,7 @@ android {
     }
 
     buildFeatures {
-//        compose = true
+        viewBinding = true
     }
 
     packaging {
@@ -77,6 +70,7 @@ dependencies {
     implementation(libs.androidx.uiautomator)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.hilt.android)
+    implementation(libs.kotlinx.serialization.json)
 
     ksp(libs.hilt.android.compiler)
     ksp(libs.androidx.room.compiler)
@@ -90,6 +84,7 @@ dependencies {
 
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.espresso.contrib)
     androidTestImplementation(libs.hilt.android.testing)
 
     kspAndroidTest(libs.hilt.android.compiler)

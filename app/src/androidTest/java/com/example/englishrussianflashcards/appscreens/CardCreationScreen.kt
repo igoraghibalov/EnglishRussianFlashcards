@@ -29,12 +29,12 @@ import javax.inject.Inject
  * Created by Igor Aghibalov on 14.09.2025
  */
 
-
+//TODO: Do a CardGroupScreen Room database error dialog presence check on createButton click
 class CardCreationScreen @Inject constructor(
     @EspressoWordSelectionUi private val wordSelectionUi: AutoCompleteListItemSelectionUi,
     @EspressoTranslationSelectionUi private val translationSelectionUi: ListItemSelectionUi,
     @EspressoExampleSelectionUi private val exampleSelectionUi: ListItemSelectionUi,
-    @EspressoTranscriptionUi private val transcriptionUi: TextUi<String>,
+    @EspressoTranscriptionUi private val transcriptionUi: TextUi,
     @EspressoImageSelectionUi private val imageSelectionUi: DroppableListItemSelectionUi,
     @EspressoCardGroupTitleSelectionUi private val cardGroupTitleSelectionUi: AutoCompleteListItemSelectionUi,
     @EspressoCardCreationButtonUi private val cardCreationButtonUi: ButtonUi,
