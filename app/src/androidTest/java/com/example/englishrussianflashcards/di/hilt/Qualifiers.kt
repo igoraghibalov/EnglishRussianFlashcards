@@ -75,3 +75,8 @@ annotation class EspressoMainScreenHistoryButtonUi
 annotation class EspressoMainScreenQuitButtonUi
 
 
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoGroupNameUi
+
+
