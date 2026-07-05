@@ -1,5 +1,6 @@
 package com.example.englishrussianflashcards.di.hilt
 
+import com.example.englishrussianflashcards.appscreens.screenuielements.ButtonUi
 import javax.inject.Qualifier
 
 /**
@@ -78,5 +79,15 @@ annotation class EspressoMainScreenQuitButtonUi
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class EspressoGroupNameUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoGroupsButtonUi
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class EspressoAddGroupButtonUi
 
 

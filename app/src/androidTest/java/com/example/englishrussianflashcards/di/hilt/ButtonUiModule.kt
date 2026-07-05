@@ -17,7 +17,7 @@ object ButtonUiModule {
 
     @EspressoCardCreationButtonUi
     @Provides
-    fun provideСardCreationButtonUi(): ButtonUi {
+    fun provideCardCreationButtonUi(): ButtonUi {
 
         return EspressoButtonUi(EspressoClickableUi(clickableViewMatcher = withId(
             CreateCardModuleR.id.card_creation_button)))
@@ -66,5 +66,23 @@ object ButtonUiModule {
 
         return EspressoButtonUi(EspressoClickableUi(clickableViewMatcher = withId(
             MainModuleR.id.quit_button)))
+    }
+
+
+    @EspressoGroupsButtonUi
+    @Provides
+    fun provideGroupsButtonUi(): ButtonUi {
+
+        return EspressoButtonUi(EspressoClickableUi(clickableViewMatcher = withId(
+            CreateCardModuleR.id.groups_button)))
+    }
+
+
+    @EspressoAddGroupButtonUi
+    @Provides
+    fun provideAddGroupButtonUi(): ButtonUi {
+
+        return EspressoButtonUi(EspressoClickableUi(clickableViewMatcher = withId(
+            CreateCardModuleR.id.add_group_button)))
     }
 }
