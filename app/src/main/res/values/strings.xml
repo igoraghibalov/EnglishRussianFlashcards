@@ -42,4 +42,5 @@
     <string name="earth_card_translation">Земля</string>
     <string name="earth_card_transcription">[ˈɝːθ]</string>
     <string name="card_groups_button_text">Cards</string>
+    <string name="card_layout_parent_view_name">MaterialCardView</string>
 </resources>
