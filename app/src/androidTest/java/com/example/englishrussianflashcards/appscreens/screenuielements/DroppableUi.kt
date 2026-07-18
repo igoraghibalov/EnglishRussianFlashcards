@@ -1,8 +1,8 @@
 package com.example.englishrussianflashcards.appscreens.screenuielements
 
 /**
- * Created by Igor Aghibalov on 03.02.2026
+ * Created by Igor Aghibalov on 18.07.2026
  */
-interface DroppableListItemSelectionUi: ListItemSelectionUi {
+interface DroppableUi {
     fun dropSelection()
 }
