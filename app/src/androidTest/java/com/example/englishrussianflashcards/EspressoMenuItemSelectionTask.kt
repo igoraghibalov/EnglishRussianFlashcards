@@ -8,9 +8,9 @@ import org.hamcrest.Matcher
 /**
  * Created by Igor Aghibalov on 07.03.2026
  */
-class EspressoListItemSelectionTask<T: Any>(private val itemDataMatcher: Matcher<T>,
+class EspressoMenuItemSelectionTask<T: Any>(private val itemDataMatcher: Matcher<T>,
                                             private val itemPosition: Int)
-        : ListItemSelectionTask {
+        : MenuItemSelectionTask {
 
 
     override fun run() {
