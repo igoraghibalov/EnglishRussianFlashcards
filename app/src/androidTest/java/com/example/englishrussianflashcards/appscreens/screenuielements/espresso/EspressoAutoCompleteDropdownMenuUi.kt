@@ -26,7 +26,7 @@ class EspressoAutoCompleteDropdownMenuUi(private val dropdownMenuItemSelectionTa
         textClearingUi.click()
     }
 
-    override fun showList() {
+    override fun showMenu() {
         typeCharacters()
     }
 

@@ -13,7 +13,7 @@ class EspressoDropdownMenuUi(private val menuItemSelectionTask: MenuItemSelectio
 
 
 
-    override fun showList() {
+    override fun showMenu() {
         dropdownMenuShowUi.click()
     }
 
