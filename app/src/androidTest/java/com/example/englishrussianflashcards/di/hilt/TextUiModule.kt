@@ -19,8 +19,8 @@ import org.hamcrest.Description
  * Created by Igor Aghibalov on 08.03.2026
  */
 
-private const val TRANSCRIPTION_PATTERN = "^\\[[^0-9]+]$|translation not found"
-private const val TRANSCRIPTION_MATCH_DESCRIPTION = "matching transcription"
+private const val DEFAULT_TRANSCRIPTION_PATTERN = "\\[.{3}]"
+private const val TRANSCRIPTION_MATCH_DESCRIPTION = "matching default transcription"
 private const val CARD_GROUP_NAME_MATCH_DESCRIPTION = "matching card group name"
 
 
@@ -32,7 +32,7 @@ object TextUiModule {
     fun provideTranscriptionUi(): TextUi {
 
         return EspressoTextUi(textViewMatcher = withId(R.id.transcription_text_view),
-                              textMatcher = withText(TextViewStringMatcher(pattern = RegexPattern(Regex(TRANSCRIPTION_PATTERN)),
+                              textMatcher = withText(TextViewStringMatcher(pattern = RegexPattern(Regex(DEFAULT_TRANSCRIPTION_PATTERN)),
                                                                            stringMatchingDescription = TRANSCRIPTION_MATCH_DESCRIPTION)),)
     }
 
