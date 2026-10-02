@@ -1,6 +1,5 @@
 package com.example.englishrussianflashcards.di.hilt
 
-import com.example.englishrussianflashcards.appscreens.screenuielements.ButtonUi
 import javax.inject.Qualifier
 
 /**
@@ -8,22 +7,22 @@ import javax.inject.Qualifier
  */
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class EspressoWordSelectionUi
+annotation class EspressoWordUi
 
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class EspressoCardGroupTitleSelectionUi
+annotation class EspressoCardGroupTitleUi
 
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class EspressoTranslationSelectionUi
+annotation class EspressoTranslationUi
 
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class EspressoExampleSelectionUi
+annotation class EspressoExampleUi
 
 
 @Qualifier
@@ -33,7 +32,7 @@ annotation class EspressoTranscriptionUi
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class EspressoImageSelectionUi
+annotation class EspressoImageUi
 
 
 @Qualifier
