@@ -1,11 +1,13 @@
 package com.example.englishrussianflashcards.tests.features.cardcreation
 
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.englishrussianflashcards.appscreens.CardCreationScreen
 import com.example.englishrussianflashcards.appscreens.CardGroupScreen
 import com.example.englishrussianflashcards.appscreens.MainMenuScreen
 import com.example.englishrussianflashcards.tests.UiTest
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
+import org.junit.runner.RunWith
 import javax.inject.Inject
 
 /**
@@ -13,6 +15,7 @@ import javax.inject.Inject
  */
 
 @HiltAndroidTest
+@RunWith(AndroidJUnit4::class)
 abstract class CardCreationUiTest: UiTest() {
 
     @Inject
