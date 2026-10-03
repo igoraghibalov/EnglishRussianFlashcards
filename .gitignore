@@ -38,3 +38,5 @@ captures/
 
 # Log files
 *.log
+#other files
+app/src/main/java/com/example/englishrussianflashcards/Notes.md
