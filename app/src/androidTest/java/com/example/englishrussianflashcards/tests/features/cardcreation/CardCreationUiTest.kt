@@ -13,9 +13,6 @@ import javax.inject.Inject
 /**
  * Created by Igor Aghibalov on 30.09.2026
  */
-
-@HiltAndroidTest
-@RunWith(AndroidJUnit4::class)
 abstract class CardCreationUiTest: UiTest() {
 
     @Inject
