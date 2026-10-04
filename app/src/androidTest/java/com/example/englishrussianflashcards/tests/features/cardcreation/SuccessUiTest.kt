@@ -42,7 +42,6 @@ class SuccessUiTest: UiTest() {
     abstract class FakeSuccessDictionaryRepositoryTestModule {
 
         @Binds
-        @ViewModelScoped
         abstract fun provideFakeSuccessDictionaryRepository(
                                 fakeSuccessDictionaryRepository: FakeSuccessDictionaryRepository)
                 : DictionaryRepository
@@ -54,7 +53,6 @@ class SuccessUiTest: UiTest() {
     abstract class FakeSuccessImageRepositoryTestModule {
 
         @Binds
-        @ViewModelScoped
         abstract fun provideFakeSuccessDictionaryRepository(
                                 fakeSuccessImageRepository: FakeSuccessImageRepository)
                 : ImageRepository
@@ -66,7 +64,6 @@ class SuccessUiTest: UiTest() {
     abstract class FakeSuccessCardGroupTitleRepositoryModule {
 
         @Binds
-        @ViewModelScoped
         abstract fun provideFakeSuccessCardGroupTitleRepository(
                                 fakeSuccessCardGroupTitleRepository: FakeSuccessCardGroupTitleRepository)
                 : CardGroupTitleRepository
