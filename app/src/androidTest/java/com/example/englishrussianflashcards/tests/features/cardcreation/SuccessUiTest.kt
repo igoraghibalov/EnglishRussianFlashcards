@@ -25,19 +25,9 @@ import javax.inject.Inject
                   RealImageRepositoryModule::class,
                   RealCardGroupTitleRepositoryModule::class)
 @HiltAndroidTest
-class SuccessUiTest: UiTest() {
-
-    @Inject
-    lateinit var mainMenuScreen: MainMenuScreen
-
-    @Inject
-    lateinit var cardCreationScreen: CardCreationScreen
-
-    @Inject
-    lateinit var cardGroupScreen: CardGroupScreen
+class SuccessUiTest: CardCreationUiTest() {
 
 
-    @Module
     @InstallIn(SingletonComponent::class)
     abstract class FakeSuccessDictionaryRepositoryTestModule {
 
