@@ -16,7 +16,7 @@ import javax.inject.Inject
                            RealImageRepositoryModule::class,
                            RealCardGroupTitleRepositoryModule::class])
 @HiltAndroidTest
-class CardCreationUiTest: UiTest() {
+open class CardCreationUiTest: UiTest() {
 
     @Inject
     lateinit var mainMenuScreen: MainMenuScreen
