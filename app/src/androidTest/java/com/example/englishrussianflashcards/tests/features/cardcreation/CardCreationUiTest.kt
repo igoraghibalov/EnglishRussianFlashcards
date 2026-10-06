@@ -1,19 +1,22 @@
 package com.example.englishrussianflashcards.tests.features.cardcreation
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.englishrussianflashcards.appscreens.CardCreationScreen
 import com.example.englishrussianflashcards.appscreens.CardGroupScreen
 import com.example.englishrussianflashcards.appscreens.MainMenuScreen
 import com.example.englishrussianflashcards.tests.UiTest
 import dagger.hilt.android.testing.HiltAndroidTest
+import dagger.hilt.android.testing.UninstallModules
 import org.junit.Before
-import org.junit.runner.RunWith
 import javax.inject.Inject
 
 /**
  * Created by Igor Aghibalov on 30.09.2026
  */
-abstract class CardCreationUiTest: UiTest() {
+@UninstallModules(value = [RealDictionaryRepositoryModule::class,
+                           RealImageRepositoryModule::class,
+                           RealCardGroupTitleRepositoryModule::class])
+@HiltAndroidTest
+class CardCreationUiTest: UiTest() {
 
     @Inject
     lateinit var mainMenuScreen: MainMenuScreen
