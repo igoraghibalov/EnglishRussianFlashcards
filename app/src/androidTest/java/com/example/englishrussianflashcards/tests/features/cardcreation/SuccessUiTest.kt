@@ -11,6 +11,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
 import dagger.hilt.components.SingletonComponent
@@ -21,43 +22,23 @@ import javax.inject.Inject
 /**
  * Created by Igor Aghibalov on 03.08.2025
  */
-@UninstallModules(RealDictionaryRepositoryModule::class,
-                  RealImageRepositoryModule::class,
-                  RealCardGroupTitleRepositoryModule::class)
 @HiltAndroidTest
 class SuccessUiTest: CardCreationUiTest() {
 
 
-    @InstallIn(SingletonComponent::class)
-    abstract class FakeSuccessDictionaryRepositoryTestModule {
-
-        @Binds
-        abstract fun provideFakeSuccessDictionaryRepository(
-                                fakeSuccessDictionaryRepository: FakeSuccessDictionaryRepository)
-                : DictionaryRepository
-    }
+    @BindValue
+    @JvmField
+    val fakeSuccessDictionaryRepository = FakeSuccessDictionaryRepository()
 
 
-    @Module
-    @InstallIn(SingletonComponent::class)
-    abstract class FakeSuccessImageRepositoryTestModule {
-
-        @Binds
-        abstract fun provideFakeSuccessDictionaryRepository(
-                                fakeSuccessImageRepository: FakeSuccessImageRepository)
-                : ImageRepository
-    }
+    @BindValue
+    @JvmField
+    val fakeSuccessImageRepository = FakeSuccessImageRepository()
 
 
-    @Module
-    @InstallIn(SingletonComponent::class)
-    abstract class FakeSuccessCardGroupTitleRepositoryModule {
-
-        @Binds
-        abstract fun provideFakeSuccessCardGroupTitleRepository(
-                                fakeSuccessCardGroupTitleRepository: FakeSuccessCardGroupTitleRepository)
-                : CardGroupTitleRepository
-    }
+    @BindValue
+    @JvmField
+    val fakeSuccessCardGroupTitleRepository = FakeSuccessCardGroupTitleRepository()
     
 
     @Before
@@ -73,24 +54,5 @@ class SuccessUiTest: CardCreationUiTest() {
         fillCard()
         cardCreationScreen.clickCreateCardButton()
         cardGroupScreen.checkCreatedCardPresence()
-    }
-
-
-    fun fillCard() {
-
-        with (cardCreationScreen) {
-            typeWordCharacters()
-            selectWord()
-            clearWord()
-            typeWordCharacters()
-            selectWord()
-            selectTranslation()
-            selectExample()
-            selectImage()
-            dropImage()
-            selectImage()
-            typeCardGroupName()
-            selectCardGroupName()
-        }
     }
 }
