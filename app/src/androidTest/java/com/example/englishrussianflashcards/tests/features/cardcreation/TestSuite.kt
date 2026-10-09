@@ -8,7 +8,9 @@ import org.junit.runners.Suite
  */
 @RunWith(Suite::class)
 @Suite.SuiteClasses(SuccessUiTest::class,
-                    ElementNotFoundExceptionDictionaryRepositoryErrorUiTest::class,
+                    ElementNotFoundExceptionDictionaryRepositoryUiTest::class,
+                    DatabaseCorruptedExceptionDictionaryRepositoryUiTest::class,
+                    DiskIOExceptionDictionaryRepositoryUiTest::class,
                     ImageRepositoryServerErrorUiTest::class,
                     ImageRepositoryNetworkConnectionErrorUiTest::class,
                     CardRepositoryErrorDialogShowOnCreateCardButtonClickUiTest::class,
