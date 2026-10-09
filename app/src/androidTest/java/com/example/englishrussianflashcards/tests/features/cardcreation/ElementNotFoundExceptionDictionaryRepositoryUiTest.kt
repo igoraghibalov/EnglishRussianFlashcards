@@ -7,7 +7,7 @@ import dagger.hilt.android.testing.HiltAndroidTest
  * Created by Igor Aghibalov on 08.10.2026
  */
 @HiltAndroidTest
-class ElementNotFoundExceptionDictionaryRepositoryErrorUiTest
+class ElementNotFoundExceptionDictionaryRepositoryUiTest
                                 : BaseDictionaryRepositoryErrorUiTest() {
 
     @BindValue
