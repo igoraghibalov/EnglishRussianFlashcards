@@ -3,6 +3,10 @@ package com.example.englishrussianflashcards.tests.features.cardcreation
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidTest
 
+
+private const val ELEMENT_NOT_FOUND_DIALOG_MESSAGE = "No elements found"
+
+
 /**
  * Created by Igor Aghibalov on 08.10.2026
  */
@@ -16,6 +20,6 @@ class ElementNotFoundExceptionDictionaryRepositoryUiTest
 
     override fun setUp() {
         super.setUp()
-        dictionaryErrorHandlingLambda = { checkElementNotFoundExceptionDialogShow() }
+        dictionaryErrorDialogMessage = ELEMENT_NOT_FOUND_DIALOG_MESSAGE
     }
 }
