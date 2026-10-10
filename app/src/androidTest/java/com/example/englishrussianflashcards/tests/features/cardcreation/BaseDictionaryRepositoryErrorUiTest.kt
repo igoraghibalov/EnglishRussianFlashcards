@@ -1,7 +1,6 @@
 package com.example.englishrussianflashcards.tests.features.cardcreation
 
 
-import com.example.englishrussianflashcards.appscreens.CardCreationScreen
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Test
@@ -12,7 +11,7 @@ import org.junit.Test
 @HiltAndroidTest
 open class BaseDictionaryRepositoryErrorUiTest: CardCreationUiTest() {
 
-    protected var dictionaryErrorHandlingLambda: CardCreationScreen.() -> Unit = {}
+    protected var dictionaryErrorDialogMessage: String = ""
 
 
     @BindValue
@@ -31,7 +30,7 @@ open class BaseDictionaryRepositoryErrorUiTest: CardCreationUiTest() {
         try {
             fillCard()
         } catch (e: Exception) {
-            dictionaryErrorHandlingLambda.invoke(cardCreationScreen)
+            cardCreationScreen.checkErrorDialogPresence(dictionaryErrorDialogMessage)
         }
     }
 }
