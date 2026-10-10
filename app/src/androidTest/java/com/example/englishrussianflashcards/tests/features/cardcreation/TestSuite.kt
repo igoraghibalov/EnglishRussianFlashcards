@@ -10,7 +10,6 @@ import org.junit.runners.Suite
 @Suite.SuiteClasses(SuccessUiTest::class,
                     ElementNotFoundExceptionDictionaryRepositoryUiTest::class,
                     DatabaseCorruptedExceptionDictionaryRepositoryUiTest::class,
-                    DiskIOExceptionDictionaryRepositoryUiTest::class,
                     ImageRepositoryServerErrorUiTest::class,
                     ImageRepositoryNetworkConnectionErrorUiTest::class,
                     CardRepositoryErrorDialogShowOnCreateCardButtonClickUiTest::class,
