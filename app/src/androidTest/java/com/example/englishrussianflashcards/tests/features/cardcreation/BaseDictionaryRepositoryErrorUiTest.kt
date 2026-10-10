@@ -3,16 +3,12 @@ package com.example.englishrussianflashcards.tests.features.cardcreation
 
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.junit.Test
 
 /**
  * Created by Igor Aghibalov on 04.10.2026
  */
 @HiltAndroidTest
-open class BaseDictionaryRepositoryErrorUiTest: CardCreationUiTest() {
-
-    protected var dictionaryErrorDialogMessage: String = ""
-
+open class BaseDictionaryRepositoryErrorUiTest: BaseErrorUiTest() {
 
     @BindValue
     @JvmField
@@ -22,15 +18,4 @@ open class BaseDictionaryRepositoryErrorUiTest: CardCreationUiTest() {
     @BindValue
     @JvmField
     val fakeSuccessCardGroupTitleRepository = FakeSuccessCardGroupTitleRepository()
-
-
-    @Test
-    fun testDictionaryRepositoryErrorDialogShow() {
-
-        try {
-            fillCard()
-        } catch (e: Exception) {
-            cardCreationScreen.checkErrorDialogPresence(dictionaryErrorDialogMessage)
-        }
-    }
 }
