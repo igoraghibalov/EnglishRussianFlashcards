@@ -1,27 +1,21 @@
 package com.example.englishrussianflashcards.appscreens
 
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.uiautomator.UiDevice
-import com.example.englishrussianflashcards.CELLULAR_DATA_DISABLING_ADB_SHELL_COMMAND
-import com.example.englishrussianflashcards.CELLULAR_DATA_ENABLING_ADB_SHELL_COMMAND
-import com.example.englishrussianflashcards.Card
-import com.example.englishrussianflashcards.WI_FI_DISABLING_ADB_SHELL_COMMAND
-import com.example.englishrussianflashcards.WI_FI_ENABLING_ADB_SHELL_COMMAND
-import com.example.englishrussianflashcards.di.hilt.EspressoCardCreationButtonUi
-import com.example.englishrussianflashcards.di.hilt.EspressoCardGroupTitleSelectionUi
-import com.example.englishrussianflashcards.di.hilt.EspressoExampleSelectionUi
-import com.example.englishrussianflashcards.di.hilt.EspressoImageApiServerErrorDialogUi
-import com.example.englishrussianflashcards.di.hilt.EspressoImageSelectionUi
-import com.example.englishrussianflashcards.di.hilt.EspressoNetworkConnectionErrorDialogUi
-import com.example.englishrussianflashcards.di.hilt.EspressoTranscriptionUi
-import com.example.englishrussianflashcards.di.hilt.EspressoTranslationSelectionUi
-import com.example.englishrussianflashcards.di.hilt.EspressoWordSelectionUi
-import com.example.englishrussianflashcards.appscreens.screenuielements.AutoCompleteListItemSelectionUi
-import com.example.englishrussianflashcards.appscreens.screenuielements.ButtonUi
-import com.example.englishrussianflashcards.appscreens.screenuielements.DialogUi
-import com.example.englishrussianflashcards.appscreens.screenuielements.DroppableListItemSelectionUi
-import com.example.englishrussianflashcards.appscreens.screenuielements.ListItemSelectionUi
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withText
+import com.example.englishrussianflashcards.appscreens.screenuielements.AutoCompleteDropdownMenuUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ClickableUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.DropdownMenuUi
+import com.example.englishrussianflashcards.appscreens.screenuielements.ImageUi
 import com.example.englishrussianflashcards.appscreens.screenuielements.TextUi
+import com.example.englishrussianflashcards.di.hilt.EspressoCardCreationButtonUi
+import com.example.englishrussianflashcards.di.hilt.EspressoCardGroupTitleUi
+import com.example.englishrussianflashcards.di.hilt.EspressoExampleUi
+import com.example.englishrussianflashcards.di.hilt.EspressoImageUi
+import com.example.englishrussianflashcards.di.hilt.EspressoTranscriptionUi
+import com.example.englishrussianflashcards.di.hilt.EspressoTranslationUi
+import com.example.englishrussianflashcards.di.hilt.EspressoWordUi
 import javax.inject.Inject
 
 
@@ -29,62 +23,65 @@ import javax.inject.Inject
  * Created by Igor Aghibalov on 14.09.2025
  */
 
-//TODO: Do a CardGroupScreen Room database error dialog presence check on createButton click
+/* TODO: Create test_card_data.json to use
+ */
 class CardCreationScreen @Inject constructor(
-    @EspressoWordSelectionUi private val wordSelectionUi: AutoCompleteListItemSelectionUi,
-    @EspressoTranslationSelectionUi private val translationSelectionUi: ListItemSelectionUi,
-    @EspressoExampleSelectionUi private val exampleSelectionUi: ListItemSelectionUi,
+    @EspressoWordUi private val wordUi: AutoCompleteDropdownMenuUi,
+    @EspressoTranslationUi private val translationUi: DropdownMenuUi,
+    @EspressoExampleUi private val exampleUi: DropdownMenuUi,
     @EspressoTranscriptionUi private val transcriptionUi: TextUi,
-    @EspressoImageSelectionUi private val imageSelectionUi: DroppableListItemSelectionUi,
-    @EspressoCardGroupTitleSelectionUi private val cardGroupTitleSelectionUi: AutoCompleteListItemSelectionUi,
-    @EspressoCardCreationButtonUi private val cardCreationButtonUi: ButtonUi,
-    @EspressoImageApiServerErrorDialogUi private val imageApiServerErrorDialogUi: DialogUi,
-    @EspressoNetworkConnectionErrorDialogUi private val networkConnectionErrorDialogUi: DialogUi) {
+    @EspressoImageUi private val imageUi: ImageUi,
+    @EspressoCardGroupTitleUi private val cardGroupTitleUi: AutoCompleteDropdownMenuUi,
+    @EspressoCardCreationButtonUi private val cardCreationButtonUi: ClickableUi) {
 
 
     fun typeWordCharacters() {
-        wordSelectionUi.typeCharacters()
+        wordUi.typeCharacters()
     }
 
     fun clearWord() {
-        wordSelectionUi.clearText()
+        wordUi.clearText()
     }
     
     fun selectWord() {
-        wordSelectionUi.selectItem()
+        wordUi.selectItem()
+    }
+
+    fun hasDefaultTranscription() {
+        transcriptionUi.hasText()
     }
 
 
     fun selectTranslation() {
-        translationSelectionUi.showList()
-        translationSelectionUi.selectItem()
+        translationUi.showMenu()
+        translationUi.selectItem()
     }
 
 
     fun selectExample() {
-        exampleSelectionUi.showList()
-        exampleSelectionUi.selectItem()
+        exampleUi.showMenu()
+        exampleUi.selectItem()
     }
 
 
     fun selectImage() {
-        imageSelectionUi.showList()
-        imageSelectionUi.selectItem()
+        imageUi.showMenu()
+        imageUi.selectItem()
     }
 
 
     fun dropImage() {
-        imageSelectionUi.dropSelection()
+        imageUi.dropSelection()
     }
 
 
     fun typeCardGroupName() {
-        cardGroupTitleSelectionUi.typeCharacters()
+        cardGroupTitleUi.typeCharacters()
     }
 
 
     fun selectCardGroupName() {
-        cardGroupTitleSelectionUi.selectItem()
+        cardGroupTitleUi.selectItem()
     }
 
 
@@ -93,50 +90,7 @@ class CardCreationScreen @Inject constructor(
     }
 
 
-    fun checkImageApiServerErrorDialogPresence() {
-        imageApiServerErrorDialogUi.isDisplayed()
-    }
-
-
-    fun hideImageApiServerErrorDialog() {
-        imageApiServerErrorDialogUi.hide()
-    }
-
-
-    fun checkNetworkConnectionErrorDialogPresence() {
-        networkConnectionErrorDialogUi.isDisplayed()
-    }
-
-
-    fun hideNetworkConnectionErrorDialog() {
-        networkConnectionErrorDialogUi.hide()
-    }
-
-
-    fun enableNetworkConnection() {
-        val uiDevice = provideUiDevice()
-        uiDevice.executeShellCommand(WI_FI_ENABLING_ADB_SHELL_COMMAND)
-        uiDevice.executeShellCommand(CELLULAR_DATA_ENABLING_ADB_SHELL_COMMAND)
-    }
-
-
-    fun disableNetworkConnection() {
-        val uiDevice = provideUiDevice()
-        uiDevice.executeShellCommand(WI_FI_DISABLING_ADB_SHELL_COMMAND)
-        uiDevice.executeShellCommand(CELLULAR_DATA_DISABLING_ADB_SHELL_COMMAND)
-    }
-
-
-    fun provideUiDevice() = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-
-    //TODO: replace method with common json files,
-    // containing data for test-only purpose, including expected card data and fake repositories data
-    fun provideExpectedCard(): Card {
-        return Card(word = wordSelectionUi.extractViewData(),
-                    translation = translationSelectionUi.extractViewData(),
-                    transcription = transcriptionUi.extractViewData(),
-                    example = exampleSelectionUi.extractViewData(),
-                    imageTag = imageSelectionUi.extractViewData(),
-                    cardGroupName = cardGroupTitleSelectionUi.extractViewData())
+    fun checkErrorDialogPresence(errorDialogMessage: String) {
+        onView(withText(errorDialogMessage)).check(matches(isDisplayed()))
     }
 }
