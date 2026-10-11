@@ -13,7 +13,7 @@ open class BaseErrorUiTest: CardCreationUiTest() {
 
 
     @Test
-    fun testDictionaryRepositoryErrorDialogShow() {
+    fun testErrorDialogShow() {
 
         try {
             fillCard()
