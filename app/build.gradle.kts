@@ -60,6 +60,7 @@ dependencies {
     implementation(project(":customviews"))
 
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.junit.ktx)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.core.ktx)
@@ -75,17 +76,20 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     ksp(libs.androidx.room.compiler)
 
+
     testImplementation(project(":app"))
     testImplementation(libs.androidx.room.testing)
     testImplementation (libs.kotlinx.coroutines.test)
     testImplementation(libs.junit)
     testImplementation(libs.hilt.android.testing)
     testImplementation (libs.androidx.core.testing)
+    testImplementation(libs.okhttp3.mockwebserver)
 
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.espresso.contrib)
     androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(libs.okhttp3.mockwebserver)
 
     kspAndroidTest(libs.hilt.android.compiler)
 
