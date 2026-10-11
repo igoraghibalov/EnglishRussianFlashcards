@@ -22,6 +22,6 @@ class DatabaseCorruptedExceptionDictionaryRepositoryUiTest
 
     override fun setUp() {
         super.setUp()
-        dictionaryErrorDialogMessage = DATABASE_CORRUPTED_DIALOG_MESSAGE
+        errorDialogMessage = DATABASE_CORRUPTED_DIALOG_MESSAGE
     }
 }
