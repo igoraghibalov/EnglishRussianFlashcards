@@ -72,6 +72,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.hilt.android)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     ksp(libs.hilt.android.compiler)
     ksp(libs.androidx.room.compiler)
