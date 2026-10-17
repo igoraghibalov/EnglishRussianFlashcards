@@ -17,5 +17,5 @@ open class BaseDictionaryRepositoryErrorUiTest: BaseErrorUiTest() {
 
     @BindValue
     @JvmField
-    val fakeSuccessCardGroupTitleRepository = FakeSuccessCardGroupTitleRepository()
+    val fakeSuccessCardRepository = FakeSuccessCardRepository()
 }
