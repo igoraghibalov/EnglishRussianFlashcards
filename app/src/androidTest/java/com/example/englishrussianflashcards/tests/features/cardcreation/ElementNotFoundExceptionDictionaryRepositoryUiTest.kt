@@ -20,6 +20,6 @@ class ElementNotFoundExceptionDictionaryRepositoryUiTest
 
     override fun setUp() {
         super.setUp()
-        dictionaryErrorDialogMessage = ELEMENT_NOT_FOUND_DIALOG_MESSAGE
+        errorDialogMessage = ELEMENT_NOT_FOUND_DIALOG_MESSAGE
     }
 }
