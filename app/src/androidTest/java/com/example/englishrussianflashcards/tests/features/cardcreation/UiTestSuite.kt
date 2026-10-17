@@ -12,6 +12,6 @@ import org.junit.runners.Suite
                     DatabaseCorruptedExceptionDictionaryRepositoryUiTest::class,
                     ImageRepositoryServerErrorUiTest::class,
                     ImageRepositoryNetworkConnectionErrorUiTest::class,
-                    CardRepositoryErrorDialogShowOnCreateCardButtonClickUiTest::class,
-                    DuplicatedCardAppendingAttemptErrorUiTest::class)
-class TestSuite
+                    NewCardSavingErrorUiTest::class,
+                    DuplicatedCardAppendingErrorUiTest::class)
+class UiTestSuite
